@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct HomeView: View {
     
@@ -18,11 +19,29 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                print("Scanning Lock")
-                scanNow = true
+                let context = LAContext()
+                var error: NSError?
+
+                // check whether biometric authentication is possible
+                if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                    // it's possible, so go ahead and use it
+                    let reason = "We need to unlock your data."
+
+                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                        // authentication has now completed
+                        if success {
+                            scanNow = true
+                        } else {
+                    
+                        }
+                    }
+                } else {
+                    
+                }
             }
     }
     
+        
     
     var body: some View {
     
