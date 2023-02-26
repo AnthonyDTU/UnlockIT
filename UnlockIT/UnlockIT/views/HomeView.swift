@@ -13,9 +13,9 @@ struct HomeView: View {
     @EnvironmentObject var user : User
     @EnvironmentObject private var userState: UserState
     
-    @State private var showLoginView : Bool = false
     @State private var scanNow : Bool = false
     @State private var selectedLevel : Int = 0
+    @State private var showAccountView : Bool = false
     
     var scanLockTapGesture: some Gesture {
         TapGesture()
@@ -26,14 +26,21 @@ struct HomeView: View {
             }
     }
     
-        
-    
     var body: some View {
-    
         
         ZStack {
             VStack {
-                            
+                HStack {
+                    Spacer()
+                    Button {
+                        showAccountView = true
+                    } label: {
+                        Image(systemName: "person.circle.fill")
+                            .font(.system(size: 30.0))
+                            .foregroundColor(.blue)
+                    }
+                }
+                Spacer()
                 HStack {
                     Spacer(minLength: 20)
                     Image("UnlockItLogo.png")
@@ -43,16 +50,16 @@ struct HomeView: View {
                         .gesture(scanLockTapGesture)
                     Spacer(minLength: 20)
                 }
-                
+                Spacer()
             }
-            
             
             if scanNow && userState.isValidated {
                 NFCSimulator(scanNow: $scanNow, selectedLevel: $selectedLevel)
             }
         }
-       
-        
+        .sheet(isPresented: $showAccountView, content: {
+            AccountSummary()
+        })
     }
 }
 

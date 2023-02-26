@@ -8,13 +8,18 @@
 import SwiftUI
 import FirebaseAuth
 
-struct AccountView: View {
+struct AccountSummary: View {
     
     @EnvironmentObject var user: User
     
     var body: some View {
         VStack {
             VStack (alignment: .leading){
+                HStack{
+                    Text("Name: ")
+                    Spacer()
+                    Text("\(user.email)").bold()
+                }
                 HStack{
                     Text("Email: ")
                     Spacer()
@@ -31,6 +36,7 @@ struct AccountView: View {
                     Text("\(user.companyPosition)").bold()
                 }
                 HStack {
+                    
                     Text("Privilege: ")
                     Spacer()
                     Text("\(user.privilege)").bold()
@@ -50,9 +56,8 @@ struct AccountView: View {
     }
 }
 
-struct AccountView_Previews: PreviewProvider {
-    static let user = User()
+struct AccountSummary_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView().environmentObject(user)
+        AccountSummary()
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 final class User: ObservableObject{
+    @Published var name: String = "Anton"
     @Published var email: String = "Test User"
     @Published var department: String = "R&D"
     @Published var companyPosition: String = "Engineer"

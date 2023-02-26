@@ -13,6 +13,7 @@ import FirebaseAuth
 
 @main
 struct UnlockITApp: App {
+    @StateObject private var appStyle = AppStyle()
     @StateObject private var user = User()
     @StateObject private var userState = UserState()
     
@@ -23,6 +24,7 @@ struct UnlockITApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .environmentObject(appStyle)
                 .environmentObject(user)
                 .environmentObject(userState)
         }

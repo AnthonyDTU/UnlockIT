@@ -12,18 +12,6 @@ struct NFCSimulator: View {
     @Binding var selectedLevel : Int
     @EnvironmentObject private var userState: UserState
     
-    /*
-    var dragToRemoveGesture : DragGesture {
-        DragGesture()
-            .onChanged{
-                
-            }
-            .onEnded{
-                
-            }
-    }
-    */
-    
     var body: some View {
         
         ZStack {
