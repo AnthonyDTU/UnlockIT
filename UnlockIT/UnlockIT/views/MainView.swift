@@ -34,10 +34,13 @@ struct MainView: View {
                         .tabItem {
                             Label("Booked Rooms", systemImage: "book")
                         }
-                    AccountView()
-                        .tabItem {
-                            Label("Account Info", systemImage: "person")
+                    
+                    if user.isAdmin {
+                        AdminControls()
+                            .tabItem {
+                            Label("Admin Controls", systemImage: "bitcoinsign")
                         }
+                    }
                 }
             }
         }

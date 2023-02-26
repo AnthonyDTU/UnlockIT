@@ -7,10 +7,12 @@
 
 import Foundation
 import Firebase
+import LocalAuthentication
 
 class UserState: ObservableObject {
     
     @Published var isLoggedOut: Bool = true
+    @Published var isValidated: Bool = false
     
     init(){
         isLoggedOut = Auth.auth().currentUser == nil
@@ -39,7 +41,26 @@ class UserState: ObservableObject {
         }
     }
     
-    func createUser() {
-        
+    func validateUser(){
+        let context = LAContext()
+        var error: NSError?
+        var status : Bool = false
+        // check whether biometric authentication is possible
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            // it's possible, so go ahead and use it
+            let reason = "We need to unlock your data."
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                // authentication has now completed
+                DispatchQueue.main.async {
+                    self.isValidated = success
+                }
+            }
+        }
     }
+    
+    func resetUserValidation() {
+        isValidated = false
+    }
+    
 }

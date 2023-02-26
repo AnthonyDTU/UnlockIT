@@ -11,6 +11,7 @@ import LocalAuthentication
 struct HomeView: View {
     
     @EnvironmentObject var user : User
+    @EnvironmentObject private var userState: UserState
     
     @State private var showLoginView : Bool = false
     @State private var scanNow : Bool = false
@@ -19,25 +20,9 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                let context = LAContext()
-                var error: NSError?
-
-                // check whether biometric authentication is possible
-                if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-                    // it's possible, so go ahead and use it
-                    let reason = "We need to unlock your data."
-
-                    context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                        // authentication has now completed
-                        if success {
-                            scanNow = true
-                        } else {
-                    
-                        }
-                    }
-                } else {
-                    
-                }
+                
+                userState.validateUser()
+                scanNow = true
             }
     }
     
@@ -59,13 +44,10 @@ struct HomeView: View {
                     Spacer(minLength: 20)
                 }
                 
-                if user.isAdmin {
-                    AdminControls()
-                }
             }
             
             
-            if scanNow {
+            if scanNow && userState.isValidated {
                 NFCSimulator(scanNow: $scanNow, selectedLevel: $selectedLevel)
             }
         }

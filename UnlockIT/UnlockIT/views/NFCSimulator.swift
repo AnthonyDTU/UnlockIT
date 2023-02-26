@@ -10,6 +10,7 @@ import SwiftUI
 struct NFCSimulator: View {
     @Binding var scanNow : Bool
     @Binding var selectedLevel : Int
+    @EnvironmentObject private var userState: UserState
     
     /*
     var dragToRemoveGesture : DragGesture {
@@ -89,7 +90,9 @@ struct NFCSimulator: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height - 300, alignment: .bottom)
-    
+        .onDisappear() {
+            userState.resetUserValidation()
+        }
     }
 }
 

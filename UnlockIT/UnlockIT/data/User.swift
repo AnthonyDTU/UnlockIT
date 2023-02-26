@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class User: ObservableObject{
     @Published var email: String = "Test User"
@@ -15,7 +14,6 @@ final class User: ObservableObject{
     @Published var password: String = "123"
     @Published var privilege: Int = 3
     @Published var isAdmin: Bool = true
-    
     
     
     // More details - to be implemented
