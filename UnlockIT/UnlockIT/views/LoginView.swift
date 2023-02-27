@@ -11,40 +11,67 @@ import FirebaseAuth
 
 struct LoginView: View {
     
-    @State private var showErrorPrompt: Bool = false
-    
     @Environment(\.dismiss) var dismiss
+    
+    @EnvironmentObject private var appStyle : AppStyle
+    @EnvironmentObject var user : User
+    @EnvironmentObject var userState : UserState
     
     @State private var email : String = ""
     @State private var password : String = ""
-    
-    @EnvironmentObject var user : User
-    @EnvironmentObject var userState : UserState
+    @State private var showErrorPrompt: Bool = false
     
     var body: some View {
         
         VStack {
-            
-            HStack {
-                Spacer(minLength: 20)
-                Image("UnlockItLogo.png")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(25)
-                Spacer(minLength: 20)
-            }
-            
-            HStack {
-                Spacer(minLength: 20)
-                Form {
+            Spacer()
+            Image("UnlockItLogo.png")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(appStyle.cornerRadiusLarge)
+                .padding()
+        
+            Form {
+                Section (header: Text("Credentials").fontWeight(.bold)){
                     TextField("Email", text: $email)
                     SecureField("Password", text: $password)
                 }
-                .frame(height: 150)
-                Spacer(minLength: 20)
+               
             }
+            .frame(height: 150)
+        
+            HStack {
+                Button {
+                    Task {
+                        let result = await userState.SignIn(email: email, password: password)
+                        if result == true {
+                            // Get User Data?
+                            dismiss()
+                        }
+                        else {
+                            showErrorPrompt = true
+                        }
+                    }
+                }
+                label: {
+                    HStack {
+                        Spacer()
+                        Text("Login")
+                        Spacer()
+                    }
+                }
+                .foregroundColor(.white)
+                .padding(15)
+                .background(Color.accentColor)
+                .cornerRadius(appStyle.cornerRadiusSmall)
+                .alert(isPresented: $showErrorPrompt) {
+                    Alert(title: Text("Email/Password incorrect"))
+                }
+            }
+            .padding()
+            Spacer()
             
-            
+            /*
             Button("Login") {
                 Task {
                     let result = await userState.SignIn(email: email, password: password)
@@ -60,13 +87,15 @@ struct LoginView: View {
             .alert(isPresented: $showErrorPrompt) {
                 Alert(title: Text("Email/Password incorrect"))
             }
+             */
         }
     }
 }
 
 
 struct LoginView_Previews: PreviewProvider {
+    @StateObject static var appStyle = AppStyle()
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(appStyle)
     }
 }
