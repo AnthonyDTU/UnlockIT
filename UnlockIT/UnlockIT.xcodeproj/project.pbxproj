@@ -37,9 +37,9 @@
 		7D214EEA299FB34F00D19798 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D214EEC299FB47900D19798 /* AccountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummary.swift; sourceTree = "<group>"; };
 		EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB2A275829ACD19000BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = UnlockIT.entitlements; path = ../../../../../../UnlockIT.entitlements; sourceTree = "<group>"; };
 		EBA1C1C929A7BD4C00F1189A /* NFCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCSimulator.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		EBB20DE629A426EB007AF69A /* UnlockIT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UnlockIT.entitlements; path = ../../../../../../../.Trash/UnlockIT.entitlements; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
@@ -113,10 +113,10 @@
 		EBD004B6299E7538008B57A3 /* UnlockIT */ = {
 			isa = PBXGroup;
 			children = (
+				EB2A275829ACD19000BE19EC /* UnlockIT.entitlements */,
 				EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */,
 				EBF2C8F229ABE17900D22A20 /* components */,
 				EBF2C8F129A7D92600D22A20 /* Info.plist */,
-				EBB20DE629A426EB007AF69A /* UnlockIT.entitlements */,
 				7D214EE0299F7DF500D19798 /* data */,
 				EBB20DE129A42287007AF69A /* views */,
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
