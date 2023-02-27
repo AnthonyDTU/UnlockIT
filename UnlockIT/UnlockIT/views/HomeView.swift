@@ -10,8 +10,9 @@ import LocalAuthentication
 
 struct HomeView: View {
     
-    @EnvironmentObject var user : User
-    @EnvironmentObject private var userState: UserState
+    @EnvironmentObject private var appStyle : AppStyle
+    @EnvironmentObject private var user : User
+    @EnvironmentObject private var userState : UserState
     
     @State private var scanNow : Bool = false
     @State private var selectedLevel : Int = 0
@@ -20,7 +21,6 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                
                 userState.validateUser()
                 scanNow = true
             }
@@ -35,21 +35,20 @@ struct HomeView: View {
                     Button {
                         showAccountView = true
                     } label: {
-                        Image(systemName: "person.circle.fill")
-                            .font(.system(size: 30.0))
+                        Image(systemName: "person.circle")
+                            .font(.system(size: 28.0))
                             .foregroundColor(.blue)
                     }
+                    .padding()
                 }
                 Spacer()
-                HStack {
-                    Spacer(minLength: 20)
-                    Image("UnlockItLogo.png")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(25)
-                        .gesture(scanLockTapGesture)
-                    Spacer(minLength: 20)
-                }
+                Image("UnlockItLogo.png")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(appStyle.cornerRadiusLarge)
+                    .gesture(scanLockTapGesture)
+                    .padding()
+                
                 Spacer()
             }
             

@@ -89,7 +89,6 @@
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
 				EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */,
 				EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */,
-				EBA1C1C929A7BD4C00F1189A /* NFCSimulator.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 			children = (
 				7D214EEC299FB47900D19798 /* AccountSummary.swift */,
 				EBF2C8F329ABE1B500D22A20 /* RoomTile.swift */,
+				EBA1C1C929A7BD4C00F1189A /* NFCSimulator.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
