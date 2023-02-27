@@ -70,24 +70,6 @@ struct LoginView: View {
             }
             .padding()
             Spacer()
-            
-            /*
-            Button("Login") {
-                Task {
-                    let result = await userState.SignIn(email: email, password: password)
-                    if result == true {
-                        // Get User Data?
-                        dismiss()
-                    }
-                    else {
-                        showErrorPrompt = true
-                    }
-                }
-            }
-            .alert(isPresented: $showErrorPrompt) {
-                Alert(title: Text("Email/Password incorrect"))
-            }
-             */
         }
     }
 }
