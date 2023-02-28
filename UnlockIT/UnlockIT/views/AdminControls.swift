@@ -22,14 +22,20 @@ struct AdminControls: View {
                         NavigationLink{
                             RoomsView()
                         } label: {
-                            Label("Rooms Overview", systemImage: "house.fill")
+                            Label("Manage Rooms", systemImage: "house.fill")
                         }
                         NavigationLink {
                             ConfigureNewUserView()
                         } label: {
                             Label("New User", systemImage: "person.badge.plus")
                         }
+                        NavigationLink {
+                            
+                        } label: {
+                            Label("Manage Users", systemImage: "person.2.badge.gearshape")
+                        }
                     }
+                    .navigationBarTitle("Admin Controls")
                 }
             }
             else {
