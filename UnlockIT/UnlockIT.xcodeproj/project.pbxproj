@@ -160,6 +160,7 @@
 			children = (
 				7D214EEC299FB47900D19798 /* AccountSummary.swift */,
 				EBF2C8F329ABE1B500D22A20 /* RoomTile.swift */,
+				EBA1C1C929A7BD4C00F1189A /* NFCSimulator.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
