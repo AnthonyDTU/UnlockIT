@@ -37,19 +37,19 @@ class RoomsModel : ObservableObject, Identifiable {
         var lockStructs6: [Lock] = []
         
         
-        lockStructs1.append(Lock(id: "1", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -10000)))
-        lockStructs1.append(Lock(id: "2", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -15000)))
+        lockStructs1.append(Lock(id: "10", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -10000)))
+        lockStructs1.append(Lock(id: "11", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -15000)))
         
-        lockStructs2.append(Lock(id: "3", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -20000)))
-        lockStructs2.append(Lock(id: "4", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -25000)))
+        lockStructs2.append(Lock(id: "12", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -20000)))
+        lockStructs2.append(Lock(id: "13", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -25000)))
         
-        lockStructs3.append(Lock(id: "5", authenticationLevel: 1, lastUnlock: NSDate(timeIntervalSinceNow: -22500)))
+        lockStructs3.append(Lock(id: "14", authenticationLevel: 1, lastUnlock: NSDate(timeIntervalSinceNow: -22500)))
         
-        lockStructs4.append(Lock(id: "6", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -23000)))
+        lockStructs4.append(Lock(id: "15", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -23000)))
         
-        lockStructs5.append(Lock(id: "7", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -700000)))
+        lockStructs5.append(Lock(id: "16", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -700000)))
         
-        lockStructs6.append(Lock(id: "8", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -50000)))
+        lockStructs6.append(Lock(id: "17", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -50000)))
         
         roomStructs.append(Room(
             id: "1",

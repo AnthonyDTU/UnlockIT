@@ -17,7 +17,15 @@ struct AdminControls: View {
         VStack{
             
             if userState.isValidated {
-                Text("Hello, Admin")
+                NavigationStack {
+                    List {
+                        NavigationLink{
+                            RoomsView()
+                        } label: {
+                            Label("Rooms Overview", systemImage: "house.fill")
+                        }
+                    }
+                }
             }
             else {
                 Text("Not Authorized")

@@ -16,6 +16,7 @@ struct UnlockITApp: App {
     @StateObject private var appStyle = AppStyle()
     @StateObject private var user = User()
     @StateObject private var userState = UserState()
+    @StateObject private var roomsModel = RoomsModel()
     
     init(){
         FirebaseApp.configure()
@@ -27,6 +28,7 @@ struct UnlockITApp: App {
                 .environmentObject(appStyle)
                 .environmentObject(user)
                 .environmentObject(userState)
+                .environmentObject(roomsModel)
         }
     }
 }

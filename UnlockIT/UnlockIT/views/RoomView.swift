@@ -16,56 +16,63 @@ struct RoomView: View {
     }
     
     var body: some View {
-        VStack {
-            HStack{
-                Text(room.description)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-            }
-            Divider().background(Color.blue)
-            Text("Assigned Locks    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
-            Divider().background(Color.blue)
+        ScrollView {
             VStack {
-                ForEach(room.locks) { lock in
-                    VStack {
-                        HStack{
-                            Text("Lock")
-                            Text(Image(systemName: "lock"))
-                        }
-                        HStack {
-                            Text("Authentication Level: ")
-                            Spacer()
-                            Text("\(lock.authenticationLevel)").bold()
-                        }
+                HStack{
+                    Text(room.description)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
                         .padding()
-                        
-                        DatePicker (
-                            "Last Unlocked",
-                            selection: .constant(lock.lastUnlock as Date),
-                            displayedComponents: [.date, .hourAndMinute]
-                        ).font(.headline)
-                            .foregroundColor(.blue)
-                            .disabled(true)
-                        .padding()
+                }
+                Divider().background(Color.blue)
+                Text("Assigned Locks    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
+                Divider().background(Color.blue)
+                VStack {
+                    ForEach(room.locks) { lock in
+                        VStack {
+                            HStack{
+                                Text("Lock")
+                                Text(Image(systemName: "lock"))
+                            }
+                            HStack {
+                                Text("Authentication Level: ")
+                                Spacer()
+                                Text("\(lock.authenticationLevel)").bold()
+                            }
+                            .padding()
+                            
+                            DatePicker (
+                                "Last Unlocked",
+                                selection: .constant(lock.lastUnlock as Date),
+                                displayedComponents: [.date, .hourAndMinute]
+                            ).font(.headline)
+                                .foregroundColor(.blue)
+                                .disabled(true)
+                            .padding()
+                        }
+                        Divider()
+                            .padding(.horizontal, 20)
                     }
-                    Divider()
-                        .padding(.horizontal, 20)
+                    
+                    
+                }
+                Divider().background(Color.blue).frame(height: 20)
+                Text("Authorized Users    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
+                Divider().background(Color.blue)
+                
+                ForEach(room.authorizedUsers) { user in
+                    HStack {
+                        Text(Image(systemName: "person.circle"))
+                        Text("\(user.name)")
+                    }
+                    .padding(2)
                 }
                 
+                .background(Color.white)
                 
+                Spacer()
             }
-            Divider().background(Color.blue)
-            Text("Authorized Users    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
-            Divider().background(Color.blue)
-            
-            List(room.authorizedUsers){
-                Text($0.name)
-            }
-            .background(Color.white)
-            
-            Spacer()
         }
         
     }
