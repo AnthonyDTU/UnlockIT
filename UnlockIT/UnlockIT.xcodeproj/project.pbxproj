@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0687B829ACE40400500A3A /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687B729ACE40400500A3A /* Room.swift */; };
+		7D0687BC29ACF89800500A3A /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BB29ACF89800500A3A /* Lock.swift */; };
+		7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BD29ACFB9100500A3A /* BookARoomView.swift */; };
+		7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */; };
+		7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C129AD1FF400500A3A /* RoomsView.swift */; };
+		7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C329ADFBE300500A3A /* RoomView.swift */; };
+		7D0687C829AE23F800500A3A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C729AE23F800500A3A /* TestView.swift */; };
 		7D214EDF299E920500D19798 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EDE299E920500D19798 /* LoginView.swift */; };
 		7D214EE5299F80E600D19798 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE4299F80E600D19798 /* User.swift */; };
 		7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */; };
@@ -31,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0687B729ACE40400500A3A /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		7D0687BB29ACF89800500A3A /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
+		7D0687BD29ACFB9100500A3A /* BookARoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookARoomView.swift; sourceTree = "<group>"; };
+		7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModel.swift; sourceTree = "<group>"; };
+		7D0687C129AD1FF400500A3A /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
+		7D0687C329ADFBE300500A3A /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		7D0687C729AE23F800500A3A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		7D214EDE299E920500D19798 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7D214EE4299F80E600D19798 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedRoomsView.swift; sourceTree = "<group>"; };
@@ -74,6 +88,9 @@
 				7D214EE4299F80E600D19798 /* User.swift */,
 				EBB20DF529A520BB007AF69A /* UserState.swift */,
 				EBF2C8F729ABE25900D22A20 /* AppStyle.swift */,
+				7D0687B729ACE40400500A3A /* Room.swift */,
+				7D0687BB29ACF89800500A3A /* Lock.swift */,
+				7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -81,6 +98,9 @@
 		EBB20DE129A42287007AF69A /* views */ = {
 			isa = PBXGroup;
 			children = (
+				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
+				7D0687C329ADFBE300500A3A /* RoomView.swift */,
+				7D0687BD29ACFB9100500A3A /* BookARoomView.swift */,
 				7D214EDE299E920500D19798 /* LoginView.swift */,
 				7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */,
 				7D214EEA299FB34F00D19798 /* HomeView.swift */,
@@ -90,6 +110,7 @@
 				EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */,
 				EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */,
 				EBA1C1C929A7BD4C00F1189A /* NFCSimulator.swift */,
+				7D0687C729AE23F800500A3A /* TestView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -222,14 +243,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
+				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
+				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
+				7D0687B829ACE40400500A3A /* Room.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* ConfigureNewUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
+				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
 				EBB20DE329A4231B007AF69A /* MainView.swift in Sources */,
 				7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */,
+				7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */,
 				EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */,
 				7D214EDF299E920500D19798 /* LoginView.swift in Sources */,
+				7D0687BC29ACF89800500A3A /* Lock.swift in Sources */,
 				7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */,
 				EBB20DFC29A54954007AF69A /* ConfigureNewMeetingRoomView.swift in Sources */,
 				EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */,
