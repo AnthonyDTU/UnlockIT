@@ -14,6 +14,8 @@ struct ConfigureNewUserView: View {
     @State private var email : String = ""
     @State private var password : String = ""
     @State private var passwordConfirm : String = ""
+    @State private var position : String = ""
+    @State private var department : String = ""
     @State private var authorizationLevel : Int = 0
     @State private var isUserAdmin : Bool = false
     
@@ -31,6 +33,8 @@ struct ConfigureNewUserView: View {
                     Section (header: Text("User Settings")) {
                         TextField("Name", text: $email)
                         TextField("Employee Number", text: $employeeNumber)
+                        TextField("Postition", text: $position)
+                        TextField("Department", text: $department)
                         Picker("Privilige", selection: $authorizationLevel) {
                             Text("Level 1")
                             Text("Level 2")
@@ -39,6 +43,21 @@ struct ConfigureNewUserView: View {
                         //.pickerStyle(SegmentedPickerStyle())
                         Toggle("Administrator Privilige", isOn: $isUserAdmin)
                     }
+                    
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("Create User")
+                            Spacer()
+                        }
+                    }
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    
                 }
             }
             .navigationBarTitle("Create New User")
