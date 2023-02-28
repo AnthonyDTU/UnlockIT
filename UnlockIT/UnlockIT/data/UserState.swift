@@ -15,46 +15,33 @@ class UserState: ObservableObject {
     @Published var isValidated: Bool = false
     
     init(){
+        // Check if the user is already logged in to firebase backend
         isLoggedOut = Auth.auth().currentUser == nil
+        
+        // Create a listener for the login state in firebase, and update the local state accordingly
         Auth.auth().addStateDidChangeListener { auth, user in
             if user == nil {
-                self.isLoggedOut = true
-                // Clear User Data?
-            }
+                self.isLoggedOut = true            }
             else {
                 self.isLoggedOut = false
-                // Get User Data?
-                
             }
-        }
-    }
-        
-    func SignIn(email: String, password: String) async -> Bool {
-        do {
-            let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
-            print(authResults.user.uid)
-            return true
-        }
-        catch {
-            print(error)
-            return false
         }
     }
     
     func validateUser(){
         let context = LAContext()
         var error: NSError?
-        var status : Bool = false
-        // check whether biometric authentication is possible
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            // it's possible, so go ahead and use it
-            let reason = "We need to unlock your data."
-            
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-                // authentication has now completed
-                DispatchQueue.main.async {
-                    self.isValidated = success
-                }
+        
+        // Check if the device has biometric functionallity
+        if !context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            return
+        }
+        
+        // Biometrics are avaliable, so run check
+        let reason = "We need to verify that it is really you using your phone"
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+            DispatchQueue.main.async {
+                self.isValidated = success
             }
         }
     }
@@ -62,5 +49,4 @@ class UserState: ObservableObject {
     func resetUserValidation() {
         isValidated = false
     }
-    
 }

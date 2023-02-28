@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class User: ObservableObject, Identifiable{
+final class User: ObservableObject, Identifiable {
     @Published var id: String = "1"
     @Published var name: String = "Anton"
     @Published var email: String = "Test User"
@@ -31,13 +31,6 @@ final class User: ObservableObject, Identifiable{
     init() {
         
     }
-    // More details - to be implemented
-    
-    //init() {
-    //
-    //}
-    
-    
 }
 
 

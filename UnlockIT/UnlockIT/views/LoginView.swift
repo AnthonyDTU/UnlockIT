@@ -43,9 +43,9 @@ struct LoginView: View {
             HStack {
                 Button {
                     Task {
-                        let result = await userState.SignIn(email: email, password: password)
+                        let firebaseController = FirebaseController()
+                        let result = await firebaseController.SignIn(user: user, email: email, password: password)
                         if result == true {
-                            // Get User Data?
                             dismiss()
                         }
                         else {

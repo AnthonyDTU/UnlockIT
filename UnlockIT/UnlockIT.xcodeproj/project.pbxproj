@@ -21,6 +21,7 @@
 		7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEA299FB34F00D19798 /* HomeView.swift */; };
 		7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEC299FB47900D19798 /* AccountSummary.swift */; };
 		EB2A275729ACD0D200BE19EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */; };
+		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -53,6 +54,7 @@
 		7D214EEC299FB47900D19798 /* AccountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummary.swift; sourceTree = "<group>"; };
 		EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
+		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		EB2A275A29AE804000BE19EC /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB2A275B29AE806C00BE19EC /* FirebaseController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
 		EBB20DE129A42287007AF69A /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +145,9 @@
 			children = (
 				EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */,
 				EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */,
-				EBF2C8F229ABE17900D22A20 /* components */,
 				EBF2C8F129A7D92600D22A20 /* Info.plist */,
+				EBF2C8F229ABE17900D22A20 /* components */,
+				EB2A275A29AE804000BE19EC /* controllers */,
 				7D214EE0299F7DF500D19798 /* data */,
 				EBB20DE129A42287007AF69A /* views */,
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
@@ -253,6 +264,7 @@
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
 				EBB20DE329A4231B007AF69A /* MainView.swift in Sources */,
+				EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */,
 				7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */,
 				7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */,
 				EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */,
