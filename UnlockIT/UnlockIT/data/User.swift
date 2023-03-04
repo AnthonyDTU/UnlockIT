@@ -17,6 +17,10 @@ final class User: ObservableObject, Identifiable {
     @Published var privilege: Int = 3
     @Published var isAdmin: Bool = true
     
+    var subsribtions: [Subscription]?
+    var collections: [Collection]?
+    var personals: [Unlockable]?
+    
     init(id: String, name: String, email: String, department: String, companyPosition: String, password: String, privilege: Int, isAdmin: Bool) {
         self.id = id
         self.name = name

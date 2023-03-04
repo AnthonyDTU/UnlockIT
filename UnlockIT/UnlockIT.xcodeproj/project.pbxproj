@@ -22,6 +22,7 @@
 		7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEC299FB47900D19798 /* AccountSummary.swift */; };
 		EB2A275729ACD0D200BE19EC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
+		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -55,6 +56,7 @@
 		EB2A275629ACD0D200BE19EC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
 				EBD004BB299E753D008B57A3 /* Assets.xcassets */,
 				EBD004BD299E753D008B57A3 /* Preview Content */,
+				EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */,
 			);
 			path = UnlockIT;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
 				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
+				EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */,
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
 				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				7D0687B829ACE40400500A3A /* Room.swift in Sources */,
@@ -411,6 +415,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need to unlock locks";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app needs to use FaceID for for security purposes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -422,7 +427,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.diplom.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -445,6 +450,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
+				INFOPLIST_KEY_NFCReaderUsageDescription = "We need to unlock locks";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app needs to use FaceID for for security purposes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -456,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.diplom.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
