@@ -11,6 +11,10 @@ import Firebase
 
 class FirebaseController {
     
+    func CreateUser() {
+        
+    }
+    
     func SignIn(user: User, email: String, password: String) async -> Bool {
         do {
             let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
@@ -26,7 +30,7 @@ class FirebaseController {
     
     func GetUserDataFromFirebase(user: User) {
         
-        var databaseRef = Database.database().reference()
+        let databaseRef = Database.database().reference()
         databaseRef.child("Users/" + user.id).observeSingleEvent(of: .value, with: { snapshot in
             if let data = snapshot.value as? [String:Any] {
                 user.name = data["username"] as! String
@@ -36,6 +40,8 @@ class FirebaseController {
             }
         })
     }
+    
+    
     
     
 }

@@ -22,55 +22,72 @@ struct ConfigureNewUserView: View {
     
     var body: some View {
      
-        NavigationView {
-            VStack {
-                Form {
-                    Section (header: Text("Credentials")){
-                        TextField("Email", text: $email)
-                        SecureField("Password", text: $password)
-                        SecureField("Confirm Password", text: $password)
+        VStack {
+            Form {
+                Section (header: Text("Credentials")){
+                    TextField("Email", text: $email)
+                    SecureField("Password", text: $password)
+                    SecureField("Confirm Password", text: $passwordConfirm)
+                }
+                
+                Section (header: Text("User Details")) {
+                    TextField("Name", text: $email)
+                    TextField("Employee Number", text: $employeeNumber)
+                    TextField("Postition", text: $position)
+                    TextField("Department", text: $department)
+                    Picker("Privilige", selection: $authorizationLevel) {
+                        Text("Level 1")
+                        Text("Level 2")
+                        Text("Level 3")
                     }
+                    Toggle("Administrator Privilige", isOn: $isUserAdmin)
+                }
+                
+                Button {
                     
-                    Section (header: Text("User Settings")) {
-                        TextField("Name", text: $email)
-                        TextField("Employee Number", text: $employeeNumber)
-                        TextField("Postition", text: $position)
-                        TextField("Department", text: $department)
-                        Picker("Privilige", selection: $authorizationLevel) {
-                            Text("Level 1")
-                            Text("Level 2")
-                            Text("Level 3")
-                        }
-                        //.pickerStyle(SegmentedPickerStyle())
-                        Toggle("Administrator Privilige", isOn: $isUserAdmin)
-                    }
+                    guard email != "" else { return }
+                    guard email.contains("@") else { return }
+                    guard password == passwordConfirm else { return }
                     
-                    Button {
-                        var newUserID = ""
-                        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                            newUserID = authResult?.user.uid ?? ""
+                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                        guard error == nil else {
+                            print(error!.localizedDescription)
+                            return
                         }
+                        
+                        guard authResult == nil else {
+                            return
+                        }
+                        
                         
                         let databaseRef = Database.database().reference()
-                        databaseRef.child("Users/" + newUserID)
+                        let data = ["username" : name,
+                                    "position" : position,
+                                    "department" : department,
+                                    "level" : authorizationLevel]
                         
-                    } label: {
-                        HStack {
-                            Spacer()
-                            Text("Create User")
-                            Spacer()
-                        }
+                        databaseRef.child("Users").child(authResult!.user.uid).setValue(data)
                     }
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
                     
+                    
+                    
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Create User")
+                        Spacer()
+                    }
                 }
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.accentColor)
+                .cornerRadius(8)
+                
             }
-            .navigationBarTitle("Create New User")
         }
+        .navigationBarTitle("Create New User")
     }
+
 }
 
 struct ConfigureNewUserView_Previews: PreviewProvider {
