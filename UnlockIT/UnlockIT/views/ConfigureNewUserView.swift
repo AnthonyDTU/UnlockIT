@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct ConfigureNewUserView: View {
     
@@ -16,7 +17,7 @@ struct ConfigureNewUserView: View {
     @State private var passwordConfirm : String = ""
     @State private var position : String = ""
     @State private var department : String = ""
-    @State private var authorizationLevel : Int = 0
+    @State private var authorizationLevel : String = "Level 1"
     @State private var isUserAdmin : Bool = false
     
     var body: some View {
@@ -45,6 +46,13 @@ struct ConfigureNewUserView: View {
                     }
                     
                     Button {
+                        var newUserID = ""
+                        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                            newUserID = authResult?.user.uid ?? ""
+                        }
+                        
+                        let databaseRef = Database.database().reference()
+                        databaseRef.child("Users/" + newUserID)
                         
                     } label: {
                         HStack {
