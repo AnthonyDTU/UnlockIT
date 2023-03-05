@@ -44,13 +44,10 @@ struct LoginView: View {
                 Button {
                     Task {
                         let firebaseController = FirebaseController()
-                        let result = await firebaseController.SignIn(user: user, email: email, password: password)
-                        if result == true {
-                            dismiss()
-                        }
-                        else {
-                            showErrorPrompt = true
-                        }
+                        let result = await firebaseController.SignIn(user, email, password)
+                        
+                        guard result else { showErrorPrompt = true; return; }
+                        dismiss()
                     }
                 }
                 label: {

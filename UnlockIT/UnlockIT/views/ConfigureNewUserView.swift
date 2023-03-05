@@ -10,6 +10,8 @@ import Firebase
 
 struct ConfigureNewUserView: View {
     
+    @EnvironmentObject private var user : User
+    
     @State private var name : String = ""
     @State private var employeeNumber : String = ""
     @State private var email : String = ""
@@ -17,8 +19,12 @@ struct ConfigureNewUserView: View {
     @State private var passwordConfirm : String = ""
     @State private var position : String = ""
     @State private var department : String = ""
-    @State private var authorizationLevel : String = "Level 1"
+    @State private var privilege : String = "Level 1"
     @State private var isUserAdmin : Bool = false
+    
+    @State private var errorCreatingUser = false
+    @State private var userCreatedSuccessfully = false
+    @State private var errorInData = false
     
     var body: some View {
      
@@ -31,11 +37,11 @@ struct ConfigureNewUserView: View {
                 }
                 
                 Section (header: Text("User Details")) {
-                    TextField("Name", text: $email)
+                    TextField("Name", text: $name)
                     TextField("Employee Number", text: $employeeNumber)
                     TextField("Postition", text: $position)
                     TextField("Department", text: $department)
-                    Picker("Privilige", selection: $authorizationLevel) {
+                    Picker("Privilige", selection: $privilege) {
                         Text("Level 1")
                         Text("Level 2")
                         Text("Level 3")
@@ -44,32 +50,34 @@ struct ConfigureNewUserView: View {
                 }
                 
                 Button {
+                                        
+                    guard validateData() else { errorInData = true; return }
+                    let firebaseController = FirebaseController()
+                    let newUser = User()
+                    newUser.configureUserData(id: "0",
+                                              employeeNumber: Int(employeeNumber) ?? 0,
+                                              username: name,
+                                              email: email,
+                                              department: department,
+                                              companyPosition: position,
+                                              password: password,
+                                              privilege: 1,
+                                              isAdmin: isUserAdmin)
                     
-                    guard email != "" else { return }
-                    guard email.contains("@") else { return }
-                    guard password == passwordConfirm else { return }
-                    
-                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                        guard error == nil else {
-                            print(error!.localizedDescription)
-                            return
-                        }
-                        
-                        guard authResult == nil else {
-                            return
-                        }
-                        
-                        
-                        let databaseRef = Database.database().reference()
-                        let data = ["username" : name,
-                                    "position" : position,
-                                    "department" : department,
-                                    "level" : authorizationLevel]
-                        
-                        databaseRef.child("Users").child(authResult!.user.uid).setValue(data)
+                    Task {
+                        userCreatedSuccessfully = await firebaseController.CreateNewUser(adminUser: user, newUser: newUser)
                     }
                     
+                    /*
                     
+                    
+                    if Auth.auth().currentUser?.email != user.email {
+                        let firebaseController = FirebaseController()
+                        Task {
+                            await firebaseController.SignIn(user, user.email, user.password)
+                        }
+                    }
+                     */
                     
                 } label: {
                     HStack {
@@ -82,10 +90,25 @@ struct ConfigureNewUserView: View {
                 .padding()
                 .background(Color.accentColor)
                 .cornerRadius(8)
-                
+                .alert(isPresented: $errorCreatingUser) {
+                    Alert(title: Text("Error While Creating User..."))
+                }
+                .alert(isPresented: $errorCreatingUser) {
+                    Alert(title: Text("Error In User Data..."))
+                }
+                .alert(isPresented: $userCreatedSuccessfully) {
+                    Alert(title: Text("User Created Succesfully!"))
+                }
             }
         }
         .navigationBarTitle("Create New User")
+    }
+    
+    func validateData() -> Bool {
+        guard email != "" else { return false }
+        guard email.contains("@") else { return false }
+        guard password == passwordConfirm else { return false }
+        return true
     }
 
 }

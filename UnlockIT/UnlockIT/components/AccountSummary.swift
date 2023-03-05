@@ -33,7 +33,7 @@ struct AccountSummary: View {
                 HStack {
                     Text("Position: ")
                     Spacer()
-                    Text("\(user.companyPosition)").bold()
+                    Text("\(user.position)").bold()
                 }
                 HStack {
                     

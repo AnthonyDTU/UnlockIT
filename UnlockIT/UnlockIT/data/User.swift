@@ -9,10 +9,11 @@ import Foundation
 
 final class User: ObservableObject, Identifiable {
     @Published var id: String = "1"
-    @Published var name: String = "Anton"
+    @Published var employeeNumber: Int = 1
+    @Published var username: String = "Anton"
     @Published var email: String = "Test User"
     @Published var department: String = "R&D"
-    @Published var companyPosition: String = "Engineer"
+    @Published var position: String = "Engineer"
     @Published var password: String = "123"
     @Published var privilege: Int = 3
     @Published var isAdmin: Bool = true
@@ -21,12 +22,14 @@ final class User: ObservableObject, Identifiable {
     var collections: [Collection]?
     var personals: [Unlockable]?
     
-    init(id: String, name: String, email: String, department: String, companyPosition: String, password: String, privilege: Int, isAdmin: Bool) {
+    // Remove?
+    init(id: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, password: String, privilege: Int, isAdmin: Bool) {
         self.id = id
-        self.name = name
+        self.employeeNumber = employeeNumber
+        self.username = username
         self.email = email
         self.department = department
-        self.companyPosition = companyPosition
+        self.position = companyPosition
         self.password = password
         self.privilege = privilege
         self.isAdmin = isAdmin
@@ -34,6 +37,31 @@ final class User: ObservableObject, Identifiable {
     
     init() {
         
+    }
+    
+    
+    func configureUserData(id: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, password: String, privilege: Int, isAdmin: Bool) {
+        self.id = id
+        self.employeeNumber = employeeNumber
+        self.username = username
+        self.email = email
+        self.department = department
+        self.position = companyPosition
+        self.password = password
+        self.privilege = privilege
+        self.isAdmin = isAdmin
+    }
+    
+    func configureUserData(userID: String, data: [String : Any]){
+        self.id = userID
+        self.employeeNumber = data["employeeNumber"] as! Int
+        self.username = data["username"] as! String
+        self.email = data["email"] as! String
+        self.department = data["department"] as! String
+        self.position = data["position"] as! String
+        //self.password = data["password"] as! String
+        self.privilege = data["privilege"] as! Int
+        self.isAdmin = data["isAdmin"] as! Bool
     }
 }
 

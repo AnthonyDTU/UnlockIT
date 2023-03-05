@@ -64,7 +64,7 @@ struct RoomView: View {
                 ForEach(room.authorizedUsers) { user in
                     HStack {
                         Text(Image(systemName: "person.circle"))
-                        Text("\(user.name)")
+                        Text("\(user.username)")
                     }
                     .padding(2)
                 }

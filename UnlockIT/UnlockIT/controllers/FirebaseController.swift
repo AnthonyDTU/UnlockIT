@@ -11,15 +11,32 @@ import Firebase
 
 class FirebaseController {
     
-    func CreateUser() {
-        
+    func CreateNewUser(adminUser: User, newUser: User) async -> Bool {
+        do {
+            let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUser.password)
+            
+            let databaseRef = Database.database().reference()
+            let data: [String : Any]  = ["username" : newUser.username,
+                                         "position" : newUser.position,
+                                         "department" : newUser.department,
+                                         "privilege" : newUser.privilege,
+                                         "email" : newUser.email,
+                                         "isAdmin": newUser.isAdmin]
+            
+            try await databaseRef.child("Users/\(authResult.user.uid)").setValue(data)
+            return true
+        }
+        catch {
+            return false
+        }
     }
+        
+        
     
-    func SignIn(user: User, email: String, password: String) async -> Bool {
+    func SignIn(_ user: User, _ email: String, _ password: String) async -> Bool {
         do {
             let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
-            user.id = authResults.user.uid
-            GetUserDataFromFirebase(user: user)
+            GetUserDataFromFirebase(user: user, userID: authResults.user.uid)
             return true
         }
         catch {
@@ -28,20 +45,13 @@ class FirebaseController {
         }
     }
     
-    func GetUserDataFromFirebase(user: User) {
+    func GetUserDataFromFirebase(user: User, userID: String) {
         
         let databaseRef = Database.database().reference()
         databaseRef.child("Users/" + user.id).observeSingleEvent(of: .value, with: { snapshot in
             if let data = snapshot.value as? [String:Any] {
-                user.name = data["username"] as! String
-                user.privilege = data["level"] as! Int
-                user.companyPosition = data["position"] as! String
-                user.department = data["department"] as! String
+                user.configureUserData(userID: userID, data: data)
             }
         })
     }
-    
-    
-    
-    
 }
