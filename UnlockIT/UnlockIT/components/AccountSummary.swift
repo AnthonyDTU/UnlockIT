@@ -18,7 +18,7 @@ struct AccountSummary: View {
                 HStack{
                     Text("Name: ")
                     Spacer()
-                    Text("\(user.email)").bold()
+                    Text("\(user.username)").bold()
                 }
                 HStack{
                     Text("Email: ")
@@ -36,10 +36,14 @@ struct AccountSummary: View {
                     Text("\(user.position)").bold()
                 }
                 HStack {
-                    
                     Text("Privilege: ")
                     Spacer()
                     Text("\(user.privilege)").bold()
+                }
+                HStack {
+                    Text("Is Administrator: ")
+                    Spacer()
+                    Text("false").bold()
                 }
             }
             .padding()

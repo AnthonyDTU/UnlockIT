@@ -45,7 +45,7 @@ struct LoginView: View {
                     Task {
                         let firebaseController = FirebaseController()
                         let result = await firebaseController.SignIn(user, email, password)
-                        
+            
                         guard result else { showErrorPrompt = true; return; }
                         dismiss()
                     }

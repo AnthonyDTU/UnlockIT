@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct credentialsKeys {
+    static let emailKey = "UnlockIT_emailKey"
+    static let passwordKey = "UnlockIT_passwordKey"
+}
+
 final class User: ObservableObject, Identifiable {
     @Published var id: String = "1"
     @Published var employeeNumber: Int = 1
@@ -62,6 +67,23 @@ final class User: ObservableObject, Identifiable {
         //self.password = data["password"] as! String
         self.privilege = data["privilege"] as! Int
         self.isAdmin = data["isAdmin"] as! Bool
+    }
+    
+    
+    func storeCredentialsOnDevice() {
+        let defaults = UserDefaults.standard
+        defaults.set(email, forKey: credentialsKeys.emailKey)
+        defaults.set(password, forKey: credentialsKeys.passwordKey)
+    }
+    
+    func loadCredentialsFromDevice() {
+        let defaults = UserDefaults.standard
+        if let loadedEmail = defaults.string(forKey: credentialsKeys.emailKey) {
+            email = loadedEmail
+        }
+        if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
+            password = loadedPassword
+        }
     }
 }
 
