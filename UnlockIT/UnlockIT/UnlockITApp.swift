@@ -20,7 +20,6 @@ struct UnlockITApp: App {
     
     init(){
         FirebaseApp.configure()
-        user.loadCredentialsFromDevice()
     }
     
     var body: some Scene {

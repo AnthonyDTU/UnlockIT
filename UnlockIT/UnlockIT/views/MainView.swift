@@ -46,7 +46,8 @@ struct MainView: View {
         }
         .onAppear() {
             if userState.isLoggedOut == false {
-                user.email = Auth.auth().currentUser?.email ?? "(unkown)"
+                let firebaseController = FirebaseController()
+                firebaseController.GetUserDataFromFirebase(user: user, userID: Auth.auth().currentUser!.uid)
             }
             showLoginScreen = userState.isLoggedOut
         }

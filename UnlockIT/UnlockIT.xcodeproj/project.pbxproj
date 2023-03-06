@@ -21,6 +21,9 @@
 		7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEA299FB34F00D19798 /* HomeView.swift */; };
 		7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEC299FB47900D19798 /* AccountSummary.swift */; };
 		EB13F92B29B3B93800C87335 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */; };
+		EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */; };
+		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
+		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
 		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
@@ -54,6 +57,9 @@
 		7D214EEA299FB34F00D19798 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D214EEC299FB47900D19798 /* AccountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummary.swift; sourceTree = "<group>"; };
 		EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginView.swift; sourceTree = "<group>"; };
+		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
+		EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseViewModel.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 				7D0687B729ACE40400500A3A /* Room.swift */,
 				7D0687BB29ACF89800500A3A /* Lock.swift */,
 				7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */,
+				EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 				EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */,
 				EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */,
 				7D0687C729AE23F800500A3A /* TestView.swift */,
+				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
+				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -280,7 +289,10 @@
 				EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */,
 				7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */,
 				EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */,
+				EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */,
+				EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */,
 				EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */,
+				EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

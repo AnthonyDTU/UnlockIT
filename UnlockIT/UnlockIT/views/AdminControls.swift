@@ -30,7 +30,7 @@ struct AdminControls: View {
                             Label("New User", systemImage: "person.badge.plus")
                         }
                         NavigationLink {
-                            
+                            ManageUsersView()
                         } label: {
                             Label("Manage Users", systemImage: "person.2.badge.gearshape")
                         }

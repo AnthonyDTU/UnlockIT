@@ -60,19 +60,11 @@ struct ConfigureNewUserView: View {
                                               email: email,
                                               department: department,
                                               companyPosition: position,
-                                              password: password,
                                               privilege: 1,
                                               isAdmin: isUserAdmin)
                     
                     Task {
-                        userCreatedSuccessfully = await firebaseController.CreateNewUser(adminUser: user, newUser: newUser)
-                        
-                        //if userCreatedSuccessfully {
-                        //    _ = await firebaseController.SignIn(user, user.email, user.password)
-                        //}
-                        //if Auth.auth().currentUser?.email != user.email {
-                            
-                        //}
+                        userCreatedSuccessfully = await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
                     }
                 } label: {
                     HStack {
