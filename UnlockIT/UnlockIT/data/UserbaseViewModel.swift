@@ -21,19 +21,14 @@ final class UserbaseViewModel : ObservableObject {
     private let decoder = JSONDecoder()
     
     func loadExistingUsers() {
-        databasePath?.observeSingleEvent(of: .value, with: { snapshot in
-            
-            if let data = snapshot.value as? [String : [String : Any]] {
+        
+        let databaseRef = Database.database().reference()
+        databaseRef.child("Users").observeSingleEvent(of: .value, with: { snapshot in
+            if let data = snapshot.value as? [String : [String : Any]]{
                 
-                do {
-                    for json in data {
-                        let userData = try JSONSerialization.data(withJSONObject: json)
-                        let user = try self.decoder.decode(User.self, from: userData)
-                        self.users.append(user)
-                    }
-                }
-                catch {
-                    print("an error occoured", error)
+                for item in data {
+                    var user = User()
+                    user.configureUserData(userID: item.key, data: item.value)
                 }
             }
         })
@@ -51,7 +46,6 @@ final class UserbaseViewModel : ObservableObject {
             else {
                 return
             }
-            json["id"] = snapshot.key
             do {
                 let userData = try JSONSerialization.data(withJSONObject: json)
                 let user = try self.decoder.decode(User.self, from: userData)

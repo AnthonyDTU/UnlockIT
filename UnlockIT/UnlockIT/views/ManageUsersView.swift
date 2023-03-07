@@ -11,10 +11,6 @@ struct ManageUsersView: View {
     
     @StateObject private var userbaseModel = UserbaseViewModel()
     
-    init() {
-        
-    }
-    
     var body: some View {
         List(userbaseModel.users) { user in
             NavigationLink{
@@ -26,10 +22,10 @@ struct ManageUsersView: View {
         .navigationBarTitle("Manage Users")
         .onAppear(){
             userbaseModel.loadExistingUsers()
-            userbaseModel.listenToUserDatabase()
+            //userbaseModel.listenToUserDatabase()
         }
         onDisappear(){
-            userbaseModel.stopListening()
+            //userbaseModel.stopListening()
         }
     }
 }
