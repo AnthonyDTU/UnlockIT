@@ -80,7 +80,7 @@ struct ConfigureNewUserView: View {
                 .alert(isPresented: $errorCreatingUser) {
                     Alert(title: Text("Error While Creating User..."))
                 }
-                .alert(isPresented: $errorCreatingUser) {
+                .alert(isPresented: $errorInData) {
                     Alert(title: Text("Error In User Data..."))
                 }
                 .alert(isPresented: $userCreatedSuccessfully) {
