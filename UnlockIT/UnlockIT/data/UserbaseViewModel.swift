@@ -12,6 +12,7 @@ final class UserbaseViewModel : ObservableObject {
     @Published var users: [User] = []
     
     func loadExistingUsers() {
+        users.removeAll()
         let databaseRef = Database.database().reference()
         databaseRef.child("Users").observeSingleEvent(of: .value, with: { snapshot in
             if let data = snapshot.value as? [String : [String : Any]]{

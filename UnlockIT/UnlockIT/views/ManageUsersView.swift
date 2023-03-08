@@ -9,16 +9,29 @@ import SwiftUI
 
 struct ManageUsersView: View {
     
-    //@StateObject private var userbaseModel = UserbaseViewModel()
+    @StateObject private var userbaseModel = UserbaseViewModel()
     
     var body: some View {
         
         VStack {
-            Text("Hello Anton!")
+            
+            List(userbaseModel.users) { user in
+                NavigationLink {
+                    TestView()
+                } label: {
+                    Label(user.username, systemImage: "person.badge.plus")
+                }
+                //Text(user.username)
+            }
+            
+            //Text("Hello Anton!")
             //Text("Number of users: \(userbaseModel.users.count)")
         }
         .navigationBarTitle("Manage Users")
         .onAppear(){
+            userbaseModel.loadExistingUsers()
+        }
+        .refreshable {
             //userbaseModel.loadExistingUsers()
         }
     }
