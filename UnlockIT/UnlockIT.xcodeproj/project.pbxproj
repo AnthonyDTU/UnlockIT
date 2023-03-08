@@ -24,6 +24,7 @@
 		EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */; };
 		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
 		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
+		EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93429B8EB6A00C87335 /* EditUserView.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
 		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
@@ -33,7 +34,7 @@
 		EBB20DEF29A4ECA0007AF69A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEE29A4ECA0007AF69A /* FirebaseFirestoreSwift */; };
 		EBB20DF629A520BB007AF69A /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF529A520BB007AF69A /* UserState.swift */; };
 		EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */; };
-		EBB20DFA29A5493C007AF69A /* ConfigureNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */; };
+		EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF929A5493C007AF69A /* CreateUserView.swift */; };
 		EBB20DFC29A54954007AF69A /* ConfigureNewMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */; };
 		EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD004B7299E7538008B57A3 /* UnlockITApp.swift */; };
 		EBD004BC299E753D008B57A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BB299E753D008B57A3 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginView.swift; sourceTree = "<group>"; };
 		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
 		EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseViewModel.swift; sourceTree = "<group>"; };
+		EB13F93429B8EB6A00C87335 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
-		EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNewUserView.swift; sourceTree = "<group>"; };
+		EBB20DF929A5493C007AF69A /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNewMeetingRoomView.swift; sourceTree = "<group>"; };
 		EBD004B4299E7538008B57A3 /* UnlockIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnlockIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD004B7299E7538008B57A3 /* UnlockITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITApp.swift; sourceTree = "<group>"; };
@@ -126,11 +128,12 @@
 				EBB20DE229A4231B007AF69A /* MainView.swift */,
 				EBB20DE729A43483007AF69A /* AdminControls.swift */,
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
-				EBB20DF929A5493C007AF69A /* ConfigureNewUserView.swift */,
+				EBB20DF929A5493C007AF69A /* CreateUserView.swift */,
 				EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */,
 				7D0687C729AE23F800500A3A /* TestView.swift */,
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
+				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -273,7 +276,7 @@
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
 				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				7D0687B829ACE40400500A3A /* Room.swift in Sources */,
-				EBB20DFA29A5493C007AF69A /* ConfigureNewUserView.swift in Sources */,
+				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
 				EBB20DE329A4231B007AF69A /* MainView.swift in Sources */,
@@ -291,6 +294,7 @@
 				EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */,
 				EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */,
 				EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */,
+				EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */,
 				EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */,
 				EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */,
 			);

@@ -11,21 +11,39 @@ struct ManageUsersView: View {
     
     @StateObject private var userbaseModel = UserbaseViewModel()
     
+    
     var body: some View {
         
+        List {
+            ForEach(userbaseModel.users, id: \.self) { user in
+                NavigationLink {
+                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                } label: {
+                    Label(user.username, systemImage: "person")
+                }
+            }
+            VStack {
+                Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+            }
+        }
+        .navigationBarTitle("Manage Users")
+        .onAppear(){
+            userbaseModel.loadExistingUsers()
+        }
+        
+        /*
         VStack {
+            
             
             List(userbaseModel.users) { user in
                 NavigationLink {
                     TestView()
                 } label: {
-                    Label(user.username, systemImage: "person.badge.plus")
+                    Label(user.username, systemImage: "person")
                 }
-                //Text(user.username)
             }
-            
-            //Text("Hello Anton!")
-            //Text("Number of users: \(userbaseModel.users.count)")
+            Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+            Spacer()
         }
         .navigationBarTitle("Manage Users")
         .onAppear(){
@@ -34,6 +52,7 @@ struct ManageUsersView: View {
         .refreshable {
             //userbaseModel.loadExistingUsers()
         }
+         */
     }
 }
 

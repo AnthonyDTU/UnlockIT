@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-struct ConfigureNewUserView: View {
+struct CreateUserView: View {
     
     @EnvironmentObject private var user : User
     
@@ -38,7 +38,7 @@ struct ConfigureNewUserView: View {
                 
                 Section (header: Text("User Details")) {
                     TextField("Name", text: $name)
-                    TextField("Employee Number", text: $employeeNumber)
+                    TextField("Employee Number", text: $employeeNumber).keyboardType(.numberPad)
                     TextField("Postition", text: $position)
                     TextField("Department", text: $department)
                     Picker("Privilige", selection: $privilege) {
@@ -54,7 +54,7 @@ struct ConfigureNewUserView: View {
                     guard validateData() else { errorInData = true; return }
                     let firebaseController = FirebaseController()
                     let newUser = User()
-                    newUser.configureUserData(id: "0",
+                    newUser.configureUserData(userID: "0",
                                               employeeNumber: Int(employeeNumber) ?? 0,
                                               username: name,
                                               email: email,
@@ -102,6 +102,6 @@ struct ConfigureNewUserView: View {
 
 struct ConfigureNewUserView_Previews: PreviewProvider {
     static var previews: some View {
-        ConfigureNewUserView()
+        CreateUserView()
     }
 }

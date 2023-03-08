@@ -25,7 +25,7 @@ struct AdminControls: View {
                             Label("Manage Rooms", systemImage: "house.fill")
                         }
                         NavigationLink {
-                            ConfigureNewUserView()
+                            CreateUserView()
                         } label: {
                             Label("New User", systemImage: "person.badge.plus")
                         }

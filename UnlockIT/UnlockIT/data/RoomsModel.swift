@@ -21,12 +21,12 @@ class RoomsModel : ObservableObject, Identifiable {
     
     func testData() {
         
-        let jonasUser = (User(id: "1", employeeNumber: 2, username: "Jonas", email: "Jensen", department: "Engineering", companyPosition: "Student engineer", privilege: 2, isAdmin: false))
-        let spiderManUser = (User(id: "2",employeeNumber: 3, username: "Spider", email: "Man", department: "Operations", companyPosition: "Shopper", privilege: 2, isAdmin: false))
-        let barackUser = (User(id: "3", employeeNumber: 4, username: "Barack", email: "Obama", department: "Secretariat", companyPosition: "Secretary", privilege: 2, isAdmin: false))
-        let billUser = (User(id: "4", employeeNumber: 5, username: "Bill", email: "Clinton", department: "Sales", companyPosition: "Sales Manager", privilege: 3, isAdmin: false))
-        let oprahUser = (User(id: "5", employeeNumber: 6, username: "Oprah", email: "Something", department: "Sales", companyPosition: "Sales Woman", privilege: 2, isAdmin: false))
-        let elonUser = (User(id: "6", employeeNumber: 7, username: "Elon", email: "Musk", department: "Engineering", companyPosition: "Engineering Manager", privilege: 3, isAdmin: false))
+        let jonasUser = (User(userID: "1", employeeNumber: 2, username: "Jonas", email: "Jensen", department: "Engineering", companyPosition: "Student engineer", privilege: 2, isAdmin: false))
+        let spiderManUser = (User(userID: "2",employeeNumber: 3, username: "Spider", email: "Man", department: "Operations", companyPosition: "Shopper", privilege: 2, isAdmin: false))
+        let barackUser = (User(userID: "3", employeeNumber: 4, username: "Barack", email: "Obama", department: "Secretariat", companyPosition: "Secretary", privilege: 2, isAdmin: false))
+        let billUser = (User(userID: "4", employeeNumber: 5, username: "Bill", email: "Clinton", department: "Sales", companyPosition: "Sales Manager", privilege: 3, isAdmin: false))
+        let oprahUser = (User(userID: "5", employeeNumber: 6, username: "Oprah", email: "Something", department: "Sales", companyPosition: "Sales Woman", privilege: 2, isAdmin: false))
+        let elonUser = (User(userID: "6", employeeNumber: 7, username: "Elon", email: "Musk", department: "Engineering", companyPosition: "Engineering Manager", privilege: 3, isAdmin: false))
         
         var roomStructs: [Room] = []
         var lockStructs1: [Lock] = []
