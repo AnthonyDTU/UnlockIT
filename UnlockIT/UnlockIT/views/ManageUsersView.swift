@@ -23,7 +23,11 @@ struct ManageUsersView: View {
                 }
             }
             VStack {
-                Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+                HStack{
+                    Spacer()
+                    Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+                    Spacer()
+                }
             }
         }
         .navigationBarTitle("Manage Users")

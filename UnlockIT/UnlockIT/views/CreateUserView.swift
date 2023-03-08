@@ -26,6 +26,8 @@ struct CreateUserView: View {
     @State private var userCreatedSuccessfully = false
     @State private var errorInData = false
     
+    @State private var newUser = User()
+    
     var body: some View {
      
         VStack {

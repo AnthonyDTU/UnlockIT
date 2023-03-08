@@ -63,4 +63,15 @@ class FirebaseController {
             }
         })
     }
+    
+
+    func UpdateUser() {
+        
+        // This is just a database thing, so should be possible
+    }
+    
+    func DeleteUser(){
+        
+        // AHHHHHG. Det kan man ikke uden brugerens password...
+    }
 }

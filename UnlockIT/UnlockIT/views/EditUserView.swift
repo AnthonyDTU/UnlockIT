@@ -25,6 +25,8 @@ struct EditUserView: View {
     @State private var userCreatedSuccessfully = false
     @State private var errorInData = false
     
+    @State private var confirmDeleteUser = false
+    
     var body: some View {
         
         VStack {
@@ -44,8 +46,8 @@ struct EditUserView: View {
                     Toggle("Administrator Privilige", isOn: $user.isAdmin)
                 }
                 
+                // Update User button
                 Button {
-                    
                     let firebaseController = FirebaseController()
                     user.configureUserData(userID: user.userID,
                                            employeeNumber: user.employeeNumber,
@@ -74,12 +76,36 @@ struct EditUserView: View {
                     Alert(title: Text("Error While Updating User..."))
                 }
                 .alert(isPresented: $userCreatedSuccessfully) {
-                    Alert(title: Text("User Created Succesfully!"))
+                    Alert(title: Text("User Updated Succesfully!"))
+                }
+                
+                // Delete User button
+                Button {
+                    let firebaseController = FirebaseController()
+                    confirmDeleteUser = true
+                    
+                } label: {
+                    HStack {
+                        Spacer()
+                        Text("Delete User")
+                        Spacer()
+                    }
+                }
+                .foregroundColor(.white)
+                .padding()
+                .background(.red)
+                .cornerRadius(8)
+                .alert(isPresented: $confirmDeleteUser) {
+                    Alert(title: Text("Are you sure you want to delete this user?"),
+                          message: Text("This action cannot be undone!"),
+                          primaryButton: .destructive(Text("Delete")) {
+                            // Delete user here
+                          },
+                          secondaryButton: .cancel())
                 }
             }
         }
         .navigationBarTitle("Edit User")
-        
     }
 }
 
