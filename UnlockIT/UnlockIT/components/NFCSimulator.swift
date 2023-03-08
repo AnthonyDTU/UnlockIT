@@ -25,6 +25,9 @@ struct NFCSimulator: View {
                 Text("NFC Simulator")
                     .font(Font.system(.largeTitle).bold())
                     .foregroundColor(.gray)
+                Text("(Which actually uses WiFi, but don't tell anyone...)")
+                    .foregroundColor(.gray)
+                    
                 Spacer()
                 Image(systemName: "iphone.gen2.radiowaves.left.and.right")
                     .font(.system(size: 100.0))
