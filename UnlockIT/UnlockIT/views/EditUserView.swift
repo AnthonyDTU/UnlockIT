@@ -56,7 +56,8 @@ struct EditUserView: View {
                                            department: department,
                                            companyPosition: position,
                                            privilege: 1,
-                                           isAdmin: isUserAdmin)
+                                           isAdmin: isUserAdmin,
+                                           isFirstLogin: user.isFirstLogin)
                     
                     Task {
                         // Update user here

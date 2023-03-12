@@ -15,20 +15,21 @@ class FirebaseController {
         do {
             let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
             
-            let databaseRef = Database.database().reference()
             let data: [String : Any]  = ["username" : newUser.username,
                                          "position" : newUser.position,
+                                         "employeeNumber" : newUser.employeeNumber,
                                          "department" : newUser.department,
                                          "privilege" : newUser.privilege,
                                          "email" : newUser.email,
                                          "isAdmin": newUser.isAdmin,
                                          "firstLogin": true]
             
-            try await databaseRef.child("Users/\(authResult.user.uid)").setValue(data)
+            let myCompany = "DTU"
+            let firestoreRef = Firestore.firestore()
+            try await firestoreRef.collection("Companies").document(myCompany).collection("Users").document(authResult.user.uid).setData(data)
             
             let (email, password) = adminUser.loadCredentialsFromDevice()
             try await Auth.auth().signIn(withEmail: email, password: password)
-            //_ = await SignIn(adminUser, email, password)
             return true
         }
         catch {
@@ -43,7 +44,8 @@ class FirebaseController {
             DispatchQueue.main.async {
                 user.storeCredentialsOnDevice(email: email, password: password)
             }
-            GetUserDataFromFirebase(user: user, userID: authResults.user.uid)
+            //GetUserDataFromFirebase(user: user, userID: authResults.user.uid)
+            await GetUserDataFromFirestore(user: user, userID: authResults.user.uid)
             return true
         }
         catch {
@@ -62,6 +64,23 @@ class FirebaseController {
                 }
             }
         })
+    }
+    
+    func GetUserDataFromFirestore(user: User, userID: String) async {
+        
+        do {
+            let myCompany = "DTU"
+            let firestore = Firestore.firestore()
+            let documentSnapshot = try await firestore.collection("Companies").document(myCompany).collection("Users").document(userID).getDocument()
+            if let data = documentSnapshot.data() {
+                DispatchQueue.main.async {
+                    user.configureUserData(userID: userID, data: data)
+                }
+            }
+        }
+        catch {
+            print(error)
+        }
     }
     
 

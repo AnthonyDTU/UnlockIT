@@ -15,24 +15,43 @@ struct ManageUsersView: View {
     var body: some View {
         
         List {
-            ForEach(userbaseModel.users, id: \.self) { user in
-                NavigationLink {
-                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
-                } label: {
-                    Label(user.username, systemImage: "person")
+            if !userbaseModel.finishedLoading {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
                 }
             }
-            VStack {
-                HStack{
-                    Spacer()
-                    Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
-                    Spacer()
+            else {
+                ForEach(userbaseModel.users, id: \.self) { user in
+                    NavigationLink {
+                        EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                    } label: {
+                        Label(user.username, systemImage: "person")
+                    }
+                }
+                VStack {
+                    HStack{
+                        Spacer()
+                        Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+                        Spacer()
+                    }
                 }
             }
         }
         .navigationBarTitle("Manage Users")
         .onAppear(){
-            userbaseModel.loadExistingUsers()
+            Task {
+                
+                do {
+                    try await userbaseModel.loadExistingUsersFromFirestore()
+                }
+                catch{
+                    // Show message to user
+                    print(error)
+                }
+            }
+            //userbaseModel.loadExistingUsers()
         }
         
         /*

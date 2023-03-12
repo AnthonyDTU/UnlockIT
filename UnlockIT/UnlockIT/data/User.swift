@@ -21,7 +21,8 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var department: String = "R&D"
     @Published var position: String = "Engineer"
     @Published var privilege: Int = 3
-    @Published var isAdmin: Bool = true
+    @Published var isAdmin: Bool = false
+    @Published var isFirstLogin: Bool = false
     
     var id: String {
         return userID
@@ -37,7 +38,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     
     
     // Remove?
-    init(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool) {
+    init(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
         self.userID = userID
         self.employeeNumber = employeeNumber
         self.username = username
@@ -46,6 +47,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         self.position = companyPosition
         self.privilege = privilege
         self.isAdmin = isAdmin
+        self.isFirstLogin = isFirstLogin
     }
     
     init() {
@@ -53,7 +55,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
     
     
-    func configureUserData(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool) {
+    func configureUserData(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
         self.userID = userID
         self.employeeNumber = employeeNumber
         self.username = username
@@ -62,6 +64,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         self.position = companyPosition
         self.privilege = privilege
         self.isAdmin = isAdmin
+        self.isFirstLogin = isFirstLogin
     }
     
     func configureUserData(userID: String, data: [String : Any]) {
@@ -73,6 +76,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         self.position = data["position"] as! String
         self.privilege = data["privilege"] as! Int
         self.isAdmin = data["isAdmin"] as! Bool
+        self.isFirstLogin = data["firstLogin"] as! Bool
     }
     
     

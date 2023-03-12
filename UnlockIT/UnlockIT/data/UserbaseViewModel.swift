@@ -7,9 +7,11 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseFirestore
 
 final class UserbaseViewModel : ObservableObject {
     @Published var users: [User] = []
+    @Published var finishedLoading: Bool = false
     
     func loadExistingUsers() {
         users.removeAll()
@@ -24,5 +26,29 @@ final class UserbaseViewModel : ObservableObject {
                 }
             }
         })
+    }
+    
+    func loadExistingUsersFromFirestore() async throws {
+        
+        DispatchQueue.main.async {
+            self.users.removeAll()
+            self.finishedLoading = false
+        }
+
+        let myCompany = "DTU"
+        let firestore = Firestore.firestore()
+        let collectionSnapshot = try await firestore.collection("Companies").document(myCompany).collection("Users").getDocuments()
+        for document in collectionSnapshot.documents {
+            let data = document.data()
+            let user = User()
+            user.configureUserData(userID: document.documentID, data: data)
+            DispatchQueue.main.async {
+                self.users.append(user)
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.finishedLoading = true
+        }
     }
 }

@@ -63,7 +63,8 @@ struct CreateUserView: View {
                                               department: department,
                                               companyPosition: position,
                                               privilege: 1,
-                                              isAdmin: isUserAdmin)
+                                              isAdmin: isUserAdmin,
+                                              isFirstLogin: true)
                     
                     Task {
                         userCreatedSuccessfully = await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)

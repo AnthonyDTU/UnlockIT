@@ -47,6 +47,8 @@ struct LoginView: View {
                         let result = await firebaseController.SignIn(user, email, password)
             
                         guard result else { showErrorPrompt = true; return; }
+                        
+                        // Check if it is users first login, and if it is, send a password reset email
                         dismiss()
                     }
                 }
