@@ -11,6 +11,7 @@ import LocalAuthenticationEmbeddedUI
 
 struct AdminControls: View {
     @EnvironmentObject private var userState: UserState
+    @State private var companyUpdated: Bool = false
 
     var body: some View {
         
@@ -33,6 +34,20 @@ struct AdminControls: View {
                             ManageUsersView()
                         } label: {
                             Label("Manage Users", systemImage: "person.2.badge.gearshape")
+                        }
+                        Button ("Set Company") {
+                            let firebaseController = FirebaseController()
+                            Task {
+                                do {
+                                    companyUpdated = try await firebaseController.SetUserCompanyName(companyName: "DTU")
+                                }
+                                catch {
+                                    print(error)
+                                }
+                            }
+                        }
+                        .alert(isPresented: $companyUpdated) {
+                            Alert(title: Text("Company Updated Successfully..."))
                         }
                     }
                     .navigationBarTitle("Admin Controls")

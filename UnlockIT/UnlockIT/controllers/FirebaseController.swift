@@ -15,6 +15,8 @@ class FirebaseController {
         do {
             let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
             
+            try await SetUserCompanyName(companyName: "DTU")
+            
             let data: [String : Any]  = ["username" : newUser.username,
                                          "position" : newUser.position,
                                          "employeeNumber" : newUser.employeeNumber,
@@ -44,8 +46,10 @@ class FirebaseController {
             DispatchQueue.main.async {
                 user.storeCredentialsOnDevice(email: email, password: password)
             }
-            //GetUserDataFromFirebase(user: user, userID: authResults.user.uid)
-            await GetUserDataFromFirestore(user: user, userID: authResults.user.uid)
+            
+            guard let company = authResults.user.displayName else { return false }
+            await GetUserDataFromFirestore(user: user, userID: authResults.user.uid, company: company)
+            
             return true
         }
         catch {
@@ -54,24 +58,11 @@ class FirebaseController {
         }
     }
     
-    func GetUserDataFromFirebase(user: User, userID: String) {
-        
-        let databaseRef = Database.database().reference()
-        databaseRef.child("Users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
-            if let data = snapshot.value as? [String : Any]{
-                DispatchQueue.main.async {
-                    user.configureUserData(userID: userID, data: data)
-                }
-            }
-        })
-    }
-    
-    func GetUserDataFromFirestore(user: User, userID: String) async {
+    func GetUserDataFromFirestore(user: User, userID: String, company: String) async {
         
         do {
-            let myCompany = "DTU"
             let firestore = Firestore.firestore()
-            let documentSnapshot = try await firestore.collection("Companies").document(myCompany).collection("Users").document(userID).getDocument()
+            let documentSnapshot = try await firestore.collection("Companies").document(company).collection("Users").document(userID).getDocument()
             if let data = documentSnapshot.data() {
                 DispatchQueue.main.async {
                     user.configureUserData(userID: userID, data: data)
@@ -81,6 +72,23 @@ class FirebaseController {
         catch {
             print(error)
         }
+    }
+    
+    func SetUserCompanyName(companyName: String) async throws -> Bool{
+        
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = companyName
+        try await changeRequest?.commitChanges()
+        return true
+
+        /*
+        do {
+                    }
+        catch {
+            print(error)
+            return false
+        }
+         */
     }
     
 
