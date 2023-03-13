@@ -18,6 +18,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var employeeNumber: Int = 1
     @Published var username: String = "Anton"
     @Published var email: String = "Test User"
+    @Published var company: String = "DTU"
     @Published var department: String = "R&D"
     @Published var position: String = "Engineer"
     @Published var privilege: Int = 3
@@ -55,11 +56,12 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
     
     
-    func configureUserData(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
+    func configureUserData(userID: String, employeeNumber: Int, username: String, email: String, company: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
         self.userID = userID
         self.employeeNumber = employeeNumber
         self.username = username
         self.email = email
+        self.company = company
         self.department = department
         self.position = companyPosition
         self.privilege = privilege
@@ -72,6 +74,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         self.employeeNumber = data["employeeNumber"] as! Int
         self.username = data["username"] as! String
         self.email = data["email"] as! String
+        self.company = data["company"] as! String
         self.department = data["department"] as! String
         self.position = data["position"] as! String
         self.privilege = data["privilege"] as! Int

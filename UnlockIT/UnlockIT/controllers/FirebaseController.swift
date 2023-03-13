@@ -15,20 +15,20 @@ class FirebaseController {
         do {
             let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
             
-            try await SetUserCompanyName(companyName: "DTU")
+            guard try await SetUserCompanyName(companyName: adminUser.company) else { return false }
             
             let data: [String : Any]  = ["username" : newUser.username,
                                          "position" : newUser.position,
                                          "employeeNumber" : newUser.employeeNumber,
+                                         "company" : adminUser.company,
                                          "department" : newUser.department,
                                          "privilege" : newUser.privilege,
                                          "email" : newUser.email,
                                          "isAdmin": newUser.isAdmin,
                                          "firstLogin": true]
             
-            let myCompany = "DTU"
             let firestoreRef = Firestore.firestore()
-            try await firestoreRef.collection("Companies").document(myCompany).collection("Users").document(authResult.user.uid).setData(data)
+            try await firestoreRef.collection("Companies").document(adminUser.company).collection("Users").document(authResult.user.uid).setData(data)
             
             let (email, password) = adminUser.loadCredentialsFromDevice()
             try await Auth.auth().signIn(withEmail: email, password: password)
@@ -58,6 +58,20 @@ class FirebaseController {
         }
     }
     
+    func UpdateUserPassword(user: User, newPassword: String) async -> Bool {
+        do {
+            try await Auth.auth().currentUser?.updatePassword(to: newPassword)
+            let firestoreRef = Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID)
+            try await firestoreRef.updateData(["firstLogin" : false])
+            user.isFirstLogin = false
+            return true
+        }
+        catch {
+            print(error)
+            return false
+        }
+    }
+    
     func GetUserDataFromFirestore(user: User, userID: String, company: String) async {
         
         do {
@@ -75,20 +89,10 @@ class FirebaseController {
     }
     
     func SetUserCompanyName(companyName: String) async throws -> Bool{
-        
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = companyName
         try await changeRequest?.commitChanges()
         return true
-
-        /*
-        do {
-                    }
-        catch {
-            print(error)
-            return false
-        }
-         */
     }
     
 

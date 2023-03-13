@@ -14,12 +14,18 @@ struct LoginView: View {
     @Environment(\.dismiss) var dismiss
     
     @EnvironmentObject private var appStyle : AppStyle
-    @EnvironmentObject var user : User
-    @EnvironmentObject var userState : UserState
+    @EnvironmentObject private var user : User
+    @EnvironmentObject private var userState : UserState
+    
+    
+    @Binding var showLoginView: Bool
     
     @State private var email : String = ""
     @State private var password : String = ""
     @State private var showErrorPrompt: Bool = false
+    @State private var showPasswordErrorPrompt: Bool = false
+    @State private var showResetPasswordControls = false
+    
     
     var body: some View {
         
@@ -30,9 +36,10 @@ struct LoginView: View {
                 .aspectRatio(contentMode: .fit)
                 .cornerRadius(appStyle.cornerRadiusLarge)
                 .padding()
-        
+                
+                
             Form {
-                Section (header: Text("Credentials").fontWeight(.bold)){
+                Section (header: Text("Credentials").fontWeight(.semibold)){
                     TextField("Email", text: $email)
                     SecureField("Password", text: $password)
                 }
@@ -46,9 +53,8 @@ struct LoginView: View {
                         let firebaseController = FirebaseController()
                         let result = await firebaseController.SignIn(user, email, password)
             
-                        guard result else { showErrorPrompt = true; return; }
-                        
-                        // Check if it is users first login, and if it is, send a password reset email
+                        guard result else { showErrorPrompt = true; return }
+                        showLoginView = false
                         dismiss()
                     }
                 }
@@ -76,7 +82,8 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     @StateObject static var appStyle = AppStyle()
+    @State static var showView = false
     static var previews: some View {
-        LoginView().environmentObject(appStyle)
+        LoginView(showLoginView: $showView).environmentObject(appStyle)
     }
 }

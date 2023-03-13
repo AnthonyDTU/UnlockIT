@@ -22,11 +22,14 @@ struct CreateUserView: View {
     @State private var privilege : String = "Level 1"
     @State private var isUserAdmin : Bool = false
     
+    @State private var presentAlert : Bool = false
+    @State private var alertText: String = ""
     @State private var errorCreatingUser = false
     @State private var userCreatedSuccessfully = false
     @State private var errorInData = false
     
     @State private var newUser = User()
+    
     
     var body: some View {
      
@@ -53,13 +56,18 @@ struct CreateUserView: View {
                 
                 Button {
                                         
-                    guard validateData() else { errorInData = true; return }
+                    guard validateData() else {
+                        alertText = "Error In User Data..."
+                        presentAlert = true
+                        return
+                    }
                     let firebaseController = FirebaseController()
                     let newUser = User()
                     newUser.configureUserData(userID: "0",
                                               employeeNumber: Int(employeeNumber) ?? 0,
                                               username: name,
                                               email: email,
+                                              company: user.company,
                                               department: department,
                                               companyPosition: position,
                                               privilege: 1,
@@ -67,7 +75,13 @@ struct CreateUserView: View {
                                               isFirstLogin: true)
                     
                     Task {
-                        userCreatedSuccessfully = await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
+                        guard await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password) else {
+                            alertText = "Error While Creating User..."
+                            presentAlert = true
+                            return
+                        }
+                        alertText = "User Created Successfully!"
+                        presentAlert = true
                     }
                 } label: {
                     HStack {
@@ -80,14 +94,8 @@ struct CreateUserView: View {
                 .padding()
                 .background(Color.accentColor)
                 .cornerRadius(8)
-                .alert(isPresented: $errorCreatingUser) {
-                    Alert(title: Text("Error While Creating User..."))
-                }
-                .alert(isPresented: $errorInData) {
-                    Alert(title: Text("Error In User Data..."))
-                }
-                .alert(isPresented: $userCreatedSuccessfully) {
-                    Alert(title: Text("User Created Succesfully!"))
+                .alert(isPresented: $presentAlert) {
+                    Alert(title: Text(alertText))
                 }
             }
         }

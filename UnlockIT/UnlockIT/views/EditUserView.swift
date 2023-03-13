@@ -53,6 +53,7 @@ struct EditUserView: View {
                                            employeeNumber: user.employeeNumber,
                                            username: user.username,
                                            email: user.email,
+                                           company: user.company,
                                            department: department,
                                            companyPosition: position,
                                            privilege: 1,

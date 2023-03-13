@@ -26,6 +26,7 @@
 		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
 		EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93429B8EB6A00C87335 /* EditUserView.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
+		EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */; };
 		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
@@ -64,6 +65,7 @@
 		EB13F93429B8EB6A00C87335 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
+				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */,
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
 				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
