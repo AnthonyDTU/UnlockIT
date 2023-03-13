@@ -44,12 +44,13 @@ struct ChangePasswordView: View {
                         // Update password
                         guard newPassword == confirmNewPassword else { showPasswordErrorPrompt = true; return }
                         let firebaseController = FirebaseController()
-                        if await firebaseController.UpdateUserPassword(user: user, newPassword: newPassword) {
-                            // Maybe tell the user that the password was updated successfully
+    
+                        do {
+                            try await firebaseController.UpdateUserPassword(user: user, newPassword: newPassword)
                             showChangePasswordView = false
                             dismiss()
                         }
-                        else {
+                        catch {
                             showPasswordErrorPrompt = true
                         }
                     }

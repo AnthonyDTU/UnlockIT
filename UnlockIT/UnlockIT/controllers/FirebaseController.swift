@@ -8,9 +8,14 @@
 import Foundation
 import Firebase
 
+enum FirebaseControllerError: Error {
+    case noConnection
+    case companyNameNotAvaliable
+}
 
 class FirebaseController {
     
+    //
     func CreateNewUser(adminUser: User, newUser: User, newUserPassword: String) async throws {
        
         let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
@@ -34,51 +39,34 @@ class FirebaseController {
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
     
-    func SignIn(_ user: User, _ email: String, _ password: String) async -> Bool {
-        do {
-            let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
-            DispatchQueue.main.async {
-                user.storeCredentialsOnDevice(email: email, password: password)
-            }
-            
-            guard let company = authResults.user.displayName else { return false }
-            await GetUserDataFromFirestore(user: user, userID: authResults.user.uid, company: company)
-            
-            return true
-        }
-        catch {
-            print(error)
-            return false
-        }
-    }
     
-    func UpdateUserPassword(user: User, newPassword: String) async -> Bool {
-        do {
-            try await Auth.auth().currentUser?.updatePassword(to: newPassword)
-            let firestoreRef = Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID)
-            try await firestoreRef.updateData(["firstLogin" : false])
-            user.isFirstLogin = false
-            return true
-        }
-        catch {
-            print(error)
-            return false
-        }
-    }
-    
-    func GetUserDataFromFirestore(user: User, userID: String, company: String) async {
+    func SignIn(_ user: User, _ email: String, _ password: String) async throws {
         
-        do {
-            let firestore = Firestore.firestore()
-            let documentSnapshot = try await firestore.collection("Companies").document(company).collection("Users").document(userID).getDocument()
-            if let data = documentSnapshot.data() {
-                DispatchQueue.main.async {
-                    user.configureUserData(userID: userID, data: data)
-                }
-            }
+        let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
+        DispatchQueue.main.async {
+            user.storeCredentialsOnDevice(email: email, password: password)
         }
-        catch {
-            print(error)
+        
+        guard let company = authResults.user.displayName else { throw FirebaseControllerError.companyNameNotAvaliable }
+        try await GetUserDataFromFirestore(user: user, userID: authResults.user.uid, company: company)
+    }
+    
+    func UpdateUserPassword(user: User, newPassword: String) async throws {
+        
+        try await Auth.auth().currentUser?.updatePassword(to: newPassword)
+        let firestoreRef = Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID)
+        try await firestoreRef.updateData(["firstLogin" : false])
+        user.isFirstLogin = false
+    }
+    
+    func GetUserDataFromFirestore(user: User, userID: String, company: String) async throws {
+        
+        let firestore = Firestore.firestore()
+        let documentSnapshot = try await firestore.collection("Companies").document(company).collection("Users").document(userID).getDocument()
+        if let data = documentSnapshot.data() {
+            DispatchQueue.main.async {
+                user.configureUserData(userID: userID, data: data)
+            }
         }
     }
     

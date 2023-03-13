@@ -95,7 +95,12 @@ struct MainView: View {
             if userState.isLoggedOut == false {
                 let firebaseController = FirebaseController()
                 Task {
-                    await firebaseController.GetUserDataFromFirestore(user: user, userID: Auth.auth().currentUser!.uid, company: "DTU")
+                    do {
+                        try await firebaseController.GetUserDataFromFirestore(user: user, userID: Auth.auth().currentUser!.uid, company: "DTU")
+                    }
+                    catch {
+                        print(error)
+                    }
                 }
             }
             showLoginScreen = userState.isLoggedOut
