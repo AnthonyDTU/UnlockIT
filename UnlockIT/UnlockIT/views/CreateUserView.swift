@@ -19,7 +19,7 @@ struct CreateUserView: View {
     @State private var passwordConfirm : String = ""
     @State private var position : String = ""
     @State private var department : String = ""
-    @State private var privilege : String = "Level 1"
+    @State private var privilege : Int = 1
     @State private var isUserAdmin : Bool = false
     
     @State private var presentAlert : Bool = false
@@ -30,57 +30,57 @@ struct CreateUserView: View {
     
     @State private var newUser = User()
     
+    @State private var privilegeOptions = [1, 2, 3, 4, 5]
+    
     
     var body: some View {
      
         VStack {
             Form {
                 Section (header: Text("Credentials")){
-                    TextField("Email", text: $email)
+                    TextField("Email", text: $newUser.email)
                     SecureField("Password", text: $password)
                     SecureField("Confirm Password", text: $passwordConfirm)
                 }
                 
                 Section (header: Text("User Details")) {
-                    TextField("Name", text: $name)
+                    TextField("Name", text: $newUser.username)
                     TextField("Employee Number", text: $employeeNumber).keyboardType(.numberPad)
-                    TextField("Postition", text: $position)
-                    TextField("Department", text: $department)
-                    Picker("Privilige", selection: $privilege) {
-                        Text("Level 1")
-                        Text("Level 2")
-                        Text("Level 3")
+                    TextField("Postition", text: $newUser.position)
+                    TextField("Department", text: $newUser.department)
+                    Picker("Privilige", selection: $newUser.privilege) {
+                        ForEach(privilegeOptions, id: \.self) { level in
+                            Text("Level \(level)").tag(level)
+                        }
                     }
-                    Toggle("Administrator Privilige", isOn: $isUserAdmin)
+                    Toggle("Administrator", isOn: $newUser.isAdmin)
                 }
                 
+                // Create User Button
                 Button {
-                                        
-                    guard validateData() else {
+                    // Validate credentails before continuing to create the user
+                    guard validateCredentials() else {
                         alertText = "Error In User Data..."
                         presentAlert = true
                         return
                     }
-                    let firebaseController = FirebaseController()
-                    let newUser = User()
-                    newUser.configureUserData(userID: "0",
-                                              employeeNumber: Int(employeeNumber) ?? 0,
-                                              username: name,
-                                              email: email,
-                                              company: user.company,
-                                              department: department,
-                                              companyPosition: position,
-                                              privilege: 1,
-                                              isAdmin: isUserAdmin,
-                                              isFirstLogin: true)
                     
+                    // Store additional information in the new user
+                    newUser.employeeNumber = Int(employeeNumber) ?? 0
+                    newUser.isFirstLogin = true
+                    
+                    // Create a task for async communication with firebase
                     Task {
-                        guard await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password) else {
+                        // Create a firebaseController
+                        let firebaseController = FirebaseController()
+                        // Try to create the new user
+                        do {
+                            try await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
+                            alertText = "User Created Successfully!"                        }
+                        catch {
                             alertText = "Error While Creating User..."
-                            presentAlert = true
-                            return
+                            print(error)
                         }
-                        alertText = "User Created Successfully!"
                         presentAlert = true
                     }
                 } label: {
@@ -102,13 +102,12 @@ struct CreateUserView: View {
         .navigationBarTitle("Create New User")
     }
     
-    func validateData() -> Bool {
+    func validateCredentials() -> Bool {
         guard email != "" else { return false }
         guard email.contains("@") else { return false }
         guard password == passwordConfirm else { return false }
         return true
     }
-
 }
 
 struct ConfigureNewUserView_Previews: PreviewProvider {

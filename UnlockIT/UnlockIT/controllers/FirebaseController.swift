@@ -11,33 +11,27 @@ import Firebase
 
 class FirebaseController {
     
-    func CreateNewUser(adminUser: User, newUser: User, newUserPassword: String) async -> Bool {
-        do {
-            let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
-            
-            guard try await SetUserCompanyName(companyName: adminUser.company) else { return false }
-            
-            let data: [String : Any]  = ["username" : newUser.username,
-                                         "position" : newUser.position,
-                                         "employeeNumber" : newUser.employeeNumber,
-                                         "company" : adminUser.company,
-                                         "department" : newUser.department,
-                                         "privilege" : newUser.privilege,
-                                         "email" : newUser.email,
-                                         "isAdmin": newUser.isAdmin,
-                                         "firstLogin": true]
-            
-            let firestoreRef = Firestore.firestore()
-            try await firestoreRef.collection("Companies").document(adminUser.company).collection("Users").document(authResult.user.uid).setData(data)
-            
-            let (email, password) = adminUser.loadCredentialsFromDevice()
-            try await Auth.auth().signIn(withEmail: email, password: password)
-            return true
-        }
-        catch {
-            print(error)
-            return false
-        }
+    func CreateNewUser(adminUser: User, newUser: User, newUserPassword: String) async throws {
+       
+        let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
+        
+        try await SetUserCompanyName(companyName: adminUser.company)
+        
+        let data: [String : Any]  = ["username" : newUser.username,
+                                     "position" : newUser.position,
+                                     "employeeNumber" : newUser.employeeNumber,
+                                     "company" : adminUser.company,
+                                     "department" : newUser.department,
+                                     "privilege" : newUser.privilege,
+                                     "email" : newUser.email,
+                                     "isAdmin": newUser.isAdmin,
+                                     "firstLogin": true]
+        
+        let firestoreRef = Firestore.firestore()
+        try await firestoreRef.collection("Companies").document(adminUser.company).collection("Users").document(authResult.user.uid).setData(data)
+        
+        let (email, password) = adminUser.loadCredentialsFromDevice()
+        try await Auth.auth().signIn(withEmail: email, password: password)
     }
     
     func SignIn(_ user: User, _ email: String, _ password: String) async -> Bool {
@@ -88,11 +82,10 @@ class FirebaseController {
         }
     }
     
-    func SetUserCompanyName(companyName: String) async throws -> Bool{
+    func SetUserCompanyName(companyName: String) async throws {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = companyName
         try await changeRequest?.commitChanges()
-        return true
     }
     
 

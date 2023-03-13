@@ -39,7 +39,7 @@ struct AdminControls: View {
                             let firebaseController = FirebaseController()
                             Task {
                                 do {
-                                    companyUpdated = try await firebaseController.SetUserCompanyName(companyName: "DTU")
+                                    try await firebaseController.SetUserCompanyName(companyName: "DTU")
                                 }
                                 catch {
                                     print(error)
