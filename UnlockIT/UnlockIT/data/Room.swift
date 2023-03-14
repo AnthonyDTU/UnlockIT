@@ -35,17 +35,17 @@ enum RoomType: CaseIterable, ExampleProtocol {
 }
 
 struct Room: Identifiable  {
-    
+    /*
     static let jonasUser = (User(userID: "1", employeeNumber: 25, username: "Jonas", email: "Jensen", department: "Engineering", companyPosition: "Student engineer", privilege: 2, isAdmin: false, isFirstLogin: false))
     static let spiderManUser = (User(userID: "2", employeeNumber: 26, username: "Spider", email: "Man", department: "Operations", companyPosition: "Shopper", privilege: 2, isAdmin: false, isFirstLogin: false))
-    
+    */
     static let lock1 = Lock(id: "1", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -1000000))
     static let lock2 = Lock(id: "2", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -1098664))
     
     var id: String = "2"
     var locks : [Lock] = [lock1, lock2];
     var description : String = "Random Room";
-    var authorizedUsers : [User] = [jonasUser, spiderManUser];
+    var authorizedUsers : [User] = [];
     var roomType: RoomType = RoomType.office;
     var bookable: Bool = true;
     

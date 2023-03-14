@@ -53,6 +53,7 @@ struct LoginView: View {
                         let firebaseController = FirebaseController()
                         do {
                             try await firebaseController.SignIn(user, email, password)
+                            try await firebaseController.GetUserDataFromFirestore(user: user)
                             dismiss()
                         }
                         catch {

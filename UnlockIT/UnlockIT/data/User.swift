@@ -36,39 +36,11 @@ final class User: ObservableObject, Identifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(userID)
     }
-    
-    
-    // Remove?
-    init(userID: String, employeeNumber: Int, username: String, email: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
-        self.userID = userID
-        self.employeeNumber = employeeNumber
-        self.username = username
-        self.email = email
-        self.department = department
-        self.position = companyPosition
-        self.privilege = privilege
-        self.isAdmin = isAdmin
-        self.isFirstLogin = isFirstLogin
-    }
-    
+   
     init() {
         
     }
-    
-    
-    func configureUserData(userID: String, employeeNumber: Int, username: String, email: String, company: String, department: String, companyPosition: String, privilege: Int, isAdmin: Bool, isFirstLogin: Bool) {
-        self.userID = userID
-        self.employeeNumber = employeeNumber
-        self.username = username
-        self.email = email
-        self.company = company
-        self.department = department
-        self.position = companyPosition
-        self.privilege = privilege
-        self.isAdmin = isAdmin
-        self.isFirstLogin = isFirstLogin
-    }
-    
+
     func configureUserData(userID: String, data: [String : Any]) {
         self.userID = userID
         self.employeeNumber = data["employeeNumber"] as! Int

@@ -12,14 +12,9 @@ struct EditUserView: View {
     @Binding var user: User
     
     @State private var employeeNumber : String = ""
-    
-    @State private var errorUpdatingUser = false
-    @State private var userCreatedSuccessfully = false
-    @State private var errorInData = false
-    
+    @State private var showAlert: Bool = false
+    @State private var alertText: String = ""
     @State private var confirmDeleteUser = false
-    
-    
     @State private var privilegeOptions = [1, 2, 3, 4, 5]
     
     var body: some View {
@@ -42,13 +37,18 @@ struct EditUserView: View {
                 
                 // Update User button
                 Button {
-                    
                     user.employeeNumber = Int(employeeNumber) ?? 0
-                    
                     Task {
-                        // Update user in firestore
-                        let firebaseController = FirebaseController()
-                        
+                        do {
+                            // Update user in firestore
+                            let firebaseController = FirebaseController()
+                            try await firebaseController.UpdateUserData(updatedUser: user)
+                            alertText = "User updated successfully!"
+                        }
+                        catch {
+                            print(error)
+                            alertText = "Error updating user..."
+                        }
                     }
                 } label: {
                     HStack {
@@ -61,16 +61,12 @@ struct EditUserView: View {
                 .padding()
                 .background(Color.accentColor)
                 .cornerRadius(8)
-                .alert(isPresented: $errorUpdatingUser) {
-                    Alert(title: Text("Error While Updating User..."))
-                }
-                .alert(isPresented: $userCreatedSuccessfully) {
-                    Alert(title: Text("User Updated Succesfully!"))
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text(alertText))
                 }
                 
                 // Delete User button
                 Button {
-                    let firebaseController = FirebaseController()
                     confirmDeleteUser = true
                     
                 } label: {

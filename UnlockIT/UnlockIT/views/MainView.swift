@@ -96,7 +96,7 @@ struct MainView: View {
                 let firebaseController = FirebaseController()
                 Task {
                     do {
-                        try await firebaseController.GetUserDataFromFirestore(user: user, userID: Auth.auth().currentUser!.uid, company: "DTU")
+                        try await firebaseController.GetUserDataFromFirestore(user: user)
                     }
                     catch {
                         print(error)
