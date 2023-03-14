@@ -64,7 +64,6 @@ struct EditUserView: View {
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text(alertText))
                 }
-                
                 // Delete User button
                 Button {
                     confirmDeleteUser = true

@@ -20,31 +20,15 @@ struct AdminControls: View {
             if userState.isValidated {
                 NavigationStack {
                     List {
-                        NavigationLink{
-                            RoomsView()
-                        } label: {
-                            Label("Manage Rooms", systemImage: "house.fill")
-                        }
-                        NavigationLink {
-                            CreateUserView()
-                        } label: {
-                            Label("New User", systemImage: "person.badge.plus")
-                        }
                         NavigationLink {
                             ManageUsersView()
                         } label: {
                             Label("Manage Users", systemImage: "person.2.badge.gearshape")
                         }
-                        Button ("Set Company") {
-                            let firebaseController = FirebaseController()
-                            Task {
-                                do {
-                                    try await firebaseController.SetUserCompanyName(companyName: "DTU")
-                                }
-                                catch {
-                                    print(error)
-                                }
-                            }
+                        NavigationLink{
+                            RoomsView()
+                        } label: {
+                            Label("Manage Rooms", systemImage: "house.fill")
                         }
                         .alert(isPresented: $companyUpdated) {
                             Alert(title: Text("Company Updated Successfully..."))
@@ -65,8 +49,6 @@ struct AdminControls: View {
         }
     }
 }
-
-
 
 struct AdminControls_Previews: PreviewProvider {
     static var previews: some View {

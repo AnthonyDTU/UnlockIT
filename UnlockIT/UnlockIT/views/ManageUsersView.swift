@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ManageUsersView: View {
     
+    @EnvironmentObject private var user: User
     @StateObject private var userbaseModel = UserbaseViewModel()
     
     
@@ -44,7 +45,7 @@ struct ManageUsersView: View {
             Task {
                 
                 do {
-                    try await userbaseModel.loadExistingUsersFromFirestore()
+                    try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
                 }
                 catch{
                     // Show message to user
@@ -53,7 +54,30 @@ struct ManageUsersView: View {
             }
             //userbaseModel.loadExistingUsers()
         }
+        .toolbar(.hidden, for: .tabBar)
+        .toolbar {
+            NavigationLink {
+                CreateUserView()
+            } label: {
+                Image(systemName: "person.badge.plus")
+            }
+        }
+        .refreshable {
+            do {
+                try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
+            }
+            catch {
+                print(error)
+            }
+        }
         
+        VStack {
+            NavigationLink {
+                CreateUserView()
+            } label: {
+                Label("Add User", systemImage: "person.badge.plus")
+            }
+        }
         /*
         VStack {
             
@@ -77,6 +101,7 @@ struct ManageUsersView: View {
         }
          */
     }
+        
 }
 
 struct ManageUsersView_Previews: PreviewProvider {

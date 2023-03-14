@@ -14,14 +14,14 @@ struct credentialsKeys {
 
 final class User: ObservableObject, Identifiable, Hashable {
     
-    @Published var userID: String = "1"
-    @Published var employeeNumber: Int = 1
-    @Published var username: String = "Anton"
-    @Published var email: String = "Test User"
-    @Published var company: String = "DTU"
-    @Published var department: String = "R&D"
-    @Published var position: String = "Engineer"
-    @Published var privilege: Int = 3
+    @Published var userID: String = ""
+    @Published var employeeNumber: Int = 0
+    @Published var username: String = ""
+    @Published var email: String = ""
+    @Published var company: String = ""
+    @Published var department: String = ""
+    @Published var position: String = ""
+    @Published var privilege: Int = 1
     @Published var isAdmin: Bool = false
     @Published var isFirstLogin: Bool = false
     

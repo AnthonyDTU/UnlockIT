@@ -12,15 +12,9 @@ struct CreateUserView: View {
     
     @EnvironmentObject private var user : User
     
-    @State private var name : String = ""
     @State private var employeeNumber : String = ""
-    @State private var email : String = ""
     @State private var password : String = ""
     @State private var passwordConfirm : String = ""
-    @State private var position : String = ""
-    @State private var department : String = ""
-    @State private var privilege : Int = 1
-    @State private var isUserAdmin : Bool = false
     
     @State private var presentAlert : Bool = false
     @State private var alertText: String = ""
@@ -103,9 +97,12 @@ struct CreateUserView: View {
     }
     
     func validateCredentials() -> Bool {
-        guard email != "" else { return false }
-        guard email.contains("@") else { return false }
+        guard user.email != "" else { return false }
+        guard user.email.contains("@") else { return false }
         guard password == passwordConfirm else { return false }
+        guard user.department != "" else { return false }
+        guard user.position != "" else { return false }
+        guard user.employeeNumber != 0 else { return false }
         return true
     }
 }
