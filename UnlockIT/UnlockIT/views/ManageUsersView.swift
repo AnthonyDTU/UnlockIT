@@ -11,6 +11,8 @@ struct ManageUsersView: View {
     
     @EnvironmentObject private var user: User
     @StateObject private var userbaseModel = UserbaseViewModel()
+    @State private var showAlert = false
+    @State private var alertText = ""
     
     
     var body: some View {
@@ -43,18 +45,19 @@ struct ManageUsersView: View {
         .navigationBarTitle("Manage Users")
         .onAppear(){
             Task {
-                
                 do {
                     try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
                 }
                 catch{
                     // Show message to user
+                    alertText = "Error loading users from database"
+                    showAlert = true
                     print(error)
                 }
             }
-            //userbaseModel.loadExistingUsers()
         }
         .toolbar(.hidden, for: .tabBar)
+        // Maybe this?
         .toolbar {
             NavigationLink {
                 CreateUserView()
@@ -67,10 +70,17 @@ struct ManageUsersView: View {
                 try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
             }
             catch {
+                // Show message to user
+                alertText = "Error updating users from database"
+                showAlert = true
                 print(error)
             }
         }
-        
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(alertText))
+        }
+      
+        // Or maybe this?
         VStack {
             NavigationLink {
                 CreateUserView()
@@ -78,30 +88,7 @@ struct ManageUsersView: View {
                 Label("Add User", systemImage: "person.badge.plus")
             }
         }
-        /*
-        VStack {
-            
-            
-            List(userbaseModel.users) { user in
-                NavigationLink {
-                    TestView()
-                } label: {
-                    Label(user.username, systemImage: "person")
-                }
-            }
-            Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
-            Spacer()
-        }
-        .navigationBarTitle("Manage Users")
-        .onAppear(){
-            userbaseModel.loadExistingUsers()
-        }
-        .refreshable {
-            //userbaseModel.loadExistingUsers()
-        }
-         */
     }
-        
 }
 
 struct ManageUsersView_Previews: PreviewProvider {
