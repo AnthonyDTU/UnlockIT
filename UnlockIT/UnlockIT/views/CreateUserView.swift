@@ -29,7 +29,7 @@ struct CreateUserView: View {
     
     var body: some View {
      
-        VStack {
+        NavigationStack {
             Form {
                 Section (header: Text("Credentials")){
                     TextField("Email", text: $newUser.email)

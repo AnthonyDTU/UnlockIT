@@ -22,6 +22,7 @@ struct RoomsView: View {
                 }
             }
         }
+        .navigationBarTitle("Manage Rooms")
     }
 }
 

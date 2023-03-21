@@ -19,7 +19,7 @@ struct EditUserView: View {
     
     var body: some View {
         
-        VStack {
+        NavigationStack {
             Form {
                 Section (header: Text("User Details")) {
                     TextField("Email", text: $user.email).disabled(true)

@@ -126,7 +126,9 @@ class FirebaseController {
         try await changeRequest?.commitChanges()
     }
     
-
+    
+    /// Updates a users data in firestore database
+    /// - Parameter updatedUser: The user who is to be updated
     func UpdateUserData(updatedUser: User) async throws {
         
         // Create a data object with the new users information
