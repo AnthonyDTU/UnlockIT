@@ -9,7 +9,7 @@ import Foundation
 
 struct credentialsKeys {
     static let emailKey = "UnlockIT_emailKey"
-    static let passwordKey = "UnlockIT_passwordKey"
+    //static let passwordKey = "UnlockIT_passwordKey"
 }
 
 final class User: ObservableObject, Identifiable, Hashable {
@@ -60,19 +60,19 @@ final class User: ObservableObject, Identifiable, Hashable {
     func storeCredentialsOnDevice(email: String, password: String) {
         let defaults = UserDefaults.standard
         defaults.set(email, forKey: credentialsKeys.emailKey)
-        defaults.set(password, forKey: credentialsKeys.passwordKey)
+        //defaults.set(password, forKey: credentialsKeys.passwordKey)
         
         let encodedPassword = password.data(using: String.Encoding.utf8)
         var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrAccount as String: email,
-                                    kSecValueData as String: password]
+                                    kSecValueData as String: encodedPassword]
         
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else { return }
         
     }
     
-    func loadCredentialsFromDevice() -> (String, String){
+    func loadCredentialsFromDevice() -> (String, String) {
         let defaults = UserDefaults.standard
         var email: String = ""
         var password: String = ""
@@ -83,7 +83,7 @@ final class User: ObservableObject, Identifiable, Hashable {
             let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                         kSecAttrAccount as String: loadedEmail,
                                         kSecMatchLimit as String: kSecMatchLimitOne,
-                                        kSecReturnAttributes as String: true,
+                                        kSecReturnAttributes as String: false,
                                         kSecReturnData as String: true]
             
             var item: CFTypeRef?
@@ -101,9 +101,11 @@ final class User: ObservableObject, Identifiable, Hashable {
             password = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
         }
         
+        /*
         if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
             password = loadedPassword
         }
+         */
         return (email, password)
     }
 }

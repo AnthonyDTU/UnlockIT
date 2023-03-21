@@ -52,16 +52,16 @@ struct CreateUserView: View {
                 
                 // Create User Button
                 Button {
+                    // Store additional information in the new user
+                    newUser.employeeNumber = Int(employeeNumber) ?? 0
+                    newUser.isFirstLogin = true
+                    
                     // Validate credentails before continuing to create the user
                     guard validateCredentials() else {
                         alertText = "Error In User Data..."
                         presentAlert = true
                         return
                     }
-                    
-                    // Store additional information in the new user
-                    newUser.employeeNumber = Int(employeeNumber) ?? 0
-                    newUser.isFirstLogin = true
                     
                     // Create a task for async communication with firebase
                     Task {
@@ -70,7 +70,8 @@ struct CreateUserView: View {
                         // Try to create the new user
                         do {
                             try await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
-                            alertText = "User Created Successfully!"                        }
+                            alertText = "User Created Successfully!"
+                        }
                         catch {
                             alertText = "Error While Creating User..."
                             print(error)
@@ -97,12 +98,12 @@ struct CreateUserView: View {
     }
     
     func validateCredentials() -> Bool {
-        guard user.email != "" else { return false }
-        guard user.email.contains("@") else { return false }
+        guard newUser.email != "" else { return false }
+        guard newUser.email.contains("@") else { return false }
         guard password == passwordConfirm else { return false }
-        guard user.department != "" else { return false }
-        guard user.position != "" else { return false }
-        guard user.employeeNumber != 0 else { return false }
+        guard newUser.department != "" else { return false }
+        guard newUser.position != "" else { return false }
+        guard newUser.employeeNumber != 0 else { return false }
         return true
     }
 }
