@@ -105,7 +105,6 @@ struct ManageUsersView: View {
                     Label("Add User", systemImage: "person.badge.plus")
                 }
             }
-        
     }
 }
 

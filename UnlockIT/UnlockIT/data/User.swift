@@ -24,6 +24,8 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var privilege: Int = 1
     @Published var isAdmin: Bool = false
     @Published var isFirstLogin: Bool = false
+    @Published var userState: UserState = UserState()
+    
     
     var id: String {
         return userID
@@ -59,6 +61,15 @@ final class User: ObservableObject, Identifiable, Hashable {
         let defaults = UserDefaults.standard
         defaults.set(email, forKey: credentialsKeys.emailKey)
         defaults.set(password, forKey: credentialsKeys.passwordKey)
+        
+        let encodedPassword = password.data(using: String.Encoding.utf8)
+        var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                    kSecAttrAccount as String: email,
+                                    kSecValueData as String: password]
+        
+        let status = SecItemAdd(query as CFDictionary, nil)
+        guard status == errSecSuccess else { return }
+        
     }
     
     func loadCredentialsFromDevice() -> (String, String){
@@ -68,7 +79,28 @@ final class User: ObservableObject, Identifiable, Hashable {
         
         if let loadedEmail = defaults.string(forKey: credentialsKeys.emailKey) {
             email = loadedEmail
+            
+            let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+                                        kSecAttrAccount as String: loadedEmail,
+                                        kSecMatchLimit as String: kSecMatchLimitOne,
+                                        kSecReturnAttributes as String: true,
+                                        kSecReturnData as String: true]
+            
+            var item: CFTypeRef?
+            let status = SecItemCopyMatching(query as CFDictionary, &item)
+            
+            guard status != errSecItemNotFound else { return ("", "") }
+            guard status == errSecSuccess else { return ("", "") }
+    
+            guard let existingItem = item as? [String : Any],
+                  let passwordData = existingItem[kSecValueData as String] as? Data
+            else {
+                return ("", "")
+            }
+            
+            password = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
         }
+        
         if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
             password = loadedPassword
         }
