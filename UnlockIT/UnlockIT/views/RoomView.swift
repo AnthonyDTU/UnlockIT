@@ -9,11 +9,8 @@ import SwiftUI
 
 struct RoomView: View {
     
-    var room: Room
+    @Binding var room: Room
     
-    init(room: Room) {
-        self.room = room
-    }
     
     var body: some View {
         ScrollView {
@@ -61,25 +58,26 @@ struct RoomView: View {
                 Text("Authorized Users    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
                 Divider().background(Color.blue)
                 
-                ForEach(room.authorizedUsers) { user in
+                ForEach(room.authorizedUsers, id: \.self) { user in
                     HStack {
                         Text(Image(systemName: "person.circle"))
-                        Text("\(user.username)")
+                        Text("\(user)")
                     }
                     .padding(2)
                 }
-                
                 .background(Color.white)
                 
-                Spacer()
+                NavigationLink("Edit", destination: AddRoomView(room: $room, isEditing: true))
+                
+                //Spacer()
             }
         }
-        
     }
 }
 
 struct RoomView_Previews: PreviewProvider {
-    static let room = Room()
+    static var roomsDummyData = RoomsModel()
+    static var room = Binding<Room>(get: { roomsDummyData.newRoom }, set: { roomsDummyData.newRoom = $0 })
     
     
     
