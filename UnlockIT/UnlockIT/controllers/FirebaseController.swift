@@ -8,66 +8,142 @@
 import Foundation
 import Firebase
 
+enum FirebaseControllerError: Error {
+    case noConnection
+    case companyNameNotAvaliable
+    case userIDNotAvailiable
+}
 
+/// Controller for interacting with the firebase backend, in relation to users.
+/// This includes both authentication in the backend system, as well as storeing and fetching of user data
 class FirebaseController {
     
-    func CreateNewUser(adminUser: User, newUser: User, newUserPassword: String) async -> Bool {
-        do {
-            let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
-            
-            let databaseRef = Database.database().reference()
-            let data: [String : Any]  = ["username" : newUser.username,
-                                         "position" : newUser.position,
-                                         "department" : newUser.department,
-                                         "privilege" : newUser.privilege,
-                                         "email" : newUser.email,
-                                         "isAdmin": newUser.isAdmin,
-                                         "firstLogin": true]
-            
-            try await databaseRef.child("Users/\(authResult.user.uid)").setValue(data)
-            
-            let (email, password) = adminUser.loadCredentialsFromDevice()
-            try await Auth.auth().signIn(withEmail: email, password: password)
-            //_ = await SignIn(adminUser, email, password)
-            return true
-        }
-        catch {
-            print(error)
-            return false
+    /// Creates a new user in the firebase Authentication database
+    /// Also creates a document in thge firestore database with user information
+    /// - Parameters:
+    ///   - adminUser: The local administrator user object
+    ///   - newUser: The local new user object
+    ///   - newUserPassword: The password of the new user
+    func CreateNewUser(adminUser: User, newUser: User, newUserPassword: String) async throws {
+       
+        // Crete the new user in firebase Authentication database
+        let authResult = try await Auth.auth().createUser(withEmail: newUser.email, password: newUserPassword)
+        
+        // Set the new user's company name
+        try await SetUserCompanyName(companyName: adminUser.company)
+        
+        // Create a data object with the new users information
+        let data: [String : Any]  = ["username" : newUser.username,
+                                     "position" : newUser.position,
+                                     "employeeNumber" : newUser.employeeNumber,
+                                     "company" : adminUser.company,
+                                     "department" : newUser.department,
+                                     "privilege" : newUser.privilege,
+                                     "email" : newUser.email,
+                                     "isAdmin": newUser.isAdmin,
+                                     "firstLogin": true]
+        
+        // Store the new users information in a document in firestore
+        try await StoreUserDataInFirestore(adminUser.company, authResult.user.uid, data)
+        
+        // Load the administrators credentials from userdefaults and log in to the administrator account (which was logged into before).
+        // This has to be done, since firebase signs into the new user automatically
+        try await ReAuthenticateAdmin(adminUser)
+    }
+    
+    /// Creates and stores a document in firestore, containing the users information
+    /// - Parameters:
+    ///   - company: The company the user is associated with
+    ///   - userID: The ID of the user
+    ///   - data: The users data
+    fileprivate func StoreUserDataInFirestore(_ company: String, _ userID: String, _ data: [String : Any]) async throws {
+        let firestoreRef = Firestore.firestore()
+        try await firestoreRef.collection("Companies").document(company).collection("Users").document(userID).setData(data)
+    }
+    
+    /// Loads the stored admin credentials from userdefaults and re login to the admin user in firebase Authentication
+    /// - Parameter adminUser: The local administrator user
+    fileprivate func ReAuthenticateAdmin(_ adminUser: User) async throws {
+        let (email, password) = adminUser.loadCredentialsFromDevice()
+        try await Auth.auth().signIn(withEmail: email, password: password)
+    }
+    
+    /// Sign a user into firebase Authentication system,
+    /// - Parameters:
+    ///   - user: The user class on device
+    ///   - email: The email of the user, used in firebase
+    ///   - password: The password of the user, used in firebase
+    func SignIn(_ user: User, _ email: String, _ password: String) async throws {
+        
+        try await Auth.auth().signIn(withEmail: email, password: password)
+        DispatchQueue.main.async {
+            user.storeCredentialsOnDevice(email: email, password: password)
         }
     }
     
-    func SignIn(_ user: User, _ email: String, _ password: String) async -> Bool {
-        do {
-            let authResults = try await Auth.auth().signIn(withEmail: email, password: password)
+    /// Updates a users password
+    /// - Parameters:
+    ///   - user: The user, whose password is to be updated (current user)
+    ///   - newPassword: The users new password
+    func UpdateUserPassword(user: User, newPassword: String) async throws {
+        
+        // Update the password of the current user
+        try await Auth.auth().currentUser?.updatePassword(to: newPassword)
+        
+        // If password change is because of firstLogin rules, update the user locally and in firestore to reflect that the user has changed its password
+        if user.isFirstLogin {
+            try await Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID).updateData(["firstLogin" : false])
+            user.isFirstLogin = false
+        }
+    }
+    
+    /// Gets the user data for the logged in user from firestore database.
+    /// - Parameter user: The local user object, where the fetched information is stored
+    func GetUserDataFromFirestore(user: User) async throws {
+        
+        // Get the userid and the company the user belongs to
+        guard let userID = Auth.auth().currentUser?.uid else { throw FirebaseControllerError.userIDNotAvailiable }
+        guard let company = Auth.auth().currentUser?.displayName else { throw FirebaseControllerError.companyNameNotAvaliable }
+        
+        // Get the document containing this users information
+        let firestore = Firestore.firestore()
+        let documentSnapshot = try await firestore.collection("Companies").document(company).collection("Users").document(userID).getDocument()
+        
+        // Update the local user with the information from the fetched document
+        if let data = documentSnapshot.data() {
             DispatchQueue.main.async {
-                user.storeCredentialsOnDevice(email: email, password: password)
+                user.configureUserData(userID: userID, data: data)
             }
-            GetUserDataFromFirebase(user: user, userID: authResults.user.uid)
-            return true
-        }
-        catch {
-            print(error)
-            return false
         }
     }
     
-    func GetUserDataFromFirebase(user: User, userID: String) {
-        
-        let databaseRef = Database.database().reference()
-        databaseRef.child("Users").child(userID).observeSingleEvent(of: .value, with: { snapshot in
-            if let data = snapshot.value as? [String : Any]{
-                DispatchQueue.main.async {
-                    user.configureUserData(userID: userID, data: data)
-                }
-            }
-        })
+    
+    /// Sets the company of the curret user in firebases Authentication database
+    /// - Parameter companyName: The name of the company the current user works for
+    func SetUserCompanyName(companyName: String) async throws {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = companyName
+        try await changeRequest?.commitChanges()
     }
     
-
-    func UpdateUser() {
+    
+    /// Updates a users data in firestore database
+    /// - Parameter updatedUser: The user who is to be updated
+    func UpdateUserData(updatedUser: User) async throws {
         
-        // This is just a database thing, so should be possible
+        // Create a data object with the new users information
+        let data: [String : Any]  = ["username" : updatedUser.username,
+                                     "position" : updatedUser.position,
+                                     "employeeNumber" : updatedUser.employeeNumber,
+                                     "company" : updatedUser.company,
+                                     "department" : updatedUser.department,
+                                     "privilege" : updatedUser.privilege,
+                                     "email" : updatedUser.email,
+                                     "isAdmin": updatedUser.isAdmin,
+                                     "firstLogin": updatedUser.isFirstLogin]
+        
+        // Try to update the data in firestore database
+        try await Firestore.firestore().collection("Companies").document(updatedUser.company).collection("Users").document(updatedUser.userID).updateData(data)
     }
     
     func DeleteUser(){

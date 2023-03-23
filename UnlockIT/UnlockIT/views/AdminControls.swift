@@ -11,6 +11,7 @@ import LocalAuthenticationEmbeddedUI
 
 struct AdminControls: View {
     @EnvironmentObject private var userState: UserState
+    @State private var companyUpdated: Bool = false
 
     var body: some View {
         
@@ -19,20 +20,18 @@ struct AdminControls: View {
             if userState.isValidated {
                 NavigationStack {
                     List {
-                        NavigationLink{
-                            RoomsView()
-                        } label: {
-                            Label("Manage Rooms", systemImage: "house.fill")
-                        }
-                        NavigationLink {
-                            CreateUserView()
-                        } label: {
-                            Label("New User", systemImage: "person.badge.plus")
-                        }
                         NavigationLink {
                             ManageUsersView()
                         } label: {
                             Label("Manage Users", systemImage: "person.2.badge.gearshape")
+                        }
+                        NavigationLink {
+                            RoomsView()
+                        } label: {
+                            Label("Manage Rooms", systemImage: "house.fill")
+                        }
+                        .alert(isPresented: $companyUpdated) {
+                            Alert(title: Text("Company Updated Successfully..."))
                         }
                     }
                     .navigationBarTitle("Admin Controls")
@@ -50,8 +49,6 @@ struct AdminControls: View {
         }
     }
 }
-
-
 
 struct AdminControls_Previews: PreviewProvider {
     static var previews: some View {

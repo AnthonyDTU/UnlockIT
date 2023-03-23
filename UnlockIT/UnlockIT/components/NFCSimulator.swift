@@ -26,6 +26,8 @@ struct NFCSimulator: View {
                     .font(Font.system(.largeTitle).bold())
                     .foregroundColor(.gray)
                 Text("(Which actually uses WiFi, but don't tell anyone...)")
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 10))
                     .foregroundColor(.gray)
                     
                 Spacer()

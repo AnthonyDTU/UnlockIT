@@ -40,9 +40,12 @@ class UserState: ObservableObject {
         // Biometrics are avaliable, so run check
         let reason = "We need to verify that it is really you using your phone"
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-            DispatchQueue.main.async {
+            Task { @MainActor in
                 self.isValidated = success
             }
+            //DispatchQueue.main.async {
+            //    self.isValidated = success
+            //}
         }
     }
     

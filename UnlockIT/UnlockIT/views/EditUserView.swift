@@ -11,55 +11,44 @@ struct EditUserView: View {
     
     @Binding var user: User
     
-    @State private var name : String = ""
     @State private var employeeNumber : String = ""
-    @State private var email : String = ""
-    @State private var password : String = ""
-    @State private var passwordConfirm : String = ""
-    @State private var position : String = ""
-    @State private var department : String = ""
-    @State private var privilege : String = "Level 1"
-    @State private var isUserAdmin : Bool = false
-    
-    @State private var errorUpdatingUser = false
-    @State private var userCreatedSuccessfully = false
-    @State private var errorInData = false
-    
+    @State private var showAlert: Bool = false
+    @State private var alertText: String = ""
     @State private var confirmDeleteUser = false
+    @State private var privilegeOptions = [1, 2, 3, 4, 5]
     
     var body: some View {
         
-        VStack {
+        NavigationStack {
             Form {
                 Section (header: Text("User Details")) {
-                    
                     TextField("Email", text: $user.email).disabled(true)
                     TextField("Name", text: $user.username)
                     TextField("Employee Number", text: $employeeNumber).disabled(true)
                     TextField("Postition", text: $user.position)
                     TextField("Department", text: $user.department)
                     Picker("Privilige", selection: $user.privilege) {
-                        Text("Level 1")
-                        Text("Level 2")
-                        Text("Level 3")
+                        ForEach(privilegeOptions, id: \.self) { level in
+                            Text("Level \(level)").tag(level)
+                        }
                     }
                     Toggle("Administrator Privilige", isOn: $user.isAdmin)
                 }
                 
                 // Update User button
                 Button {
-                    let firebaseController = FirebaseController()
-                    user.configureUserData(userID: user.userID,
-                                           employeeNumber: user.employeeNumber,
-                                           username: user.username,
-                                           email: user.email,
-                                           department: department,
-                                           companyPosition: position,
-                                           privilege: 1,
-                                           isAdmin: isUserAdmin)
-                    
+                    user.employeeNumber = Int(employeeNumber) ?? 0
                     Task {
-                        // Update user here
+                        do {
+                            // Update user in firestore
+                            let firebaseController = FirebaseController()
+                            try await firebaseController.UpdateUserData(updatedUser: user)
+                            alertText = "User updated successfully!"
+                        }
+                        catch {
+                            print(error)
+                            alertText = "Error updating user..."
+                        }
                     }
                 } label: {
                     HStack {
@@ -72,16 +61,11 @@ struct EditUserView: View {
                 .padding()
                 .background(Color.accentColor)
                 .cornerRadius(8)
-                .alert(isPresented: $errorUpdatingUser) {
-                    Alert(title: Text("Error While Updating User..."))
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text(alertText))
                 }
-                .alert(isPresented: $userCreatedSuccessfully) {
-                    Alert(title: Text("User Updated Succesfully!"))
-                }
-                
                 // Delete User button
                 Button {
-                    let firebaseController = FirebaseController()
                     confirmDeleteUser = true
                     
                 } label: {

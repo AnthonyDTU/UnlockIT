@@ -9,54 +9,102 @@ import SwiftUI
 
 struct ManageUsersView: View {
     
+    @EnvironmentObject private var user: User
     @StateObject private var userbaseModel = UserbaseViewModel()
+    @State private var showAlert = false
+    @State private var alertText = ""
     
     
     var body: some View {
         
-        List {
-            ForEach(userbaseModel.users, id: \.self) { user in
-                NavigationLink {
-                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
-                } label: {
-                    Label(user.username, systemImage: "person")
+            List {
+                if !userbaseModel.finishedLoading {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                }
+                else {
+                    Section(header: Text("Administrators")) {
+                        ForEach(userbaseModel.users, id: \.self) { user in
+                            if user.isAdmin {
+                                NavigationLink {
+                                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                                } label: {
+                                    Label(user.username, systemImage: "person")
+                                }
+                            }
+                        }
+                    }
+                    
+                    Section(header: Text("Users")) {
+                        ForEach(userbaseModel.users, id: \.self) { user in
+                            if !user.isAdmin {
+                                NavigationLink {
+                                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                                } label: {
+                                    Label(user.username, systemImage: "person")
+                                }
+                            }
+                        }
+                    }
+                    
+                    VStack {
+                        HStack{
+                            Spacer()
+                            Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+                            Spacer()
+                        }
+                    }
                 }
             }
+            .navigationTitle("Manage Users")
+            .onAppear(){
+                Task {
+                    do {
+                        try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
+                    }
+                    catch{
+                        // Show message to user
+                        alertText = "Error loading users from database"
+                        showAlert = true
+                        print(error)
+                    }
+                }
+            }
+            .toolbar(.hidden, for: .tabBar)
+            // Maybe this?
+            .toolbar {
+                NavigationLink {
+                    CreateUserView()
+                } label: {
+                    Image(systemName: "person.badge.plus")
+                }
+            }
+            .refreshable {
+                do {
+                    try await userbaseModel.loadExistingUsersFromFirestore(company: user.company)
+                }
+                catch {
+                    // Show message to user
+                    alertText = "Error updating users from database"
+                    showAlert = true
+                    print(error)
+                }
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text(alertText))
+            }
+          
+            // Or maybe this?
             VStack {
-                HStack{
-                    Spacer()
-                    Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
-                    Spacer()
-                }
-            }
-        }
-        .navigationBarTitle("Manage Users")
-        .onAppear(){
-            userbaseModel.loadExistingUsers()
-        }
-        
-        /*
-        VStack {
-            
-            
-            List(userbaseModel.users) { user in
                 NavigationLink {
-                    TestView()
+                    CreateUserView()
                 } label: {
-                    Label(user.username, systemImage: "person")
+                    Label("Add User", systemImage: "person.badge.plus")
                 }
             }
-            Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
-            Spacer()
-        }
-        .navigationBarTitle("Manage Users")
-        .onAppear(){
-            userbaseModel.loadExistingUsers()
-        }
-        .refreshable {
-            //userbaseModel.loadExistingUsers()
-        }
-         */
     }
 }
 

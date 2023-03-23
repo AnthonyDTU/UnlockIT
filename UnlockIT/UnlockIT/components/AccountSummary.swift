@@ -43,7 +43,7 @@ struct AccountSummary: View {
                 HStack {
                     Text("Is Administrator: ")
                     Spacer()
-                    Text("false").bold()
+                    Text(String(user.isAdmin)).bold()
                 }
             }
             .padding()

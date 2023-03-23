@@ -9,9 +9,12 @@ import SwiftUI
 import Firebase
 
 struct MainView: View {
-    @EnvironmentObject var user : User
-    @EnvironmentObject var userState : UserState
+    @EnvironmentObject private var appStyle: AppStyle
+    @EnvironmentObject private var user : User
+    @EnvironmentObject private var userState : UserState
     @State private var showLoginScreen : Bool = false
+    @State private var showChangePasswordScreen : Bool = false
+    @State private var presentSheet : Bool = false
     
     var body: some View {
         
@@ -19,9 +22,53 @@ struct MainView: View {
             if userState.isLoggedOut {
                 VStack {
                     Text("Login to use app features..")
-                    Button("Login"){
-                        showLoginScreen = true
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 16, weight: .semibold))
+                        .padding()
+                    HStack {
+                        Button(){
+                            showLoginScreen = true
+                            presentSheet = true
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Login")
+                                Spacer()
+                            }
+                        }
+                        .foregroundColor(.white)
+                        .padding(15)
+                        .background(Color.accentColor)
+                        .cornerRadius(appStyle.cornerRadiusSmall)
                     }
+                    .padding()
+                }
+            }
+            else if (user.isFirstLogin) {
+                VStack {
+                    Text("Since it is your first login, you need to update your password before using the app")
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 16, weight: .semibold))
+                        .padding()
+                    
+                    HStack {
+                        Button(){
+                            showChangePasswordScreen = true
+                            presentSheet = true
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Update Password")
+                                Spacer()
+                            }
+                        }
+                        .foregroundColor(.white)
+                        .padding(15)
+                        .background(Color.accentColor)
+                        .cornerRadius(appStyle.cornerRadiusSmall)
+                    }
+                    .padding()
+                    
                 }
             }
             else{
@@ -47,18 +94,32 @@ struct MainView: View {
         .onAppear() {
             if userState.isLoggedOut == false {
                 let firebaseController = FirebaseController()
-                firebaseController.GetUserDataFromFirebase(user: user, userID: Auth.auth().currentUser!.uid)
+                Task {
+                    do {
+                        try await firebaseController.GetUserDataFromFirestore(user: user)
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
             }
             showLoginScreen = userState.isLoggedOut
         }
-        .sheet(isPresented: $showLoginScreen) {
-            LoginView()
+        .sheet(isPresented: $presentSheet) {
+            if showLoginScreen {
+                LoginView(showLoginView: $showLoginScreen)
+            }
+            else if showChangePasswordScreen {
+                ChangePasswordView(showChangePasswordView: $showChangePasswordScreen)
+            }
         }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
+    @StateObject static var appStyle = AppStyle()
+    
     static var previews: some View {
-        MainView()
+        MainView().environmentObject(appStyle)
     }
 }

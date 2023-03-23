@@ -43,6 +43,7 @@ struct RoomsView: View {
         .onAppear() {
             roomsModel.fetchRooms()
         }
+        .navigationBarTitle("Manage Rooms")
     }
 }
 
