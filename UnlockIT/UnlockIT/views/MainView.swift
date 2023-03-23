@@ -19,6 +19,7 @@ struct MainView: View {
     var body: some View {
         
         NavigationView {
+            // If a us
             if userState.isLoggedOut {
                 VStack {
                     Text("Login to use app features..")
@@ -27,8 +28,7 @@ struct MainView: View {
                         .padding()
                     HStack {
                         Button(){
-                            showLoginScreen = true
-                            presentSheet = true
+                            preparePresentSheet(_showLoginScreen: true, _showChangePasswordScreen: false)
                         } label: {
                             HStack {
                                 Spacer()
@@ -53,8 +53,7 @@ struct MainView: View {
                     
                     HStack {
                         Button(){
-                            showChangePasswordScreen = true
-                            presentSheet = true
+                            preparePresentSheet(_showLoginScreen: false, _showChangePasswordScreen: true)
                         } label: {
                             HStack {
                                 Spacer()
@@ -113,6 +112,21 @@ struct MainView: View {
                 ChangePasswordView(showChangePasswordView: $showChangePasswordScreen)
             }
         }
+    }
+    
+    
+    func preparePresentSheet(_showLoginScreen: Bool, _showChangePasswordScreen: Bool) {
+        guard _showLoginScreen ^ _showChangePasswordScreen else { return }
+        showLoginScreen = _showLoginScreen
+        showChangePasswordScreen = _showChangePasswordScreen
+        presentSheet = true
+    }
+}
+
+// Move
+extension Bool {
+    static func ^ (left: Bool, right: Bool) -> Bool {
+        return left != right
     }
 }
 

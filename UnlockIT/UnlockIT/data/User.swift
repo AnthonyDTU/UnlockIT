@@ -9,7 +9,13 @@ import Foundation
 
 struct credentialsKeys {
     static let emailKey = "UnlockIT_emailKey"
-    //static let passwordKey = "UnlockIT_passwordKey"
+    static let passwordKey = "UnlockIT_passwordKey"
+}
+
+enum KeychainError: Error {
+    case noPassword
+    case unexpectedPasswordData
+    case unhandledError(status: OSStatus)
 }
 
 final class User: ObservableObject, Identifiable, Hashable {
@@ -57,29 +63,31 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
     
     
-    func storeCredentialsOnDevice(email: String, password: String) {
+    func storeCredentialsOnDevice(email: String, password: String) throws {
         let defaults = UserDefaults.standard
         defaults.set(email, forKey: credentialsKeys.emailKey)
-        //defaults.set(password, forKey: credentialsKeys.passwordKey)
         
-        let encodedPassword = password.data(using: String.Encoding.utf8)
-        var query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
+        defaults.set(password, forKey: credentialsKeys.passwordKey)
+        /*
+        let encodedPassword = password.data(using: String.Encoding.utf8)!
+        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrAccount as String: email,
                                     kSecValueData as String: encodedPassword]
         
         let status = SecItemAdd(query as CFDictionary, nil)
-        guard status == errSecSuccess else { return }
+        guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
+         */
         
     }
     
-    func loadCredentialsFromDevice() -> (String, String) {
+    func loadCredentialsFromDevice() throws -> (String, String) {
         let defaults = UserDefaults.standard
         var email: String = ""
         var password: String = ""
         
         if let loadedEmail = defaults.string(forKey: credentialsKeys.emailKey) {
             email = loadedEmail
-            
+            /*
             let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                         kSecAttrAccount as String: loadedEmail,
                                         kSecMatchLimit as String: kSecMatchLimitOne,
@@ -89,23 +97,22 @@ final class User: ObservableObject, Identifiable, Hashable {
             var item: CFTypeRef?
             let status = SecItemCopyMatching(query as CFDictionary, &item)
             
-            guard status != errSecItemNotFound else { return ("", "") }
-            guard status == errSecSuccess else { return ("", "") }
+            guard status != errSecItemNotFound else { throw KeychainError.noPassword }
+            guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     
             guard let existingItem = item as? [String : Any],
                   let passwordData = existingItem[kSecValueData as String] as? Data
             else {
-                return ("", "")
+                throw KeychainError.unexpectedPasswordData
             }
             
             password = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
+             */
         }
-        
-        /*
         if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
             password = loadedPassword
         }
-         */
+        
         return (email, password)
     }
 }

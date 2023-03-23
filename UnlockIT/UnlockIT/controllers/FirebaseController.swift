@@ -64,7 +64,7 @@ class FirebaseController {
     /// Loads the stored admin credentials from userdefaults and re login to the admin user in firebase Authentication
     /// - Parameter adminUser: The local administrator user
     fileprivate func ReAuthenticateAdmin(_ adminUser: User) async throws {
-        let (email, password) = adminUser.loadCredentialsFromDevice()
+        let (email, password) = try adminUser.loadCredentialsFromDevice()
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
     
@@ -77,7 +77,12 @@ class FirebaseController {
         
         try await Auth.auth().signIn(withEmail: email, password: password)
         DispatchQueue.main.async {
-            user.storeCredentialsOnDevice(email: email, password: password)
+            do {
+                try user.storeCredentialsOnDevice(email: email, password: password)
+            }
+            catch {
+                print(error)
+            }
         }
     }
     
