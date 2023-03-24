@@ -17,7 +17,7 @@ struct AdminControls: View {
         
         VStack{
             
-            if user.state.isValidated {
+            if user.isValidated {
                 NavigationStack {
                     List {
                         NavigationLink {
@@ -42,10 +42,10 @@ struct AdminControls: View {
             }
         }
         .onAppear() {
-            user.state.validateUser()
+            user.validateUser()
         }
         .onDisappear() {
-            user.state.resetUserValidation()
+            user.resetUserValidation()
         }
     }
 }

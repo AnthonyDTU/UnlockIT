@@ -20,7 +20,7 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                user.state.validateUser()
+                user.validateUser()
                 scanNow = true
             }
     }
@@ -51,7 +51,7 @@ struct HomeView: View {
                 Spacer()
             }
             
-            if scanNow && user.state.isValidated {
+            if scanNow && user.isValidated {
                 NFCSimulator(scanNow: $scanNow, selectedLevel: $selectedLevel)
             }
         }

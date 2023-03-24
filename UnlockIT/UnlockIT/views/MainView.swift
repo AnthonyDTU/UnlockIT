@@ -19,7 +19,7 @@ struct MainView: View {
         
         NavigationView {
             // If a us
-            if user.state.isLoggedOut {
+            if user.isLoggedOut {
                 VStack {
                     Text("Login to use app features..")
                         .multilineTextAlignment(.center)
@@ -43,7 +43,7 @@ struct MainView: View {
                     .padding()
                 }
             }
-            else if (user.isFirstLogin) {
+            else if user.isFirstLogin {
                 VStack {
                     Text("Since it is your first login, you need to update your password before using the app")
                         .multilineTextAlignment(.center)
@@ -90,7 +90,7 @@ struct MainView: View {
             }
         }
         .onAppear() {
-            if user.state.isLoggedOut == false {
+            if user.isLoggedOut == false {
                 let firebaseController = FirebaseController()
                 Task {
                     do {
@@ -101,7 +101,7 @@ struct MainView: View {
                     }
                 }
             }
-            showLoginScreen = user.state.isLoggedOut
+            showLoginScreen = user.isLoggedOut
         }
         .sheet(isPresented: $presentSheet) {
             if showLoginScreen {
@@ -116,8 +116,17 @@ struct MainView: View {
     
     func preparePresentSheet(_showLoginScreen: Bool, _showChangePasswordScreen: Bool) {
         guard _showLoginScreen ^ _showChangePasswordScreen else { return }
-        showLoginScreen = _showLoginScreen
-        showChangePasswordScreen = _showChangePasswordScreen
+        showLoginScreen = false
+        showChangePasswordScreen = false
+        
+        if _showLoginScreen {
+            showLoginScreen = true
+            print(showLoginScreen)
+        }
+        if _showChangePasswordScreen {
+            showChangePasswordScreen = true
+        }
+        
         presentSheet = true
     }
 }
@@ -131,7 +140,6 @@ extension Bool {
 
 struct MainView_Previews: PreviewProvider {
     @StateObject static var appStyle = AppStyle()
-    
     static var previews: some View {
         MainView().environmentObject(appStyle)
     }

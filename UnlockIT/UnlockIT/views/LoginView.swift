@@ -77,7 +77,12 @@ struct LoginView: View {
                 }
             }
             .padding()
+            
+            
             Spacer()
+        }
+        .onDisappear {
+            showLoginView = false
         }
     }
 }

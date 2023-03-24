@@ -35,7 +35,6 @@
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
 		EBB20DED29A4ECA0007AF69A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEC29A4ECA0007AF69A /* FirebaseDatabaseSwift */; };
 		EBB20DEF29A4ECA0007AF69A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEE29A4ECA0007AF69A /* FirebaseFirestoreSwift */; };
-		EBB20DF629A520BB007AF69A /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF529A520BB007AF69A /* UserState.swift */; };
 		EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */; };
 		EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF929A5493C007AF69A /* CreateUserView.swift */; };
 		EBB20DFC29A54954007AF69A /* ConfigureNewMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */; };
@@ -73,7 +72,6 @@
 		EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
-		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
 		EBB20DF929A5493C007AF69A /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNewMeetingRoomView.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				7D214EE4299F80E600D19798 /* User.swift */,
-				EBB20DF529A520BB007AF69A /* UserState.swift */,
 				EBF2C8F729ABE25900D22A20 /* AppStyle.swift */,
 				7D0687BB29ACF89800500A3A /* Lock.swift */,
 				7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */,
@@ -283,7 +280,6 @@
 				7D95385029C9DC7A00C800FC /* AddRoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
 				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
-				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
 				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,

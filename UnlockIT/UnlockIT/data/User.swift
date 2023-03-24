@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import LocalAuthentication
+import Firebase
 
-struct credentialsKeys {
+struct credentialKeys {
     static let emailKey = "UnlockIT_emailKey"
     static let passwordKey = "UnlockIT_passwordKey"
 }
@@ -15,8 +17,11 @@ struct credentialsKeys {
 enum KeychainError: Error {
     case noPassword
     case unexpectedPasswordData
+    case encodingError
     case unhandledError(status: OSStatus)
 }
+
+
 
 final class User: ObservableObject, Identifiable, Hashable {
     
@@ -30,8 +35,9 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var privilege: Int = 1
     @Published var isAdmin: Bool = false
     @Published var isFirstLogin: Bool = false
-    @Published var state = UserState()
     
+    @Published var isLoggedOut: Bool = true
+    @Published var isValidated: Bool = false
     
     var id: String {
         return userID
@@ -46,7 +52,18 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
    
     init() {
+        // Check if the user is already logged in to firebase backend
+        isLoggedOut = Auth.auth().currentUser == nil
         
+        // Create a listener for the login state in firebase, and update the local state accordingly
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user == nil {
+                self.isLoggedOut = true
+            }
+            else {
+                self.isLoggedOut = false
+            }
+        }
     }
 
     func configureUserData(userID: String, data: [String : Any]) {
@@ -63,12 +80,46 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
     
     
+    /// Stores the users credentials in persistent storage
+    /// Email is stored in userdefaults, and password is stored in keychain with email as an attribute
+    /// - Parameters:
+    ///   - email: The users email
+    ///   - password: The users password
     func storeCredentialsOnDevice(email: String, password: String) throws {
         let defaults = UserDefaults.standard
-        defaults.set(email, forKey: credentialsKeys.emailKey)
-        defaults.set(password, forKey: credentialsKeys.passwordKey)
+        defaults.set(email, forKey: credentialKeys.emailKey)
+        defaults.set(password, forKey: credentialKeys.passwordKey)
         
-        let encodedPassword = password.data(using: String.Encoding.utf8)!
+        
+        guard let encodedPassword: Data = password.data(using: String.Encoding.utf8) else { throw KeychainError.encodingError }
+        
+        var query: [String: Any] = [kSecAttrAccount as String: email]
+        var status = SecItemCopyMatching(query as CFDictionary, nil)
+        switch status {
+        // 4
+        case errSecSuccess:
+            var attributesToUpdate: [String: Any] = [:]
+            attributesToUpdate[String(kSecValueData)] = encodedPassword
+              
+            status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
+            if status != errSecSuccess {
+                throw KeychainError.unhandledError(status: status)
+            }
+        // 5
+        case errSecItemNotFound:
+            query[String(kSecValueData)] = encodedPassword
+          
+            status = SecItemAdd(query as CFDictionary, nil)
+            if status != errSecSuccess {
+                throw KeychainError.unhandledError(status: status)
+            }
+        default:
+            throw KeychainError.unhandledError(status: status)
+        }
+        
+        
+        
+        /*
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrAccount as String: email,
                                     kSecValueData as String: encodedPassword]
@@ -77,14 +128,16 @@ final class User: ObservableObject, Identifiable, Hashable {
         guard status == errSecSuccess else {
             throw KeychainError.unhandledError(status: status)
         }
+         */
     }
     
+    /// Loads the users email from userdefaults, and the password from keychain
+    /// - Returns: Tuple containing Email, Password
     func loadCredentialsFromDevice() throws -> (String, String) {
-        let defaults = UserDefaults.standard
         var email: String = ""
         var password: String = ""
         
-        if let loadedEmail = defaults.string(forKey: credentialsKeys.emailKey) {
+        if let loadedEmail = UserDefaults.standard.string(forKey: credentialKeys.emailKey) {
             email = loadedEmail
             
             let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
@@ -108,11 +161,37 @@ final class User: ObservableObject, Identifiable, Hashable {
             let testpassword = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
              
         }
-        if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
+        
+        if let loadedPassword = UserDefaults.standard.string(forKey: credentialKeys.passwordKey) {
             password = loadedPassword
         }
         
         return (email, password)
+    }
+    
+    func validateUser(){
+        let context = LAContext()
+        var error: NSError?
+        
+        // Check if the device has biometric functionallity
+        if !context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            return
+        }
+        
+        // Biometrics are avaliable, so run check
+        let reason = "We need to verify that it is really you using your phone"
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+            Task { @MainActor in
+                self.isValidated = success
+            }
+            //DispatchQueue.main.async {
+            //    self.isValidated = success
+            //}
+        }
+    }
+    
+    func resetUserValidation() {
+        isValidated = false
     }
 }
 
