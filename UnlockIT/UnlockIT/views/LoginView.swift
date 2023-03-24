@@ -15,7 +15,6 @@ struct LoginView: View {
     
     @EnvironmentObject private var appStyle : AppStyle
     @EnvironmentObject private var user : User
-    @EnvironmentObject private var userState : UserState
     
     
     @Binding var showLoginView: Bool

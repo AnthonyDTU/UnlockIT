@@ -11,7 +11,6 @@ import Firebase
 struct MainView: View {
     @EnvironmentObject private var appStyle: AppStyle
     @EnvironmentObject private var user : User
-    @EnvironmentObject private var userState : UserState
     @State private var showLoginScreen : Bool = false
     @State private var showChangePasswordScreen : Bool = false
     @State private var presentSheet : Bool = false
@@ -20,7 +19,7 @@ struct MainView: View {
         
         NavigationView {
             // If a us
-            if userState.isLoggedOut {
+            if user.state.isLoggedOut {
                 VStack {
                     Text("Login to use app features..")
                         .multilineTextAlignment(.center)
@@ -91,7 +90,7 @@ struct MainView: View {
             }
         }
         .onAppear() {
-            if userState.isLoggedOut == false {
+            if user.state.isLoggedOut == false {
                 let firebaseController = FirebaseController()
                 Task {
                     do {
@@ -102,7 +101,7 @@ struct MainView: View {
                     }
                 }
             }
-            showLoginScreen = userState.isLoggedOut
+            showLoginScreen = user.state.isLoggedOut
         }
         .sheet(isPresented: $presentSheet) {
             if showLoginScreen {

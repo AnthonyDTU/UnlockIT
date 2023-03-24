@@ -74,7 +74,6 @@ struct ManageUsersView: View {
                 }
             }
             .toolbar(.hidden, for: .tabBar)
-            // Maybe this?
             .toolbar {
                 NavigationLink {
                     CreateUserView()
@@ -95,15 +94,6 @@ struct ManageUsersView: View {
             }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text(alertText))
-            }
-          
-            // Or maybe this?
-            VStack {
-                NavigationLink {
-                    CreateUserView()
-                } label: {
-                    Label("Add User", systemImage: "person.badge.plus")
-                }
             }
     }
 }

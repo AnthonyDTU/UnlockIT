@@ -40,8 +40,7 @@ enum RoomType: String, CaseIterable, Codable {
 
 struct Room: Identifiable, Codable, Equatable  {
     
-    static var jonasUser = (User(userID: "1", employeeNumber: 25, username: "Jonas", email: "Jensen", department: "Engineering", companyPosition: "Student engineer", privilege: 2, isAdmin: false))
-    static var spiderManUser = (User(userID: "2", employeeNumber: 26, username: "Spider", email: "Man", department: "Operations", companyPosition: "Shopper", privilege: 2, isAdmin: false))
+
     
     static var lock1 = Lock(description: "Lock 1", authenticationLevel: 2, lastUnlock: NSDate(timeIntervalSinceNow: -1000000) as Date)
     static var lock2 = Lock(description: "Lock 2", authenticationLevel: 3, lastUnlock: NSDate(timeIntervalSinceNow: -1098664) as Date)
@@ -51,7 +50,7 @@ struct Room: Identifiable, Codable, Equatable  {
     var locks : [Lock] = [];
     var newLock : Lock = Lock()
     var description : String = "Room Description";
-    var authorizedUsers : [String] = [jonasUser.username, spiderManUser.username];
+    var authorizedUsers : [String] = [];
     var roomType: RoomType = RoomType.Office;
     var bookable: Bool = true;
     
@@ -135,7 +134,7 @@ class RoomsModel : ObservableObject, Identifiable {
         let billUser = (User(userID: "4", employeeNumber: 5, username: "Bill", email: "Clinton", department: "Sales", companyPosition: "Sales Manager", privilege: 3, isAdmin: false, isFirstLogin: false))
         let oprahUser = (User(userID: "5", employeeNumber: 6, username: "Oprah", email: "Something", department: "Sales", companyPosition: "Sales Woman", privilege: 2, isAdmin: false, isFirstLogin: false))
         let elonUser = (User(userID: "6", employeeNumber: 7, username: "Elon", email: "Musk", department: "Engineering", companyPosition: "Engineering Manager", privilege: 3, isAdmin: false, isFirstLogin: false))
-        */
+        
         var roomStructs: [Room] = []
         var lockStructs1: [Lock] = []
         var lockStructs2: [Lock] = []
@@ -206,5 +205,6 @@ class RoomsModel : ObservableObject, Identifiable {
             bookable: true))
         
         rooms = roomStructs
+         */
     }
 }

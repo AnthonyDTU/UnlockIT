@@ -30,7 +30,6 @@
 		EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93429B8EB6A00C87335 /* EditUserView.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
 		EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */; };
-		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -72,7 +71,6 @@
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
@@ -144,7 +142,7 @@
 				7D95384F29C9DC7A00C800FC /* AddRoomView.swift */,
 				7D95385329C9DCBA00C800FC /* AddLockView.swift */,
 				7D95385529C9DCCE00C800FC /* EditLockView.swift */,
-				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */
+				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -178,7 +176,6 @@
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
 				EBD004BB299E753D008B57A3 /* Assets.xcassets */,
 				EBD004BD299E753D008B57A3 /* Preview Content */,
-				EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */,
 			);
 			path = UnlockIT;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				7D95385029C9DC7A00C800FC /* AddRoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
 				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
-				EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */,
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
 				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
@@ -443,7 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -459,7 +455,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -478,7 +474,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -494,7 +490,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

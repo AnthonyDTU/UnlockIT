@@ -65,7 +65,6 @@ struct RoomView: View {
                     }
                     .padding(2)
                 }
-                .background(Color.white)
                 
                 NavigationLink("Edit", destination: AddRoomView(room: $room, isEditing: true))
                 

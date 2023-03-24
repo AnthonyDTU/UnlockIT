@@ -30,7 +30,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var privilege: Int = 1
     @Published var isAdmin: Bool = false
     @Published var isFirstLogin: Bool = false
-    @Published var userState: UserState = UserState()
+    @Published var state = UserState()
     
     
     var id: String {
@@ -66,18 +66,17 @@ final class User: ObservableObject, Identifiable, Hashable {
     func storeCredentialsOnDevice(email: String, password: String) throws {
         let defaults = UserDefaults.standard
         defaults.set(email, forKey: credentialsKeys.emailKey)
-        
         defaults.set(password, forKey: credentialsKeys.passwordKey)
-        /*
+        
         let encodedPassword = password.data(using: String.Encoding.utf8)!
         let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                     kSecAttrAccount as String: email,
                                     kSecValueData as String: encodedPassword]
         
         let status = SecItemAdd(query as CFDictionary, nil)
-        guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
-         */
-        
+        guard status == errSecSuccess else {
+            throw KeychainError.unhandledError(status: status)
+        }
     }
     
     func loadCredentialsFromDevice() throws -> (String, String) {
@@ -87,7 +86,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         
         if let loadedEmail = defaults.string(forKey: credentialsKeys.emailKey) {
             email = loadedEmail
-            /*
+            
             let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                         kSecAttrAccount as String: loadedEmail,
                                         kSecMatchLimit as String: kSecMatchLimitOne,
@@ -106,8 +105,8 @@ final class User: ObservableObject, Identifiable, Hashable {
                 throw KeychainError.unexpectedPasswordData
             }
             
-            password = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
-             */
+            let testpassword = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
+             
         }
         if let loadedPassword = defaults.string(forKey: credentialsKeys.passwordKey) {
             password = loadedPassword

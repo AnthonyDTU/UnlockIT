@@ -10,14 +10,14 @@ import LocalAuthentication
 import LocalAuthenticationEmbeddedUI
 
 struct AdminControls: View {
-    @EnvironmentObject private var userState: UserState
+    @EnvironmentObject private var user: User
     @State private var companyUpdated: Bool = false
 
     var body: some View {
         
         VStack{
             
-            if userState.isValidated {
+            if user.state.isValidated {
                 NavigationStack {
                     List {
                         NavigationLink {
@@ -42,10 +42,10 @@ struct AdminControls: View {
             }
         }
         .onAppear() {
-            userState.validateUser()
+            user.state.validateUser()
         }
         .onDisappear() {
-            userState.resetUserValidation()
+            user.state.resetUserValidation()
         }
     }
 }
