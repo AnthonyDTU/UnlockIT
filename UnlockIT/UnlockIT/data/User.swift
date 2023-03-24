@@ -21,8 +21,6 @@ enum KeychainError: Error {
     case unhandledError(status: OSStatus)
 }
 
-
-
 final class User: ObservableObject, Identifiable, Hashable {
     
     @Published var userID: String = ""
@@ -36,6 +34,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var isAdmin: Bool = false
     @Published var isFirstLogin: Bool = false
     
+    // State
     @Published var isLoggedOut: Bool = true
     @Published var isValidated: Bool = false
     
