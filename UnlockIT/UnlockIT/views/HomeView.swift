@@ -20,8 +20,15 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                user.validateUser()
-                scanNow = true
+                Task {
+                    do {
+                        try await user.validateUser()
+                        scanNow = true
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
             }
     }
     

@@ -54,7 +54,7 @@ struct CreateUserView: View {
                 Button {
                     // Store additional information in the new user
                     newUser.employeeNumber = Int(employeeNumber) ?? 0
-                    newUser.isFirstLogin = true
+                    newUser.firstLogin = true
                     
                     // Validate credentails before continuing to create the user
                     guard validateCredentials() else {

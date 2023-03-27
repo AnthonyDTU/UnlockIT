@@ -97,9 +97,9 @@ class FirebaseController {
         try await Auth.auth().currentUser?.updatePassword(to: newPassword)
         
         // If password change is because of firstLogin rules, update the user locally and in firestore to reflect that the user has changed its password
-        if user.isFirstLogin {
+        if user.firstLogin {
             try await Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID).updateData(["firstLogin" : false])
-            user.isFirstLogin = false
+            user.firstLogin = false
         }
     }
     
@@ -146,7 +146,7 @@ class FirebaseController {
                                      "privilege" : updatedUser.privilege,
                                      "email" : updatedUser.email,
                                      "isAdmin": updatedUser.isAdmin,
-                                     "firstLogin": updatedUser.isFirstLogin]
+                                     "firstLogin": updatedUser.firstLogin]
         
         // Try to update the data in firestore database
         try await Firestore.firestore().collection("Companies").document(updatedUser.company).collection("Users").document(updatedUser.userID).updateData(data)

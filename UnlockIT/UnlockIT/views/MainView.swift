@@ -43,7 +43,7 @@ struct MainView: View {
                     .padding()
                 }
             }
-            else if user.isFirstLogin {
+            else if user.firstLogin {
                 VStack {
                     Text("Since it is your first login, you need to update your password before using the app")
                         .multilineTextAlignment(.center)

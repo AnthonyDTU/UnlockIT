@@ -9,12 +9,10 @@ import Foundation
 import LocalAuthentication
 import Firebase
 
-
-
-
 enum UserError: Error {
     case emailNotFoundInUserDefaults
     case errorDecodingPassword
+    case biometricsNotAvaliable
 }
 
 final class User: ObservableObject, Identifiable, Hashable {
@@ -33,7 +31,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var position: String = ""
     @Published var privilege: Int = 1
     @Published var isAdmin: Bool = false
-    @Published var isFirstLogin: Bool = false
+    @Published var firstLogin: Bool = false
     
     // State
     @Published var isLoggedOut: Bool = true
@@ -77,7 +75,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         self.position = data["position"] as! String
         self.privilege = data["privilege"] as! Int
         self.isAdmin = data["isAdmin"] as! Bool
-        self.isFirstLogin = data["firstLogin"] as! Bool
+        self.firstLogin = data["firstLogin"] as! Bool
     }
     
     
@@ -91,7 +89,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         UserDefaults.standard.set(password, forKey: credentialKeys.passwordKey)
         
         let keychainManager = KeychainManager()
-        try keychainManager.saveValue(account: email, data: password.data(using: .utf8)!)
+        try keychainManager.storeValue(account: email, data: password.data(using: .utf8)!)
         
     }
     
@@ -104,32 +102,42 @@ final class User: ObservableObject, Identifiable, Hashable {
         }
         
         let keychainManager = KeychainManager()
-        guard let loadedData = try keychainManager.readValue(account: email) else {
+        guard let loadedData = try keychainManager.fetchValue(account: email) else {
             throw UserError.errorDecodingPassword
         }
 
         let password = String(decoding: loadedData, as: UTF8.self)
         return (email, password)
     }
-    
+    internal var context = LAContext()
     
     /// Validates the user via biometric authentication, if avaliable
-    func validateUser(){
-        let context = LAContext()
+    func validateUser() async throws {
+        
         var error: NSError?
         
         // Check if the device has biometric functionallity
-        if !context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            return
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            throw UserError.biometricsNotAvaliable
         }
         
         // Biometrics are avaliable, so run check
         let reason = "We need to verify that it is really you using your phone"
+        
+        let status = try await context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason)
+        
+        DispatchQueue.main.async {
+            self.isValidated = status
+        }
+        
+        
+        /*
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
             Task { @MainActor in
                 self.isValidated = success
             }
         }
+        */
     }
     
     

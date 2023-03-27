@@ -42,7 +42,14 @@ struct AdminControls: View {
             }
         }
         .onAppear() {
-            user.validateUser()
+            Task {
+                do {
+                    try await user.validateUser()
+                }
+                catch {
+                    print(error)
+                }
+            }
         }
         .onDisappear() {
             user.resetUserValidation()

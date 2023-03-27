@@ -18,8 +18,11 @@ class KeychainManager {
         case unkown(OSStatus)
     }
     
-    
-    func saveValue(account: String, data: Data) throws {
+    /// Stores a value of type Data in the keychain. If a value for the given account already exists, it is overwritten with the new data
+    /// - Parameters:
+    ///   - account: The account tag for the data
+    ///   - data: The data
+    func storeValue(account: String, data: Data) throws {
         let testQuery: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName as AnyObject,
@@ -60,7 +63,11 @@ class KeychainManager {
         }
     }
     
-    func readValue(account: String) throws -> Data? {
+    
+    /// Fetches a value of type Data from the keychain
+    /// - Parameter account: The account tag of the data
+    /// - Returns: The fetched data or nil
+    func fetchValue(account: String) throws -> Data? {
         
         let query: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
