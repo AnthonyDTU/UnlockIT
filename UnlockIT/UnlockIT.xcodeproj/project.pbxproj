@@ -29,6 +29,7 @@
 		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
 		EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93429B8EB6A00C87335 /* EditUserView.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
+		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
 		EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
@@ -69,6 +70,7 @@
 		EB13F93429B8EB6A00C87335 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2A275B29AE806C00BE19EC /* FirebaseController.swift */,
+				EB496C8F29D185F700519C57 /* KeychainManager.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */,
 				7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */,
 				EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */,
+				EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */,
 				7D214EDF299E920500D19798 /* LoginView.swift in Sources */,
 				7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */,
 				7D0687BC29ACF89800500A3A /* Lock.swift in Sources */,

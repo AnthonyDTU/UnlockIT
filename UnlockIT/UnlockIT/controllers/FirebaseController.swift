@@ -9,7 +9,6 @@ import Foundation
 import Firebase
 
 enum FirebaseControllerError: Error {
-    case noConnection
     case companyNameNotAvaliable
     case userIDNotAvailiable
 }
@@ -17,6 +16,8 @@ enum FirebaseControllerError: Error {
 /// Controller for interacting with the firebase backend, in relation to users.
 /// This includes both authentication in the backend system, as well as storeing and fetching of user data
 class FirebaseController {
+    
+    
     
     /// Creates a new user in the firebase Authentication database
     /// Also creates a document in thge firestore database with user information

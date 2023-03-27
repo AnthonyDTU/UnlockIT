@@ -9,19 +9,20 @@ import Foundation
 import LocalAuthentication
 import Firebase
 
-struct credentialKeys {
-    static let emailKey = "UnlockIT_emailKey"
-    static let passwordKey = "UnlockIT_passwordKey"
-}
 
-enum KeychainError: Error {
-    case noPassword
-    case unexpectedPasswordData
-    case encodingError
-    case unhandledError(status: OSStatus)
+
+
+enum UserError: Error {
+    case emailNotFoundInUserDefaults
+    case errorDecodingPassword
 }
 
 final class User: ObservableObject, Identifiable, Hashable {
+    
+    struct credentialKeys {
+        static let emailKey = "UnlockIT_emailKey"
+        static let passwordKey = "UnlockIT_passwordKey"
+    }
     
     @Published var userID: String = ""
     @Published var employeeNumber: Int = 0
@@ -65,6 +66,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         }
     }
 
+    
     func configureUserData(userID: String, data: [String : Any]) {
         self.userID = userID
         self.employeeNumber = data["employeeNumber"] as! Int
@@ -85,89 +87,33 @@ final class User: ObservableObject, Identifiable, Hashable {
     ///   - email: The users email
     ///   - password: The users password
     func storeCredentialsOnDevice(email: String, password: String) throws {
-        let defaults = UserDefaults.standard
-        defaults.set(email, forKey: credentialKeys.emailKey)
-        defaults.set(password, forKey: credentialKeys.passwordKey)
+        UserDefaults.standard.set(email, forKey: credentialKeys.emailKey)
+        UserDefaults.standard.set(password, forKey: credentialKeys.passwordKey)
         
+        let keychainManager = KeychainManager()
+        try keychainManager.saveValue(account: email, data: password.data(using: .utf8)!)
         
-        guard let encodedPassword: Data = password.data(using: String.Encoding.utf8) else { throw KeychainError.encodingError }
-        
-        var query: [String: Any] = [kSecAttrAccount as String: email]
-        var status = SecItemCopyMatching(query as CFDictionary, nil)
-        switch status {
-        // 4
-        case errSecSuccess:
-            var attributesToUpdate: [String: Any] = [:]
-            attributesToUpdate[String(kSecValueData)] = encodedPassword
-              
-            status = SecItemUpdate(query as CFDictionary, attributesToUpdate as CFDictionary)
-            if status != errSecSuccess {
-                throw KeychainError.unhandledError(status: status)
-            }
-        // 5
-        case errSecItemNotFound:
-            query[String(kSecValueData)] = encodedPassword
-          
-            status = SecItemAdd(query as CFDictionary, nil)
-            if status != errSecSuccess {
-                throw KeychainError.unhandledError(status: status)
-            }
-        default:
-            throw KeychainError.unhandledError(status: status)
-        }
-        
-        
-        
-        /*
-        let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                    kSecAttrAccount as String: email,
-                                    kSecValueData as String: encodedPassword]
-        
-        let status = SecItemAdd(query as CFDictionary, nil)
-        guard status == errSecSuccess else {
-            throw KeychainError.unhandledError(status: status)
-        }
-         */
     }
     
     /// Loads the users email from userdefaults, and the password from keychain
-    /// - Returns: Tuple containing Email, Password
+    /// - Returns: Tuple containing (Email, Password)
     func loadCredentialsFromDevice() throws -> (String, String) {
-        var email: String = ""
-        var password: String = ""
-        
-        if let loadedEmail = UserDefaults.standard.string(forKey: credentialKeys.emailKey) {
-            email = loadedEmail
-            
-            let query: [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                        kSecAttrAccount as String: loadedEmail,
-                                        kSecMatchLimit as String: kSecMatchLimitOne,
-                                        kSecReturnAttributes as String: false,
-                                        kSecReturnData as String: true]
-            
-            var item: CFTypeRef?
-            let status = SecItemCopyMatching(query as CFDictionary, &item)
-            
-            guard status != errSecItemNotFound else { throw KeychainError.noPassword }
-            guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
-    
-            guard let existingItem = item as? [String : Any],
-                  let passwordData = existingItem[kSecValueData as String] as? Data
-            else {
-                throw KeychainError.unexpectedPasswordData
-            }
-            
-            let testpassword = String(data: passwordData, encoding: String.Encoding.utf8) ?? ""
-             
+
+        guard let email = UserDefaults.standard.string(forKey: credentialKeys.emailKey) else {
+            throw UserError.emailNotFoundInUserDefaults
         }
         
-        if let loadedPassword = UserDefaults.standard.string(forKey: credentialKeys.passwordKey) {
-            password = loadedPassword
+        let keychainManager = KeychainManager()
+        guard let loadedData = try keychainManager.readValue(account: email) else {
+            throw UserError.errorDecodingPassword
         }
-        
+
+        let password = String(decoding: loadedData, as: UTF8.self)
         return (email, password)
     }
     
+    
+    /// Validates the user via biometric authentication, if avaliable
     func validateUser(){
         let context = LAContext()
         var error: NSError?
@@ -183,12 +129,11 @@ final class User: ObservableObject, Identifiable, Hashable {
             Task { @MainActor in
                 self.isValidated = success
             }
-            //DispatchQueue.main.async {
-            //    self.isValidated = success
-            //}
         }
     }
     
+    
+    /// Resets the authentication, so the user will have to reauthenticate next time restricted functinallity is accessed
     func resetUserValidation() {
         isValidated = false
     }
