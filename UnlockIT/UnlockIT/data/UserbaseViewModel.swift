@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseDatabase
 import FirebaseFirestore
 
 final class UserbaseViewModel : ObservableObject {

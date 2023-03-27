@@ -23,7 +23,6 @@ struct LoginView: View {
     @State private var showErrorPrompt: Bool = false
     @State private var errorMessage: String = ""
     
-    
     var body: some View {
         
         VStack {

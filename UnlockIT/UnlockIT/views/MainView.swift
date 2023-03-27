@@ -116,17 +116,8 @@ struct MainView: View {
     
     func preparePresentSheet(_showLoginScreen: Bool, _showChangePasswordScreen: Bool) {
         guard _showLoginScreen ^ _showChangePasswordScreen else { return }
-        showLoginScreen = false
-        showChangePasswordScreen = false
-        
-        if _showLoginScreen {
-            showLoginScreen = true
-            print(showLoginScreen)
-        }
-        if _showChangePasswordScreen {
-            showChangePasswordScreen = true
-        }
-        
+        showLoginScreen = _showLoginScreen
+        showChangePasswordScreen = _showChangePasswordScreen
         presentSheet = true
     }
 }
