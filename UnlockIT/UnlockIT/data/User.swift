@@ -17,9 +17,11 @@ enum UserError: Error {
 
 final class User: ObservableObject, Identifiable, Hashable {
     
+    
+    internal var context = LAContext()
+    
     struct credentialKeys {
         static let emailKey = "UnlockIT_emailKey"
-        static let passwordKey = "UnlockIT_passwordKey"
     }
     
     @Published var userID: String = ""
@@ -86,7 +88,6 @@ final class User: ObservableObject, Identifiable, Hashable {
     ///   - password: The users password
     func storeCredentialsOnDevice(email: String, password: String) throws {
         UserDefaults.standard.set(email, forKey: credentialKeys.emailKey)
-        UserDefaults.standard.set(password, forKey: credentialKeys.passwordKey)
         
         let keychainManager = KeychainManager()
         try keychainManager.storeValue(account: email, data: password.data(using: .utf8)!)
@@ -109,7 +110,6 @@ final class User: ObservableObject, Identifiable, Hashable {
         let password = String(decoding: loadedData, as: UTF8.self)
         return (email, password)
     }
-    internal var context = LAContext()
     
     /// Validates the user via biometric authentication, if avaliable
     func validateUser() async throws {
@@ -143,7 +143,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     
     /// Resets the authentication, so the user will have to reauthenticate next time restricted functinallity is accessed
     func resetUserValidation() {
-        isValidated = false
+        self.isValidated = false
     }
 }
 

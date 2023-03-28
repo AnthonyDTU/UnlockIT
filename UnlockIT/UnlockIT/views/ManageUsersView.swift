@@ -26,7 +26,19 @@ struct ManageUsersView: View {
                     }
                 }
                 else {
+                    
                     Section(header: Text("Administrators")) {
+                        /*
+                        ForEach(userbaseModel.getAdministrators(), id: \.self) { user in
+                            NavigationLink {
+                                EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                            } label: {
+                                Label(user.username, systemImage: "person")
+                            }
+                        }
+                        */
+                        
+                        
                         ForEach(userbaseModel.users, id: \.self) { user in
                             if user.isAdmin {
                                 NavigationLink {
@@ -36,9 +48,18 @@ struct ManageUsersView: View {
                                 }
                             }
                         }
+                         
                     }
                     
                     Section(header: Text("Users")) {
+                        ForEach(userbaseModel.getNonAdministrators(), id: \.self) { user in
+                            NavigationLink {
+                                EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
+                            } label: {
+                                Label(user.username, systemImage: "person")
+                            }
+                        }
+                        /*
                         ForEach(userbaseModel.users, id: \.self) { user in
                             if !user.isAdmin {
                                 NavigationLink {
@@ -48,6 +69,7 @@ struct ManageUsersView: View {
                                 }
                             }
                         }
+                         */
                     }
                     
                     VStack {
