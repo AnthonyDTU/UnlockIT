@@ -173,17 +173,13 @@
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
-				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 				7D95387729CDE99A00C800FC /* LocksView.swift */,
 				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
-				7D95384F29C9DC7A00C800FC /* RoomView.swift */,
 				7D334A4A29D42B7000D65FC6 /* AddRoomView.swift */,
 				7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */,
 				7D95387529CDE2D100C800FC /* AllUsersView.swift */,
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
-				7D95384F29C9DC7A00C800FC /* AddRoomView.swift */,
-				7D95385329C9DCBA00C800FC /* AddLockView.swift */,
-				7D95385529C9DCCE00C800FC /* EditLockView.swift */,
+				7D95384F29C9DC7A00C800FC /* RoomView.swift */,
 				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 			);
 			path = views;
@@ -368,10 +364,6 @@
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
-				EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */,
-				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
-				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
-				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
@@ -572,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -588,7 +580,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -607,7 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -623,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

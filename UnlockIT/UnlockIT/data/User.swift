@@ -35,13 +35,10 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var isAdmin: Bool = false
     @Published var firstLogin: Bool = false
     
-<<<<<<< HEAD
-=======
     // State
     @Published var isLoggedOut: Bool = true
     @Published var isValidated: Bool = false
     
->>>>>>> origin/Anton
     var id: String {
         return userID
     }

@@ -16,9 +16,7 @@ struct AdminControls: View {
     var body: some View {
         
         VStack{
-            
-
-            if userState.isValidated {
+            if user.isValidated {
                 NavigationView {
                     List {
                         NavigationLink {
