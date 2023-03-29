@@ -27,15 +27,17 @@
 		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
 		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
 		EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93429B8EB6A00C87335 /* EditUserView.swift */; };
+		EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseController.swift */; };
+		EB40F61129D1A7FA007FEE14 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61029D1A7FA007FEE14 /* FirebaseAuth */; };
+		EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */; };
+		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
+		EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BC21329D1E19700205893 /* UserClassTest.swift */; };
 		EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */; };
-		EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
-		EBB20DED29A4ECA0007AF69A /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEC29A4ECA0007AF69A /* FirebaseDatabaseSwift */; };
 		EBB20DEF29A4ECA0007AF69A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEE29A4ECA0007AF69A /* FirebaseFirestoreSwift */; };
-		EBB20DF629A520BB007AF69A /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF529A520BB007AF69A /* UserState.swift */; };
 		EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */; };
 		EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DF929A5493C007AF69A /* CreateUserView.swift */; };
 		EBB20DFC29A54954007AF69A /* ConfigureNewMeetingRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */; };
@@ -45,6 +47,16 @@
 		EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2C8F329ABE1B500D22A20 /* RoomTile.swift */; };
 		EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2C8F729ABE25900D22A20 /* AppStyle.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB40F60A29D1A491007FEE14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD004AC299E7537008B57A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBD004B3299E7537008B57A3;
+			remoteInfo = UnlockIT;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7D0687BB29ACF89800500A3A /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
@@ -67,13 +79,15 @@
 		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
 		EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseViewModel.swift; sourceTree = "<group>"; };
 		EB13F93429B8EB6A00C87335 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsermodelClassTest.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		EB4BC21329D1E19700205893 /* UserClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassTest.swift; sourceTree = "<group>"; };
 		EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
-		EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unlockable.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
-		EBB20DF529A520BB007AF69A /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
 		EBB20DF929A5493C007AF69A /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNewMeetingRoomView.swift; sourceTree = "<group>"; };
@@ -87,11 +101,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EB40F60329D1A491007FEE14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB40F61129D1A7FA007FEE14 /* FirebaseAuth in Frameworks */,
+				EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBD004B1299E7537008B57A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB20DED29A4ECA0007AF69A /* FirebaseDatabaseSwift in Frameworks */,
 				EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */,
 				EBB20DEF29A4ECA0007AF69A /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -104,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				7D214EE4299F80E600D19798 /* User.swift */,
-				EBB20DF529A520BB007AF69A /* UserState.swift */,
 				EBF2C8F729ABE25900D22A20 /* AppStyle.swift */,
 				7D0687BB29ACF89800500A3A /* Lock.swift */,
 				7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */,
@@ -117,8 +138,25 @@
 			isa = PBXGroup;
 			children = (
 				EB2A275B29AE806C00BE19EC /* FirebaseController.swift */,
+				EB496C8F29D185F700519C57 /* KeychainManager.swift */,
 			);
 			path = controllers;
+			sourceTree = "<group>";
+		};
+		EB40F60729D1A491007FEE14 /* UnlockITTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
+				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
+			);
+			path = UnlockITTests;
+			sourceTree = "<group>";
+		};
+		EB40F60F29D1A7FA007FEE14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		EBB20DE129A42287007AF69A /* views */ = {
@@ -135,6 +173,7 @@
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
+<<<<<<< HEAD
 				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 				7D95387729CDE99A00C800FC /* LocksView.swift */,
 				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
@@ -143,6 +182,12 @@
 				7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */,
 				7D95387529CDE2D100C800FC /* AllUsersView.swift */,
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
+=======
+				7D95384F29C9DC7A00C800FC /* AddRoomView.swift */,
+				7D95385329C9DCBA00C800FC /* AddLockView.swift */,
+				7D95385529C9DCCE00C800FC /* EditLockView.swift */,
+				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
+>>>>>>> origin/Anton
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -152,7 +197,9 @@
 			children = (
 				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBD004B6299E7538008B57A3 /* UnlockIT */,
+				EB40F60729D1A491007FEE14 /* UnlockITTests */,
 				EBD004B5299E7538008B57A3 /* Products */,
+				EB40F60F29D1A7FA007FEE14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				EBD004B4299E7538008B57A3 /* UnlockIT.app */,
+				EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +224,6 @@
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
 				EBD004BB299E753D008B57A3 /* Assets.xcassets */,
 				EBD004BD299E753D008B57A3 /* Preview Content */,
-				EBB00D4229B20D6D000BA0A6 /* Unlockable.swift */,
 			);
 			path = UnlockIT;
 			sourceTree = "<group>";
@@ -202,6 +249,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EB40F60529D1A491007FEE14 /* UnlockITTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB40F60C29D1A491007FEE14 /* Build configuration list for PBXNativeTarget "UnlockITTests" */;
+			buildPhases = (
+				EB40F60229D1A491007FEE14 /* Sources */,
+				EB40F60329D1A491007FEE14 /* Frameworks */,
+				EB40F60429D1A491007FEE14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB40F60B29D1A491007FEE14 /* PBXTargetDependency */,
+			);
+			name = UnlockITTests;
+			packageProductDependencies = (
+				EB40F61029D1A7FA007FEE14 /* FirebaseAuth */,
+				EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */,
+			);
+			productName = UnlockITTests;
+			productReference = EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EBD004B3299E7537008B57A3 /* UnlockIT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBD004C2299E753D008B57A3 /* Build configuration list for PBXNativeTarget "UnlockIT" */;
@@ -217,7 +286,6 @@
 			name = UnlockIT;
 			packageProductDependencies = (
 				EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */,
-				EBB20DEC29A4ECA0007AF69A /* FirebaseDatabaseSwift */,
 				EBB20DEE29A4ECA0007AF69A /* FirebaseFirestoreSwift */,
 			);
 			productName = UnlockIT;
@@ -234,6 +302,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					EB40F60529D1A491007FEE14 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EBD004B3299E7537008B57A3;
+					};
 					EBD004B3299E7537008B57A3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -256,11 +328,19 @@
 			projectRoot = "";
 			targets = (
 				EBD004B3299E7537008B57A3 /* UnlockIT */,
+				EB40F60529D1A491007FEE14 /* UnlockITTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EB40F60429D1A491007FEE14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBD004B2299E7537008B57A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +354,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EB40F60229D1A491007FEE14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */,
+				EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBD004B0299E7537008B57A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,8 +371,13 @@
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
+<<<<<<< HEAD
 				EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */,
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
+=======
+				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
+				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
+>>>>>>> origin/Anton
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
@@ -292,6 +386,7 @@
 				7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */,
 				7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */,
 				EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */,
+				EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */,
 				7D214EDF299E920500D19798 /* LoginView.swift in Sources */,
 				7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */,
 				7D0687BC29ACF89800500A3A /* Lock.swift in Sources */,
@@ -314,7 +409,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EB40F60B29D1A491007FEE14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBD004B3299E7537008B57A3 /* UnlockIT */;
+			targetProxy = EB40F60A29D1A491007FEE14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		EB40F60D29D1A491007FEE14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnlockIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UnlockIT";
+			};
+			name = Debug;
+		};
+		EB40F60E29D1A491007FEE14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnlockIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UnlockIT";
+			};
+			name = Release;
+		};
 		EBD004C0299E753D008B57A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -439,7 +578,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -455,7 +594,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -474,7 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -490,7 +629,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -502,6 +641,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EB40F60C29D1A491007FEE14 /* Build configuration list for PBXNativeTarget "UnlockITTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB40F60D29D1A491007FEE14 /* Debug */,
+				EB40F60E29D1A491007FEE14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EBD004AF299E7537008B57A3 /* Build configuration list for PBXProject "UnlockIT" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -534,15 +682,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */ = {
+		EB40F61029D1A7FA007FEE14 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBB20DE929A4ECA0007AF69A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		EBB20DEC29A4ECA0007AF69A /* FirebaseDatabaseSwift */ = {
+		EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBB20DE929A4ECA0007AF69A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabaseSwift;
+			productName = FirebaseFirestoreSwift;
+		};
+		EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBB20DE929A4ECA0007AF69A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		EBB20DEE29A4ECA0007AF69A /* FirebaseFirestoreSwift */ = {
 			isa = XCSwiftPackageProductDependency;

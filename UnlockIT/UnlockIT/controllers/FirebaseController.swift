@@ -9,7 +9,6 @@ import Foundation
 import Firebase
 
 enum FirebaseControllerError: Error {
-    case noConnection
     case companyNameNotAvaliable
     case userIDNotAvailiable
 }
@@ -17,6 +16,8 @@ enum FirebaseControllerError: Error {
 /// Controller for interacting with the firebase backend, in relation to users.
 /// This includes both authentication in the backend system, as well as storeing and fetching of user data
 class FirebaseController {
+    
+    
     
     /// Creates a new user in the firebase Authentication database
     /// Also creates a document in thge firestore database with user information
@@ -64,7 +65,7 @@ class FirebaseController {
     /// Loads the stored admin credentials from userdefaults and re login to the admin user in firebase Authentication
     /// - Parameter adminUser: The local administrator user
     fileprivate func ReAuthenticateAdmin(_ adminUser: User) async throws {
-        let (email, password) = adminUser.loadCredentialsFromDevice()
+        let (email, password) = try adminUser.loadCredentialsFromDevice()
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
     
@@ -77,7 +78,12 @@ class FirebaseController {
         
         try await Auth.auth().signIn(withEmail: email, password: password)
         DispatchQueue.main.async {
-            user.storeCredentialsOnDevice(email: email, password: password)
+            do {
+                try user.storeCredentialsOnDevice(email: email, password: password)
+            }
+            catch {
+                print(error)
+            }
         }
     }
     
@@ -91,9 +97,9 @@ class FirebaseController {
         try await Auth.auth().currentUser?.updatePassword(to: newPassword)
         
         // If password change is because of firstLogin rules, update the user locally and in firestore to reflect that the user has changed its password
-        if user.isFirstLogin {
+        if user.firstLogin {
             try await Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID).updateData(["firstLogin" : false])
-            user.isFirstLogin = false
+            user.firstLogin = false
         }
     }
     
@@ -140,7 +146,7 @@ class FirebaseController {
                                      "privilege" : updatedUser.privilege,
                                      "email" : updatedUser.email,
                                      "isAdmin": updatedUser.isAdmin,
-                                     "firstLogin": updatedUser.isFirstLogin]
+                                     "firstLogin": updatedUser.firstLogin]
         
         // Try to update the data in firestore database
         try await Firestore.firestore().collection("Companies").document(updatedUser.company).collection("Users").document(updatedUser.userID).updateData(data)

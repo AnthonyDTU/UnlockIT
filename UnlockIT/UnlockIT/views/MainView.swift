@@ -11,7 +11,6 @@ import Firebase
 struct MainView: View {
     @EnvironmentObject private var appStyle: AppStyle
     @EnvironmentObject private var user : User
-    @EnvironmentObject private var userState : UserState
     @State private var showLoginScreen : Bool = false
     @State private var showChangePasswordScreen : Bool = false
     @State private var presentSheet : Bool = false
@@ -19,7 +18,8 @@ struct MainView: View {
     var body: some View {
         
         NavigationView {
-            if userState.isLoggedOut {
+            // If a us
+            if user.isLoggedOut {
                 VStack {
                     Text("Login to use app features..")
                         .multilineTextAlignment(.center)
@@ -27,8 +27,7 @@ struct MainView: View {
                         .padding()
                     HStack {
                         Button(){
-                            showLoginScreen = true
-                            presentSheet = true
+                            preparePresentSheet(_showLoginScreen: true, _showChangePasswordScreen: false)
                         } label: {
                             HStack {
                                 Spacer()
@@ -44,7 +43,7 @@ struct MainView: View {
                     .padding()
                 }
             }
-            else if (user.isFirstLogin) {
+            else if user.firstLogin {
                 VStack {
                     Text("Since it is your first login, you need to update your password before using the app")
                         .multilineTextAlignment(.center)
@@ -53,8 +52,7 @@ struct MainView: View {
                     
                     HStack {
                         Button(){
-                            showChangePasswordScreen = true
-                            presentSheet = true
+                            preparePresentSheet(_showLoginScreen: false, _showChangePasswordScreen: true)
                         } label: {
                             HStack {
                                 Spacer()
@@ -92,7 +90,7 @@ struct MainView: View {
             }
         }
         .onAppear() {
-            if userState.isLoggedOut == false {
+            if user.isLoggedOut == false {
                 let firebaseController = FirebaseController()
                 Task {
                     do {
@@ -103,7 +101,7 @@ struct MainView: View {
                     }
                 }
             }
-            showLoginScreen = userState.isLoggedOut
+            showLoginScreen = user.isLoggedOut
         }
         .sheet(isPresented: $presentSheet) {
             if showLoginScreen {
@@ -114,11 +112,25 @@ struct MainView: View {
             }
         }
     }
+    
+    
+    func preparePresentSheet(_showLoginScreen: Bool, _showChangePasswordScreen: Bool) {
+        guard _showLoginScreen ^ _showChangePasswordScreen else { return }
+        showLoginScreen = _showLoginScreen
+        showChangePasswordScreen = _showChangePasswordScreen
+        presentSheet = true
+    }
+}
+
+// Move
+extension Bool {
+    static func ^ (left: Bool, right: Bool) -> Bool {
+        return left != right
+    }
 }
 
 struct MainView_Previews: PreviewProvider {
     @StateObject static var appStyle = AppStyle()
-    
     static var previews: some View {
         MainView().environmentObject(appStyle)
     }

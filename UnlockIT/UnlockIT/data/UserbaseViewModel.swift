@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseDatabase
 import FirebaseFirestore
 
 final class UserbaseViewModel : ObservableObject {
@@ -37,5 +36,23 @@ final class UserbaseViewModel : ObservableObject {
         DispatchQueue.main.async {
             self.finishedLoading = true
         }
+    }
+    
+    func getAdministrators() -> [User] {
+        return sort(sortAdmin: true)
+    }
+    
+    func getNonAdministrators() -> [User] {
+        return sort(sortAdmin: false)
+    }
+    
+    private func sort(sortAdmin: Bool) -> [User] {
+        
+        var foundUsers: [User] = []
+        for user in users {
+            if sortAdmin && user.isAdmin { foundUsers.append(user) }
+            else if !sortAdmin && !user.isAdmin { foundUsers.append(user) }
+        }
+        return foundUsers
     }
 }

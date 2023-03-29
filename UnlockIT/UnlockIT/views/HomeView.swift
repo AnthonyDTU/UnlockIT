@@ -12,7 +12,6 @@ struct HomeView: View {
     
     @EnvironmentObject private var appStyle : AppStyle
     @EnvironmentObject private var user : User
-    @EnvironmentObject private var userState : UserState
     
     @State private var scanNow : Bool = false
     @State private var selectedLevel : Int = 0
@@ -21,8 +20,15 @@ struct HomeView: View {
     var scanLockTapGesture: some Gesture {
         TapGesture()
             .onEnded {
-                userState.validateUser()
-                scanNow = true
+                Task {
+                    do {
+                        try await user.validateUser()
+                        scanNow = true
+                    }
+                    catch {
+                        print(error)
+                    }
+                }
             }
     }
     
@@ -52,7 +58,7 @@ struct HomeView: View {
                 Spacer()
             }
             
-            if scanNow && userState.isValidated {
+            if scanNow && user.isValidated {
                 NFCSimulator(scanNow: $scanNow, selectedLevel: $selectedLevel)
             }
         }

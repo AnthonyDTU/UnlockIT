@@ -123,6 +123,4 @@ class RoomsModel : ObservableObject, Identifiable {
     func getRoomsByType(type: RoomType) -> [Room] {
         return rooms.filter { $0.roomType == type }
     }
-    
-    
 }

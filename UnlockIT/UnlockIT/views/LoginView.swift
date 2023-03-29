@@ -15,17 +15,13 @@ struct LoginView: View {
     
     @EnvironmentObject private var appStyle : AppStyle
     @EnvironmentObject private var user : User
-    @EnvironmentObject private var userState : UserState
-    
     
     @Binding var showLoginView: Bool
     
     @State private var email : String = ""
     @State private var password : String = ""
     @State private var showErrorPrompt: Bool = false
-    @State private var showPasswordErrorPrompt: Bool = false
-    @State private var showResetPasswordControls = false
-    
+    @State private var errorMessage: String = ""
     
     var body: some View {
         
@@ -56,7 +52,28 @@ struct LoginView: View {
                             try await firebaseController.GetUserDataFromFirestore(user: user)
                             dismiss()
                         }
+                        catch AuthErrorCode.invalidCredential {
+                            errorMessage = "Invalid Credentials"
+                            showErrorPrompt = true
+                        }
+                        catch AuthErrorCode.internalError {
+                            errorMessage = "Server Error"
+                            showErrorPrompt = true
+                        }
+                        catch AuthErrorCode.networkError {
+                            errorMessage = "Network Error"
+                            showErrorPrompt = true
+                        }
+                        catch FirebaseControllerError.userIDNotAvailiable {
+                            errorMessage = "Failed Getting UserID"
+                            showErrorPrompt = true
+                        }
+                        catch FirebaseControllerError.companyNameNotAvaliable {
+                            errorMessage = "Failed Getting Company Name"
+                            showErrorPrompt = true
+                        }
                         catch {
+                            errorMessage = "Unexpected Error"
                             showErrorPrompt = true
                             print(error)
                         }
@@ -78,7 +95,12 @@ struct LoginView: View {
                 }
             }
             .padding()
+            
+            
             Spacer()
+        }
+        .onDisappear {
+            showLoginView = false
         }
     }
 }
