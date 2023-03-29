@@ -368,13 +368,10 @@
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
 				7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
-<<<<<<< HEAD
 				EBB00D4329B20D6D000BA0A6 /* Unlockable.swift in Sources */,
 				EBB20DF629A520BB007AF69A /* UserState.swift in Sources */,
-=======
 				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
 				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
->>>>>>> origin/Anton
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
