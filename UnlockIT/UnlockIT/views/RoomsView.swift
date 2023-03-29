@@ -9,41 +9,40 @@ import SwiftUI
 
 struct RoomsView: View {
     @EnvironmentObject var roomsModel: RoomsModel
-    
+    @EnvironmentObject var user : User
+    @State var newRoomIndex: Int? = 1
+    @State private var isShowingAddRoomView = false
     
     var body: some View {
-        NavigationStack {
             List(RoomType.allCases, id: \.self) { roomType in
                 Section(roomType.self.Description) {
                     ForEach(roomsModel.getRoomsByType(type: roomType)) { room in
                         NavigationLink(room.description) {
                             if let roomIndex = roomsModel.rooms.firstIndex(where: { $0.id == room.id }) {
-                                        RoomView(room: $roomsModel.rooms[roomIndex])
+                                RoomView(roomIndex: roomIndex, isEditing: true)
                             }
                         }
                     }
                 }
             }
-//            List(RoomType.allCases, id: \.self) { roomType in
-//                ForEach(roomsModel.getRoomsByType(type: roomType)) { room in
-//                    Text("\(room.description)")
-//                }
-//            }
-            NavigationLink(destination: AddRoomView(room: $roomsModel.newRoom, isEditing: false)) {
-                HStack {
-                    Image(systemName: "plus")
-                    Text("Add a room")
+            .onAppear() {
+                Task {
+                    await roomsModel.fetchRooms(company: user.company)
                 }
             }
-            .onTapGesture {
-                let newRoom = Room()
-                roomsModel.newRoom = newRoom
+            .navigationBarTitle("Manage Rooms")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isShowingAddRoomView = true
+                    }) {
+                        Label("Add Room", systemImage: "plus")
+                    }
+                }
             }
-        }
-        .onAppear() {
-            roomsModel.fetchRooms()
-        }
-        .navigationBarTitle("Manage Rooms")
+            .sheet(isPresented: $isShowingAddRoomView) {
+                AddRoomView(room: Room())
+            }
     }
 }
 
@@ -52,7 +51,7 @@ struct ContentView_Previews: PreviewProvider {
     
     
     static var previews: some View {
-        
+//              RoomsView(roomsModel: RoomsModel())
             RoomsView()
             .environmentObject(roomsDummyData)
         

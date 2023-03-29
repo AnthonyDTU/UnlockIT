@@ -26,7 +26,6 @@ final class User: ObservableObject, Identifiable, Hashable {
     @Published var isFirstLogin: Bool = false
     @Published var userState: UserState = UserState()
     
-    
     var id: String {
         return userID
     }
@@ -41,6 +40,10 @@ final class User: ObservableObject, Identifiable, Hashable {
    
     init() {
         
+    }
+    
+    init(name: String) {
+        self.username = name
     }
 
     func configureUserData(userID: String, data: [String : Any]) {

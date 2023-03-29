@@ -1,88 +1,87 @@
 //
-//  RoomView.swift
-//  UnlockIT
+//  AddRoomView.swift
+//  firestore-demo
 //
-//  Created by Jonas Stenhold  on 28/02/2023.
+//  Created by Jonas Stenhold  on 12/03/2023.
 //
 
 import SwiftUI
 
 struct RoomView: View {
+    @EnvironmentObject var roomsModel: RoomsModel
+    @EnvironmentObject var user: User
+    var roomIndex: Int
+    var isEditing: Bool
+    @State private var didAddRoom = false
     
-    @Binding var room: Room
+    @Environment(\.presentationMode) var presentationMode
     
+    var options: [User] = [
+        User(name: "Jonas"),
+        User(name: "Sarah"),
+        User(name: "Jens")
+    ]
+    
+    @State private var multiSelection = Set<User>()
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack{
-                    Text(room.description)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                }
-                Divider().background(Color.blue)
-                Text("Assigned Locks    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
-                Divider().background(Color.blue)
-                VStack {
-                    ForEach(room.locks) { lock in
-                        VStack {
-                            HStack{
-                                Text("Lock")
-                                Text(Image(systemName: "lock"))
-                            }
-                            HStack {
-                                Text("Authentication Level: ")
-                                Spacer()
-                                Text("\(lock.authenticationLevel)").bold()
-                            }
-                            .padding()
-                            
-                            DatePicker (
-                                "Last Unlocked",
-                                selection: .constant(lock.lastUnlock as Date),
-                                displayedComponents: [.date, .hourAndMinute]
-                            ).font(.headline)
-                                .foregroundColor(.blue)
-                                .disabled(true)
-                            .padding()
-                        }
-                        Divider()
-                            .padding(.horizontal, 20)
+        
+        Form {
+            Section("Room Description") {
+                TextField("Description", text: $roomsModel.rooms[roomIndex].description)
+                Picker("Room Type", selection: $roomsModel.rooms[roomIndex].roomType) {
+                    ForEach(RoomType.allCases, id: \.self) { type in
+                        Text(type.Description).tag(type)
                     }
-                    
-                    
                 }
-                Divider().background(Color.blue).frame(height: 20)
-                Text("Authorized Users    \(Image(systemName: "list.bullet"))").font(.title3).padding().fontWeight(.semibold)
-                Divider().background(Color.blue)
-                
-                ForEach(room.authorizedUsers, id: \.self) { user in
-                    HStack {
-                        Text(Image(systemName: "person.circle"))
-                        Text("\(user)")
+            }
+            Section("Authorization") {
+                NavigationLink(destination: AuthorizedUsersView(roomIndex: roomIndex)) {
+                    Text("Authorized Users")
+                }
+                NavigationLink("Locks") {
+                    LocksView(roomIndex: roomIndex)
+                }
+            }
+            Section("Attributes") {
+                Toggle("Bookable", isOn: $roomsModel.rooms[roomIndex].bookable)
+            }
+            if (isEditing) {
+                Button("Update room") {
+                    roomsModel.updateRoom(company: user.company, room: $roomsModel.rooms[roomIndex].wrappedValue)
+                    
+                    presentationMode.wrappedValue.dismiss()
+                }
+            }
+            else {
+                Button("Add room") {
+                    Task {
+                        await roomsModel.fetchRooms(company: user.company)
+                        didAddRoom = true
                     }
-                    .padding(2)
+                    presentationMode.wrappedValue.dismiss()
                 }
-                .background(Color.white)
-                
-                NavigationLink("Edit", destination: AddRoomView(room: $room, isEditing: true))
-                
-                //Spacer()
+            }
+            Button("Delete") {
+                roomsModel.deleteRoom(company: user.company, roomsModel.rooms[roomIndex])
+                presentationMode.wrappedValue.dismiss()
             }
         }
+        .navigationTitle("Room")
+        .onAppear() {
+            print("Index in Add Room view: \(roomIndex)")
+        }
+        .onDisappear() {
+            if (!didAddRoom && !isEditing) {
+                roomsModel.rooms.remove(at: roomIndex)
+            }
+        }
+        
+        
     }
 }
 
-struct RoomView_Previews: PreviewProvider {
-    static var roomsDummyData = RoomsModel()
-    static var room = Binding<Room>(get: { roomsDummyData.newRoom }, set: { roomsDummyData.newRoom = $0 })
-    
-    
-    
-    static var previews: some View {
-        
-        RoomView(room: room)
-    }
-}
+//struct RoomView_Previews: PreviewProvider {
+//        static var previews: some View {
+//        }
+//}

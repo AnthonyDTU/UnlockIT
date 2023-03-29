@@ -1,71 +1,48 @@
 //
-//  AddRoomView.swift
-//  firestore-demo
+//  AddRoomView1.swift
+//  UnlockIT
 //
-//  Created by Jonas Stenhold  on 12/03/2023.
+//  Created by Jonas Stenhold  on 29/03/2023.
 //
 
 import SwiftUI
 
 struct AddRoomView: View {
     @EnvironmentObject var roomsModel: RoomsModel
-    @Binding var room: Room
-    var isEditing: Bool
-    
+    @EnvironmentObject var user: User
+    @State var room: Room
     @Environment(\.presentationMode) var presentationMode
     
-    //TODO - fetch all user from database
-    let options = ["User 1", "User 2", "User 3"]
-    
-    
     var body: some View {
-        Form {
-            Section("Room Description") {
-                TextField("Description", text: $room.description)
+        VStack {
+            List {
+                TextField("Room Description", text: $room.description)
                 Picker("Room Type", selection: $room.roomType) {
                     ForEach(RoomType.allCases, id: \.self) { type in
-                        Text(type.getDescription()).tag(type)
+                        Text(type.Description).tag(type)
                     }
                 }
             }
-            Section("Authorization") {
-                    MultiSelectComboBox(description: "Authorized Users", options: options, selectedOptions: $room.authorizedUsers)
-            }
-            NavigationLink("Attach A Lock", destination: AddLockView(locks: $room.locks))
-            Section("Locks") {
-                //TODO - this probaly needs to change ..
-                List($room.locks) { $lock in
-                    Text("\(lock.description)");
+            Button("Save") {
+                Task {
+                    await roomsModel.addRoom(company: user.company, room: room)
                 }
+                presentationMode.wrappedValue.dismiss()
             }
-            Section("Attributes") {
-                Toggle("Bookable?", isOn: $room.bookable)
+        }
+        .navigationTitle("Add Room")
+        .onDisappear() {
+            Task {
+                await roomsModel.fetchRooms(company: user.company)
             }
-            if (isEditing) {
-                Button("Update room") {
-                    roomsModel.updateRoomF(room: self.room)
-                    
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
-            else {
-                Button("Add room") {
-                    roomsModel.rooms.append(room)
-                    roomsModel.addRoom(room: room)
-                    roomsModel.fetchRooms()
-                    
-                    presentationMode.wrappedValue.dismiss()
-                }
-            }
+            
         }
     }
 }
 
-struct AddRoomView_Previews: PreviewProvider {
-    static var roomsDummyData = RoomsModel()
-        static var room = Binding<Room>(get: { roomsDummyData.newRoom }, set: { roomsDummyData.newRoom = $0 })
-           
-        static var previews: some View {
-            AddRoomView(room: room, isEditing: false).environmentObject(roomsDummyData)
-        }
-}
+
+
+//struct AddRoomView1_Previews: PreviewProvider {
+//    static var previews: some View {
+//    }
+//}
