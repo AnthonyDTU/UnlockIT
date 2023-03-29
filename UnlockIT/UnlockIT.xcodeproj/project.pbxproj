@@ -173,7 +173,6 @@
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
-<<<<<<< HEAD
 				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 				7D95387729CDE99A00C800FC /* LocksView.swift */,
 				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
@@ -182,12 +181,10 @@
 				7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */,
 				7D95387529CDE2D100C800FC /* AllUsersView.swift */,
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
-=======
 				7D95384F29C9DC7A00C800FC /* AddRoomView.swift */,
 				7D95385329C9DCBA00C800FC /* AddLockView.swift */,
 				7D95385529C9DCCE00C800FC /* EditLockView.swift */,
 				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
->>>>>>> origin/Anton
 			);
 			path = views;
 			sourceTree = "<group>";
