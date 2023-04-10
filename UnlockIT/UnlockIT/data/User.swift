@@ -18,7 +18,7 @@ enum UserError: Error {
 final class User: ObservableObject, Identifiable, Hashable {
     
     
-    internal var context = LAContext()
+    internal var authContext = LAContext()
     
     struct credentialKeys {
         static let emailKey = "UnlockIT_emailKey"
@@ -117,14 +117,14 @@ final class User: ObservableObject, Identifiable, Hashable {
         var error: NSError?
         
         // Check if the device has biometric functionallity
-        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+        guard authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
             throw UserError.biometricsNotAvaliable
         }
         
         // Biometrics are avaliable, so run check
         let reason = "We need to verify that it is really you using your phone"
         
-        let status = try await context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason)
+        let status = try await authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason)
         
         DispatchQueue.main.async {
             self.isValidated = status
@@ -144,6 +144,7 @@ final class User: ObservableObject, Identifiable, Hashable {
     /// Resets the authentication, so the user will have to reauthenticate next time restricted functinallity is accessed
     func resetUserValidation() {
         self.isValidated = false
+        authContext = LAContext()
     }
 }
 

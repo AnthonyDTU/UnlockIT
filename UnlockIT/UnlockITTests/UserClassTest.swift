@@ -63,7 +63,7 @@ final class UserClassTest: XCTestCase {
         }
         
         let user = User()
-        user.context = MOCK_LAContext()
+        user.authContext = MOCK_LAContext()
         try await user.validateUser()
         XCTAssertTrue(user.isValidated)
         
