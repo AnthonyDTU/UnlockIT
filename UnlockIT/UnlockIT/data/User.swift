@@ -65,6 +65,10 @@ final class User: ObservableObject, Identifiable, Hashable {
             }
         }
     }
+    
+    init(name: String) {
+        self.username = name
+    }
 
     
     func configureUserData(userID: String, data: [String : Any]) {

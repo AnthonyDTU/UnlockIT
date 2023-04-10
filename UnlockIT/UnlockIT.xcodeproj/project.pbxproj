@@ -11,18 +11,17 @@
 		7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BD29ACFB9100500A3A /* BookARoomView.swift */; };
 		7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */; };
 		7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C129AD1FF400500A3A /* RoomsView.swift */; };
-		7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C329ADFBE300500A3A /* RoomView.swift */; };
-		7D0687C829AE23F800500A3A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C729AE23F800500A3A /* TestView.swift */; };
 		7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */; };
 		7D214EDF299E920500D19798 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EDE299E920500D19798 /* LoginView.swift */; };
 		7D214EE5299F80E600D19798 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE4299F80E600D19798 /* User.swift */; };
 		7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */; };
 		7D214EEB299FB34F00D19798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEA299FB34F00D19798 /* HomeView.swift */; };
 		7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EEC299FB47900D19798 /* AccountSummary.swift */; };
-		7D95385029C9DC7A00C800FC /* AddRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95384F29C9DC7A00C800FC /* AddRoomView.swift */; };
-		7D95385229C9DC9B00C800FC /* MultiSelectComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95385129C9DC9B00C800FC /* MultiSelectComboBox.swift */; };
-		7D95385429C9DCBA00C800FC /* AddLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95385329C9DCBA00C800FC /* AddLockView.swift */; };
-		7D95385629C9DCCE00C800FC /* EditLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95385529C9DCCE00C800FC /* EditLockView.swift */; };
+		7D334A4B29D42B7000D65FC6 /* AddRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D334A4A29D42B7000D65FC6 /* AddRoomView.swift */; };
+		7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95384F29C9DC7A00C800FC /* RoomView.swift */; };
+		7D95385829CCC6DD00C800FC /* AuthorizedUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */; };
+		7D95387629CDE2D100C800FC /* AllUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95387529CDE2D100C800FC /* AllUsersView.swift */; };
+		7D95387829CDE99A00C800FC /* LocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95387729CDE99A00C800FC /* LocksView.swift */; };
 		EB13F92B29B3B93800C87335 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */; };
 		EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */; };
 		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
@@ -64,18 +63,17 @@
 		7D0687BD29ACFB9100500A3A /* BookARoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookARoomView.swift; sourceTree = "<group>"; };
 		7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModel.swift; sourceTree = "<group>"; };
 		7D0687C129AD1FF400500A3A /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
-		7D0687C329ADFBE300500A3A /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
-		7D0687C729AE23F800500A3A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCSimulator.swift; sourceTree = "<group>"; };
 		7D214EDE299E920500D19798 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7D214EE4299F80E600D19798 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedRoomsView.swift; sourceTree = "<group>"; };
 		7D214EEA299FB34F00D19798 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D214EEC299FB47900D19798 /* AccountSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummary.swift; sourceTree = "<group>"; };
-		7D95384F29C9DC7A00C800FC /* AddRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomView.swift; sourceTree = "<group>"; };
-		7D95385129C9DC9B00C800FC /* MultiSelectComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectComboBox.swift; sourceTree = "<group>"; };
-		7D95385329C9DCBA00C800FC /* AddLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLockView.swift; sourceTree = "<group>"; };
-		7D95385529C9DCCE00C800FC /* EditLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLockView.swift; sourceTree = "<group>"; };
+		7D334A4A29D42B7000D65FC6 /* AddRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomView.swift; sourceTree = "<group>"; };
+		7D95384F29C9DC7A00C800FC /* RoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomView.swift; sourceTree = "<group>"; };
+		7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedUsersView.swift; sourceTree = "<group>"; };
+		7D95387529CDE2D100C800FC /* AllUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersView.swift; sourceTree = "<group>"; };
+		7D95387729CDE99A00C800FC /* LocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocksView.swift; sourceTree = "<group>"; };
 		EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginView.swift; sourceTree = "<group>"; };
 		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
@@ -164,24 +162,24 @@
 		EBB20DE129A42287007AF69A /* views */ = {
 			isa = PBXGroup;
 			children = (
-				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
-				7D0687C329ADFBE300500A3A /* RoomView.swift */,
 				7D0687BD29ACFB9100500A3A /* BookARoomView.swift */,
 				7D214EDE299E920500D19798 /* LoginView.swift */,
 				7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */,
 				7D214EEA299FB34F00D19798 /* HomeView.swift */,
 				EBB20DE229A4231B007AF69A /* MainView.swift */,
 				EBB20DE729A43483007AF69A /* AdminControls.swift */,
-				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
 				EBB20DF929A5493C007AF69A /* CreateUserView.swift */,
 				EBB20DFB29A54954007AF69A /* ConfigureNewMeetingRoomView.swift */,
-				7D0687C729AE23F800500A3A /* TestView.swift */,
 				EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */,
 				EB13F92E29B6179B00C87335 /* ManageUsersView.swift */,
 				EB13F93429B8EB6A00C87335 /* EditUserView.swift */,
-				7D95384F29C9DC7A00C800FC /* AddRoomView.swift */,
-				7D95385329C9DCBA00C800FC /* AddLockView.swift */,
-				7D95385529C9DCCE00C800FC /* EditLockView.swift */,
+				7D95387729CDE99A00C800FC /* LocksView.swift */,
+				7D0687C129AD1FF400500A3A /* RoomsView.swift */,
+				7D334A4A29D42B7000D65FC6 /* AddRoomView.swift */,
+				7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */,
+				7D95387529CDE2D100C800FC /* AllUsersView.swift */,
+				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
+				7D95384F29C9DC7A00C800FC /* RoomView.swift */,
 				EBA1E19A29BF839200F2F41B /* ChangePasswordView.swift */,
 			);
 			path = views;
@@ -237,7 +235,6 @@
 				7D214EEC299FB47900D19798 /* AccountSummary.swift */,
 				EBF2C8F329ABE1B500D22A20 /* RoomTile.swift */,
 				7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */,
-				7D95385129C9DC9B00C800FC /* MultiSelectComboBox.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -365,10 +362,8 @@
 			files = (
 				EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */,
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
-				7D95385029C9DC7A00C800FC /* AddRoomView.swift in Sources */,
+				7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
-				7D0687C829AE23F800500A3A /* TestView.swift in Sources */,
-				7D0687C429ADFBE300500A3A /* RoomView.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
 				7D214EE5299F80E600D19798 /* User.swift in Sources */,
 				7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */,
@@ -381,17 +376,18 @@
 				7D214EDF299E920500D19798 /* LoginView.swift in Sources */,
 				7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */,
 				7D0687BC29ACF89800500A3A /* Lock.swift in Sources */,
+				7D334A4B29D42B7000D65FC6 /* AddRoomView.swift in Sources */,
 				7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */,
-				7D95385429C9DCBA00C800FC /* AddLockView.swift in Sources */,
 				EBB20DFC29A54954007AF69A /* ConfigureNewMeetingRoomView.swift in Sources */,
-				7D95385629C9DCCE00C800FC /* EditLockView.swift in Sources */,
+				7D95387629CDE2D100C800FC /* AllUsersView.swift in Sources */,
 				EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */,
+				7D95387829CDE99A00C800FC /* LocksView.swift in Sources */,
 				7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */,
+				7D95385829CCC6DD00C800FC /* AuthorizedUsersView.swift in Sources */,
 				EBB20DF829A5492D007AF69A /* ConfigureLockView.swift in Sources */,
 				EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */,
 				EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */,
 				EB13F93529B8EB6A00C87335 /* EditUserView.swift in Sources */,
-				7D95385229C9DC9B00C800FC /* MultiSelectComboBox.swift in Sources */,
 				EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */,
 				EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */,
 			);
@@ -568,7 +564,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -584,7 +580,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -603,7 +599,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -619,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
