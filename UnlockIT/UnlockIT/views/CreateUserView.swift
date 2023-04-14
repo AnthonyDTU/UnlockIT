@@ -26,75 +26,73 @@ struct CreateUserView: View {
     
     @State private var privilegeOptions = [1, 2, 3, 4, 5]
     
-    
     var body: some View {
      
-        NavigationStack {
-            Form {
-                Section (header: Text("Credentials")){
-                    TextField("Email", text: $newUser.email)
-                    SecureField("Password", text: $password)
-                    SecureField("Confirm Password", text: $passwordConfirm)
+     
+        Form {
+            Section (header: Text("Credentials")){
+                TextField("Email", text: $newUser.email)
+                SecureField("Password", text: $password)
+                SecureField("Confirm Password", text: $passwordConfirm)
+            }
+            
+            Section (header: Text("User Details")) {
+                TextField("Name", text: $newUser.username)
+                TextField("Employee Number", text: $employeeNumber).keyboardType(.numberPad)
+                TextField("Postition", text: $newUser.position)
+                TextField("Department", text: $newUser.department)
+                Picker("Privilige", selection: $newUser.privilege) {
+                    ForEach(privilegeOptions, id: \.self) { level in
+                        Text("Level \(level)").tag(level)
+                    }
+                }
+                Toggle("Administrator", isOn: $newUser.isAdmin)
+            }
+            
+            // Create User Button
+            Button {
+                // Store additional information in the new user
+                newUser.employeeNumber = Int(employeeNumber) ?? 0
+                newUser.firstLogin = true
+                
+                // Validate credentails before continuing to create the user
+                guard validateCredentials() else {
+                    alertText = "Error In User Data..."
+                    presentAlert = true
+                    return
                 }
                 
-                Section (header: Text("User Details")) {
-                    TextField("Name", text: $newUser.username)
-                    TextField("Employee Number", text: $employeeNumber).keyboardType(.numberPad)
-                    TextField("Postition", text: $newUser.position)
-                    TextField("Department", text: $newUser.department)
-                    Picker("Privilige", selection: $newUser.privilege) {
-                        ForEach(privilegeOptions, id: \.self) { level in
-                            Text("Level \(level)").tag(level)
-                        }
+                // Create a task for async communication with firebase
+                Task {
+                    // Create a firebaseController
+                    let firebaseController = FirebaseController()
+                    // Try to create the new user
+                    do {
+                        try await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
+                        alertText = "User Created Successfully!"
                     }
-                    Toggle("Administrator", isOn: $newUser.isAdmin)
+                    catch {
+                        alertText = "Error While Creating User..."
+                        print(error)
+                    }
+                    presentAlert = true
                 }
-                
-                // Create User Button
-                Button {
-                    // Store additional information in the new user
-                    newUser.employeeNumber = Int(employeeNumber) ?? 0
-                    newUser.firstLogin = true
-                    
-                    // Validate credentails before continuing to create the user
-                    guard validateCredentials() else {
-                        alertText = "Error In User Data..."
-                        presentAlert = true
-                        return
-                    }
-                    
-                    // Create a task for async communication with firebase
-                    Task {
-                        // Create a firebaseController
-                        let firebaseController = FirebaseController()
-                        // Try to create the new user
-                        do {
-                            try await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
-                            alertText = "User Created Successfully!"
-                        }
-                        catch {
-                            alertText = "Error While Creating User..."
-                            print(error)
-                        }
-                        presentAlert = true
-                    }
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Create User")
-                        Spacer()
-                    }
-                }
-                .foregroundColor(.white)
-                .padding()
-                .background(Color.accentColor)
-                .cornerRadius(8)
-                .alert(isPresented: $presentAlert) {
-                    Alert(title: Text(alertText))
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("Create User")
+                    Spacer()
                 }
             }
+            .foregroundColor(.white)
+            .padding()
+            .background(Color.accentColor)
+            .cornerRadius(8)
+            .alert(isPresented: $presentAlert) {
+                Alert(title: Text(alertText))
+            }
         }
-        .navigationBarTitle("Create New User")
+        .navigationBarTitle("Create User")
     }
     
     func validateCredentials() -> Bool {

@@ -28,7 +28,7 @@ struct ManageUsersView: View {
                 else {
                     
                     Section(header: Text("Administrators")) {
-                        /*
+                        
                         ForEach(userbaseModel.getAdministrators(), id: \.self) { user in
                             NavigationLink {
                                 EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
@@ -36,19 +36,6 @@ struct ManageUsersView: View {
                                 Label(user.username, systemImage: "person")
                             }
                         }
-                        */
-                        
-                        
-                        ForEach(userbaseModel.users, id: \.self) { user in
-                            if user.isAdmin {
-                                NavigationLink {
-                                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
-                                } label: {
-                                    Label(user.username, systemImage: "person")
-                                }
-                            }
-                        }
-                         
                     }
                     
                     Section(header: Text("Users")) {
@@ -59,17 +46,6 @@ struct ManageUsersView: View {
                                 Label(user.username, systemImage: "person")
                             }
                         }
-                        /*
-                        ForEach(userbaseModel.users, id: \.self) { user in
-                            if !user.isAdmin {
-                                NavigationLink {
-                                    EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
-                                } label: {
-                                    Label(user.username, systemImage: "person")
-                                }
-                            }
-                        }
-                         */
                     }
                     
                     VStack {
