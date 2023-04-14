@@ -56,8 +56,9 @@ struct CreateUserView: View {
                 newUser.firstLogin = true
                 
                 // Validate credentails before continuing to create the user
-                guard validateCredentials() else {
-                    alertText = "Error In User Data..."
+                do { try validateCredentials() }
+                catch {
+                    alertText = error.localizedDescription
                     presentAlert = true
                     return
                 }
@@ -95,16 +96,18 @@ struct CreateUserView: View {
         .navigationBarTitle("Create User")
     }
     
-    func validateCredentials() -> Bool {
-        guard newUser.email != "" else { return false }
-        guard newUser.email.contains("@") else { return false }
-        guard password == passwordConfirm else { return false }
-        guard newUser.department != "" else { return false }
-        guard newUser.position != "" else { return false }
-        guard newUser.employeeNumber != 0 else { return false }
-        return true
+    func validateCredentials() throws {
+        guard newUser.email != "" else { throw "Email is empty" }
+        guard newUser.email.contains("@") else { throw "Email does not contain @" }
+        guard password == passwordConfirm else { throw "Passwords does not math" }
+        guard newUser.department != "" else { throw "Department is empty" }
+        guard newUser.position != "" else { throw "Position is empty" }
+        guard newUser.employeeNumber != 0 else { throw "Employee number is empty" }
     }
 }
+
+
+
 
 struct ConfigureNewUserView_Previews: PreviewProvider {
     static var previews: some View {

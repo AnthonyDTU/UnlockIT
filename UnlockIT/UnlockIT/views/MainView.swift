@@ -122,12 +122,7 @@ struct MainView: View {
     }
 }
 
-// Move
-extension Bool {
-    static func ^ (left: Bool, right: Bool) -> Bool {
-        return left != right
-    }
-}
+
 
 struct MainView_Previews: PreviewProvider {
     @StateObject static var appStyle = AppStyle()
