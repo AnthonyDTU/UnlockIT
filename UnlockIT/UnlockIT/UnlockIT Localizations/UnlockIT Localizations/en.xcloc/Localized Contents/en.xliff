@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="UnlockIT/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>UnlockIT</source>
+        <target>UnlockIT</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NFCReaderUsageDescription" xml:space="preserve">
+        <source>We need to unlock locks</source>
+        <target>We need to unlock locks</target>
+        <note>Privacy - NFC Scan Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSFaceIDUsageDescription" xml:space="preserve">
+        <source>This app needs to use FaceID for for security purposes</source>
+        <target>This app needs to use FaceID for for security purposes</target>
+        <note>Privacy - Face ID Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="UnlockIT/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="%@" xml:space="preserve">
+        <source>%@</source>
+        <target>%@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <target>%lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="(Which actually uses WiFi, but don't tell anyone...)" xml:space="preserve">
+        <source>(Which actually uses WiFi, but don't tell anyone...)</source>
+        <target>(Which actually uses WiFi, but don't tell anyone...)</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add Lock" xml:space="preserve">
+        <source>Add Lock</source>
+        <target>Add Lock</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add Room" xml:space="preserve">
+        <source>Add Room</source>
+        <target>Add Room</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add User" xml:space="preserve">
+        <source>Add User</source>
+        <target>Add User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Add room" xml:space="preserve">
+        <source>Add room</source>
+        <target>Add room</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Admin Controls" xml:space="preserve">
+        <source>Admin Controls</source>
+        <target>Admin Controls</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Administrator" xml:space="preserve">
+        <source>Administrator</source>
+        <target>Administrator</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Administrator Privilige" xml:space="preserve">
+        <source>Administrator Privilige</source>
+        <target>Administrator Privilige</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Administrators" xml:space="preserve">
+        <source>Administrators</source>
+        <target>Administrators</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to delete this user?" xml:space="preserve">
+        <source>Are you sure you want to delete this user?</source>
+        <target>Are you sure you want to delete this user?</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Attached Locks" xml:space="preserve">
+        <source>Attached Locks</source>
+        <target>Attached Locks</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Attributes" xml:space="preserve">
+        <source>Attributes</source>
+        <target>Attributes</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Authentication Level" xml:space="preserve">
+        <source>Authentication Level</source>
+        <target>Authentication Level</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Authorization" xml:space="preserve">
+        <source>Authorization</source>
+        <target>Authorization</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Authorized Users" xml:space="preserve">
+        <source>Authorized Users</source>
+        <target>Authorized Users</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Bookable" xml:space="preserve">
+        <source>Bookable</source>
+        <target>Bookable</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Booked Rooms" xml:space="preserve">
+        <source>Booked Rooms</source>
+        <target>Booked Rooms</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Confirm New Password" xml:space="preserve">
+        <source>Confirm New Password</source>
+        <target>Confirm New Password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Confirm Password" xml:space="preserve">
+        <source>Confirm Password</source>
+        <target>Confirm Password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Continue" xml:space="preserve">
+        <source>Continue</source>
+        <target>Continue</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Create User" xml:space="preserve">
+        <source>Create User</source>
+        <target>Create User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Credentials" xml:space="preserve">
+        <source>Credentials</source>
+        <target>Credentials</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Delete User" xml:space="preserve">
+        <source>Delete User</source>
+        <target>Delete User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Department" xml:space="preserve">
+        <source>Department</source>
+        <target>Department</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Department: " xml:space="preserve">
+        <source>Department: </source>
+        <target>Department: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Description" xml:space="preserve">
+        <source>Description</source>
+        <target>Description</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Edit User" xml:space="preserve">
+        <source>Edit User</source>
+        <target>Edit User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Email" xml:space="preserve">
+        <source>Email</source>
+        <target>Email</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Email: " xml:space="preserve">
+        <source>Email: </source>
+        <target>Email: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Employee Number" xml:space="preserve">
+        <source>Employee Number</source>
+        <target>Employee Number</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Error while updating the password" xml:space="preserve">
+        <source>Error while updating the password</source>
+        <target>Error while updating the password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hello %@! Since this is you first login, we need you to set a password. Please do so below" xml:space="preserve">
+        <source>Hello %@! Since this is you first login, we need you to set a password. Please do so below</source>
+        <target>Hello %@! Since this is you first login, we need you to set a password. Please do so below</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Hello, World!" xml:space="preserve">
+        <source>Hello, World!</source>
+        <target>Hello, World!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Home" xml:space="preserve">
+        <source>Home</source>
+        <target>Home</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Is Administrator: " xml:space="preserve">
+        <source>Is Administrator: </source>
+        <target>Is Administrator: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Level %lld" xml:space="preserve">
+        <source>Level %lld</source>
+        <target>Level %lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Lock Description" xml:space="preserve">
+        <source>Lock Description</source>
+        <target>Lock Description</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Locks" xml:space="preserve">
+        <source>Locks</source>
+        <target>Locks</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Log Out" xml:space="preserve">
+        <source>Log Out</source>
+        <target>Log Out</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Login" xml:space="preserve">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Text on button for logging in. Located in LoginView.</note>
+      </trans-unit>
+      <trans-unit id="Login to use app features.." xml:space="preserve">
+        <source>Login to use app features..</source>
+        <target>Login to use app features..</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Manage Rooms" xml:space="preserve">
+        <source>Manage Rooms</source>
+        <target>Manage Rooms</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Manage Users" xml:space="preserve">
+        <source>Manage Users</source>
+        <target>Manage Users</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="NFC Simulator" xml:space="preserve">
+        <source>NFC Simulator</source>
+        <target>NFC Simulator</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Name: " xml:space="preserve">
+        <source>Name: </source>
+        <target>Name: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New Password" xml:space="preserve">
+        <source>New Password</source>
+        <target>New Password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Not Authorized" xml:space="preserve">
+        <source>Not Authorized</source>
+        <target>Not Authorized</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Password" xml:space="preserve">
+        <source>Password</source>
+        <target>Password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Passwords does not match" xml:space="preserve">
+        <source>Passwords does not match</source>
+        <target>Passwords does not match</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Position: " xml:space="preserve">
+        <source>Position: </source>
+        <target>Position: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Postition" xml:space="preserve">
+        <source>Postition</source>
+        <target>Postition</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Privilege: " xml:space="preserve">
+        <source>Privilege: </source>
+        <target>Privilege: </target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Privilige" xml:space="preserve">
+        <source>Privilige</source>
+        <target>Privilige</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Room" xml:space="preserve">
+        <source>Room</source>
+        <target>Room</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Room Description" xml:space="preserve">
+        <source>Room Description</source>
+        <target>Room Description</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Room Type" xml:space="preserve">
+        <source>Room Type</source>
+        <target>Room Type</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Save" xml:space="preserve">
+        <source>Save</source>
+        <target>Save</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Since it is your first login, you need to update your password before using the app" xml:space="preserve">
+        <source>Since it is your first login, you need to update your password before using the app</source>
+        <target>Since it is your first login, you need to update your password before using the app</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="This action cannot be undone!" xml:space="preserve">
+        <source>This action cannot be undone!</source>
+        <target>This action cannot be undone!</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Total number of users: %lld" xml:space="preserve">
+        <source>Total number of users: %lld</source>
+        <target>Total number of users: %lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Under Construction..." xml:space="preserve">
+        <source>Under Construction...</source>
+        <target>Under Construction...</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Unexpected Error" xml:space="preserve">
+        <source>Unexpected Error</source>
+        <target>Unexpected Error</target>
+        <note>Error message in loginview for when an unexpected errormessage occurs.</note>
+      </trans-unit>
+      <trans-unit id="Update Password" xml:space="preserve">
+        <source>Update Password</source>
+        <target>Update Password</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Update User" xml:space="preserve">
+        <source>Update User</source>
+        <target>Update User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Update room" xml:space="preserve">
+        <source>Update room</source>
+        <target>Update room</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="User Details" xml:space="preserve">
+        <source>User Details</source>
+        <target>User Details</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Users" xml:space="preserve">
+        <source>Users</source>
+        <target>Users</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="hello" xml:space="preserve">
+        <source>hello</source>
+        <target>hello</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

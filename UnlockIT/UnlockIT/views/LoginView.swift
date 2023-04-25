@@ -58,6 +58,7 @@ struct LoginView: View {
                         }
                         catch AuthErrorCode.internalError {
                             errorMessage = "Server Error"
+                            errorMessage = "String For Localizing Test"
                             showErrorPrompt = true
                         }
                         catch AuthErrorCode.networkError {
@@ -73,7 +74,7 @@ struct LoginView: View {
                             showErrorPrompt = true
                         }
                         catch {
-                            errorMessage = "Unexpected Error"
+                            errorMessage = String(localized: "Unexpected Error", comment: "Error message in loginview for when an unexpected errormessage occurs.")
                             showErrorPrompt = true
                             print(error)
                         }
@@ -82,7 +83,7 @@ struct LoginView: View {
                 label: {
                     HStack {
                         Spacer()
-                        Text("Login")
+                        Text("Login", comment: "Text on button for logging in. Located in LoginView.")
                         Spacer()
                     }
                 }
@@ -91,7 +92,7 @@ struct LoginView: View {
                 .background(Color.accentColor)
                 .cornerRadius(appStyle.cornerRadiusSmall)
                 .alert(isPresented: $showErrorPrompt) {
-                    Alert(title: Text("Email/Password incorrect"))
+                    Alert(title: Text(errorMessage))
                 }
             }
             .padding()

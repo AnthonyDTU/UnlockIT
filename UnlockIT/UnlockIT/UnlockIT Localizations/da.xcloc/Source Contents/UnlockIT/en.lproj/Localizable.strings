@@ -1,0 +1,222 @@
+/* No comment provided by engineer. */
+"" = "";
+
+/* No comment provided by engineer. */
+"(Which actually uses WiFi, but don't tell anyone...)" = "(Which actually uses WiFi, but don't tell anyone...)";
+
+/* No comment provided by engineer. */
+"%@" = "%@";
+
+/* No comment provided by engineer. */
+"%lld" = "%lld";
+
+/* No comment provided by engineer. */
+"Add Lock" = "Add Lock";
+
+/* No comment provided by engineer. */
+"Add room" = "Add room";
+
+/* No comment provided by engineer. */
+"Add Room" = "Add Room";
+
+/* No comment provided by engineer. */
+"Add User" = "Add User";
+
+/* No comment provided by engineer. */
+"Admin Controls" = "Admin Controls";
+
+/* No comment provided by engineer. */
+"Administrator" = "Administrator";
+
+/* No comment provided by engineer. */
+"Administrator Privilige" = "Administrator Privilige";
+
+/* No comment provided by engineer. */
+"Administrators" = "Administrators";
+
+/* No comment provided by engineer. */
+"Are you sure you want to delete this user?" = "Are you sure you want to delete this user?";
+
+/* No comment provided by engineer. */
+"Attached Locks" = "Attached Locks";
+
+/* No comment provided by engineer. */
+"Attributes" = "Attributes";
+
+/* No comment provided by engineer. */
+"Authentication Level" = "Authentication Level";
+
+/* No comment provided by engineer. */
+"Authorization" = "Authorization";
+
+/* No comment provided by engineer. */
+"Authorized Users" = "Authorized Users";
+
+/* No comment provided by engineer. */
+"Bookable" = "Bookable";
+
+/* No comment provided by engineer. */
+"Booked Rooms" = "Booked Rooms";
+
+/* No comment provided by engineer. */
+"Cancel" = "Cancel";
+
+/* No comment provided by engineer. */
+"Confirm New Password" = "Confirm New Password";
+
+/* No comment provided by engineer. */
+"Confirm Password" = "Confirm Password";
+
+/* No comment provided by engineer. */
+"Continue" = "Continue";
+
+/* No comment provided by engineer. */
+"Create User" = "Create User";
+
+/* No comment provided by engineer. */
+"Credentials" = "Credentials";
+
+/* No comment provided by engineer. */
+"Delete" = "Delete";
+
+/* No comment provided by engineer. */
+"Delete User" = "Delete User";
+
+/* No comment provided by engineer. */
+"Department" = "Department";
+
+/* No comment provided by engineer. */
+"Department: " = "Department: ";
+
+/* No comment provided by engineer. */
+"Description" = "Description";
+
+/* No comment provided by engineer. */
+"Edit User" = "Edit User";
+
+/* No comment provided by engineer. */
+"Email" = "Email";
+
+/* No comment provided by engineer. */
+"Email: " = "Email: ";
+
+/* No comment provided by engineer. */
+"Email/Password incorrect" = "Email/Password incorrect";
+
+/* No comment provided by engineer. */
+"Employee Number" = "Employee Number";
+
+/* No comment provided by engineer. */
+"Error while updating the password" = "Error while updating the password";
+
+/* No comment provided by engineer. */
+"hello" = "hello";
+
+/* No comment provided by engineer. */
+"Hello %@! Since this is you first login, we need you to set a password. Please do so below" = "Hello %@! Since this is you first login, we need you to set a password. Please do so below";
+
+/* No comment provided by engineer. */
+"Hello, World!" = "Hello, World!";
+
+/* No comment provided by engineer. */
+"Home" = "Home";
+
+/* No comment provided by engineer. */
+"Is Administrator: " = "Is Administrator: ";
+
+/* No comment provided by engineer. */
+"Level %lld" = "Level %lld";
+
+/* No comment provided by engineer. */
+"Lock Description" = "Lock Description";
+
+/* No comment provided by engineer. */
+"Locks" = "Locks";
+
+/* No comment provided by engineer. */
+"Log Out" = "Log Out";
+
+/* No comment provided by engineer. */
+"Login" = "Login";
+
+/* No comment provided by engineer. */
+"Login to use app features.." = "Login to use app features..";
+
+/* No comment provided by engineer. */
+"Manage Rooms" = "Manage Rooms";
+
+/* No comment provided by engineer. */
+"Manage Users" = "Manage Users";
+
+/* No comment provided by engineer. */
+"Name" = "Name";
+
+/* No comment provided by engineer. */
+"Name: " = "Name: ";
+
+/* No comment provided by engineer. */
+"New Password" = "New Password";
+
+/* No comment provided by engineer. */
+"NFC Simulator" = "NFC Simulator";
+
+/* No comment provided by engineer. */
+"Not Authorized" = "Not Authorized";
+
+/* No comment provided by engineer. */
+"Password" = "Password";
+
+/* No comment provided by engineer. */
+"Passwords does not match" = "Passwords does not match";
+
+/* No comment provided by engineer. */
+"Position: " = "Position: ";
+
+/* No comment provided by engineer. */
+"Postition" = "Postition";
+
+/* No comment provided by engineer. */
+"Privilege: " = "Privilege: ";
+
+/* No comment provided by engineer. */
+"Privilige" = "Privilige";
+
+/* No comment provided by engineer. */
+"Room" = "Room";
+
+/* No comment provided by engineer. */
+"Room Description" = "Room Description";
+
+/* No comment provided by engineer. */
+"Room Type" = "Room Type";
+
+/* No comment provided by engineer. */
+"Save" = "Save";
+
+/* No comment provided by engineer. */
+"Since it is your first login, you need to update your password before using the app" = "Since it is your first login, you need to update your password before using the app";
+
+/* No comment provided by engineer. */
+"This action cannot be undone!" = "This action cannot be undone!";
+
+/* No comment provided by engineer. */
+"Total number of users: %lld" = "Total number of users: %lld";
+
+/* No comment provided by engineer. */
+"Under Construction..." = "Under Construction...";
+
+/* No comment provided by engineer. */
+"Update Password" = "Update Password";
+
+/* No comment provided by engineer. */
+"Update room" = "Update room";
+
+/* No comment provided by engineer. */
+"Update User" = "Update User";
+
+/* No comment provided by engineer. */
+"User Details" = "User Details";
+
+/* No comment provided by engineer. */
+"Users" = "Users";
+

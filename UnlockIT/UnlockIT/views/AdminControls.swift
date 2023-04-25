@@ -36,6 +36,7 @@ struct AdminControls: View {
                 Text("Not Authorized")
             }
         }
+        .toolbar(.visible, for: .tabBar)
         .onAppear() {
             Task {
                 do {
