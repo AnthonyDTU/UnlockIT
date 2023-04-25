@@ -21,7 +21,8 @@ struct MainView: View {
             // If a us
             if user.isLoggedOut {
                 VStack {
-                    Text("Login to use app features..")
+                    Text("Login to use app features..",
+                         comment: "Text telling the user to login in order to user the app's features. Only visible if the user has not yet logged in")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 16, weight: .semibold))
                         .padding()
@@ -31,7 +32,8 @@ struct MainView: View {
                         } label: {
                             HStack {
                                 Spacer()
-                                Text("Login")
+                                Text("Login",
+                                     comment: "Text on a button, which lets the user navigate to the login screen")
                                 Spacer()
                             }
                         }
@@ -45,7 +47,8 @@ struct MainView: View {
             }
             else if user.firstLogin {
                 VStack {
-                    Text("Since it is your first login, you need to update your password before using the app")
+                    Text("Since it is your first login, you need to update your password before using the app",
+                         comment: "Text telling the user, that since it is the first time he/she logs in, he/she must change the password")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 16, weight: .semibold))
                         .padding()
@@ -56,7 +59,8 @@ struct MainView: View {
                         } label: {
                             HStack {
                                 Spacer()
-                                Text("Update Password")
+                                Text("Update Password",
+                                     comment: "Text on a button, which lets the user navigate to the update password view")
                                 Spacer()
                             }
                         }
@@ -73,17 +77,32 @@ struct MainView: View {
                 TabView{
                     HomeView()
                         .tabItem {
-                            Label("Home", systemImage: "house")
+                            Label {
+                                Text("Home",
+                                     comment: "Home tabview button text")
+                            } icon: {
+                                Image(systemName: "house")
+                            }
                         }
                     BookedRoomsView()
                         .tabItem {
-                            Label("Booked Rooms", systemImage: "book")
+                            Label {
+                                Text("Booked Rooms",
+                                     comment: "Booked Rooms tabview button text")
+                            } icon: {
+                                Image(systemName: "book")
+                            }
                         }
                     
                     if user.isAdmin {
                         AdminControls()
                             .tabItem {
-                            Label("Admin Controls", systemImage: "bitcoinsign")
+                                Label {
+                                    Text("Admin Controls",
+                                         comment: "Admin Controls tabview button text")
+                                } icon: {
+                                    Image(systemName: "bitcoinsign")
+                                }
                         }
                     }
                 }
@@ -91,7 +110,7 @@ struct MainView: View {
         }
         .onAppear() {
             if user.isLoggedOut == false {
-                let firebaseController = FirebaseController()
+                let firebaseController = FirebaseUserController()
                 Task {
                     do {
                         try await firebaseController.GetUserDataFromFirestore(user: user)
@@ -108,7 +127,7 @@ struct MainView: View {
                 LoginView(showLoginView: $showLoginScreen)
             }
             else if showChangePasswordScreen {
-                ChangePasswordView(showChangePasswordView: $showChangePasswordScreen)
+                ChangePasswordOnFirstLoginView(showChangePasswordView: $showChangePasswordScreen)
             }
         }
     }

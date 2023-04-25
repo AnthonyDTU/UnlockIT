@@ -20,18 +20,18 @@ struct EditUserView: View {
     var body: some View {
         
         Form {
-            Section (header: Text("User Details")) {
-                TextField("Email", text: $user.email).disabled(true)
-                TextField("Name", text: $user.username)
-                TextField("Employee Number", text: $employeeNumber).disabled(true)
-                TextField("Postition", text: $user.position)
-                TextField("Department", text: $user.department)
-                Picker("Privilige", selection: $user.privilege) {
+            Section (header: Text("User Details", comment: "Section title for User Detalais in EditUserView")) {
+                TextField(String(localized: "Email", comment: "Placeholder text for Email textfield in EditUserView"), text: $user.email).disabled(true)
+                TextField(String(localized: "Name", comment: "Placeholder text for Name textfield in EditUserView"), text: $user.username)
+                TextField(String(localized: "Employee Number", comment: "Placeholder text for Employee Number textfield in EditUserView"), text: $employeeNumber).disabled(true)
+                TextField(String(localized: "Job Title", comment: "Placeholder text for Job Title textfield in EditUserView"), text: $user.position)
+                TextField(String(localized: "Department", comment: "Placeholder text for Department textfield in EditUserView"), text: $user.department)
+                Picker(String(localized: "Privilige", comment: "Text for Privilige picker in EditUserView"), selection: $user.privilege) {
                     ForEach(privilegeOptions, id: \.self) { level in
-                        Text("Level \(level)").tag(level)
+                        Text(String(localized: "Level \(level)", comment: "Text for Level values in EditUserView")).tag(level)
                     }
                 }
-                Toggle("Administrator Privilige", isOn: $user.isAdmin)
+                Toggle(String(localized: "Administrator Privilige", comment: "Text for Administrator Privilige Toggle in EditUserView"), isOn: $user.isAdmin)
             }
             
             // Update User button
@@ -40,19 +40,20 @@ struct EditUserView: View {
                 Task {
                     do {
                         // Update user in firestore
-                        let firebaseController = FirebaseController()
+                        let firebaseController = FirebaseUserController()
                         try await firebaseController.UpdateUserData(updatedUser: user)
-                        alertText = "User updated successfully!"
+                        alertText = String(localized:"User updated successfully!", comment: "Success Message")
                     }
                     catch {
                         print(error)
-                        alertText = "Error updating user..."
+                        alertText = String(localized:"Error updating user...", comment: "Error Message")
                     }
+                    showAlert = true
                 }
             } label: {
                 HStack {
                     Spacer()
-                    Text("Update User")
+                    Text("Update User", comment: "Text on butten, which updates the user")
                     Spacer()
                 }
             }
@@ -79,15 +80,27 @@ struct EditUserView: View {
             .background(.red)
             .cornerRadius(8)
             .alert(isPresented: $confirmDeleteUser) {
-                Alert(title: Text("Are you sure you want to delete this user?"),
-                      message: Text("This action cannot be undone!"),
-                      primaryButton: .destructive(Text("Delete")) {
-                        // Delete user here
+                Alert(title: Text("Are you sure you want to delete this user?", comment: "Question for the user, to make sure they are sure about what they are doing"),
+                      message: Text("This action cannot be undone!", comment: "Statement to the user"),
+                      primaryButton: .destructive(Text("Delete", comment: "Text on button in alert, which deletes a user")) {
+                            Task {
+                                do {
+                                    // Update user in firestore
+                                    let firebaseController = FirebaseUserController()
+                                    try await firebaseController.DeleteUser()
+                                    alertText = String(localized:"User deleted successfully!", comment: "Success Message")
+                                }
+                                catch {
+                                    print(error)
+                                    alertText = String(localized:"Error deleting user...", comment: "Error Message")
+                                }
+                                showAlert = true
+                            }
                       },
                       secondaryButton: .cancel())
             }
         }
-        .navigationTitle("Edit User")
+        .navigationTitle(String(localized: "Edit User", comment: "Navigation Title for EditUserView"))
     }
 }
 

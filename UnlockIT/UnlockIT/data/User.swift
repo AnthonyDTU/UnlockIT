@@ -126,22 +126,13 @@ final class User: ObservableObject, Identifiable, Hashable {
         }
         
         // Biometrics are avaliable, so run check
-        let reason = "We need to verify that it is really you using your phone"
+        let reason = String(localized: "We need to verify that it is really you using your phone", comment: "localized reason for why FaceID should be accessed")
         
         let status = try await authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason)
         
         DispatchQueue.main.async {
             self.isValidated = status
         }
-        
-        
-        /*
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
-            Task { @MainActor in
-                self.isValidated = success
-            }
-        }
-        */
     }
     
     

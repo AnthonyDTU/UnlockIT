@@ -35,9 +35,9 @@ struct LoginView: View {
                 
                 
             Form {
-                Section (header: Text("Credentials").fontWeight(.semibold)){
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
+                Section (header: Text("Credentials", comment: "Section header for credentials section in LoginView").fontWeight(.semibold)){
+                    TextField(String(localized: "Email", comment: "Placeholder for Email text field in Login View"), text: $email)
+                    SecureField(String(localized: "Password", comment: "Placeholder for password secure textfield in LoginView"), text: $password)
                 }
                
             }
@@ -46,35 +46,34 @@ struct LoginView: View {
             HStack {
                 Button {
                     Task {
-                        let firebaseController = FirebaseController()
+                        let firebaseController = FirebaseUserController()
                         do {
                             try await firebaseController.SignIn(user, email, password)
                             try await firebaseController.GetUserDataFromFirestore(user: user)
                             dismiss()
                         }
                         catch AuthErrorCode.invalidCredential {
-                            errorMessage = "Invalid Credentials"
+                            errorMessage = String(localized: "Invalid Credentials", comment: "Error Message")
                             showErrorPrompt = true
                         }
                         catch AuthErrorCode.internalError {
-                            errorMessage = "Server Error"
-                            errorMessage = "String For Localizing Test"
+                            errorMessage = String(localized: "Server Error", comment: "Error Message")
                             showErrorPrompt = true
                         }
                         catch AuthErrorCode.networkError {
-                            errorMessage = "Network Error"
+                            errorMessage = String(localized: "Network Error", comment: "Error Message")
                             showErrorPrompt = true
                         }
-                        catch FirebaseControllerError.userIDNotAvailiable {
-                            errorMessage = "Failed Getting UserID"
+                        catch FirebaseUserControllerError.userIDNotAvailiable {
+                            errorMessage = String(localized: "Failed Getting UserID", comment: "Error Message")
                             showErrorPrompt = true
                         }
-                        catch FirebaseControllerError.companyNameNotAvaliable {
-                            errorMessage = "Failed Getting Company Name"
+                        catch FirebaseUserControllerError.companyNameNotAvaliable {
+                            errorMessage = String(localized: "Failed Getting Company Name", comment: "Error Message")
                             showErrorPrompt = true
                         }
                         catch {
-                            errorMessage = String(localized: "Unexpected Error", comment: "Error message in loginview for when an unexpected errormessage occurs.")
+                            errorMessage = String(localized: "Unexpected Error", comment: "Error Message")
                             showErrorPrompt = true
                             print(error)
                         }

@@ -22,10 +22,10 @@ struct NFCSimulator: View {
             VStack {
                 
                 Spacer()
-                Text("NFC Simulator")
+                Text("NFC Simulator", comment: "Text decriping NFC simulator")
                     .font(Font.system(.largeTitle).bold())
                     .foregroundColor(.gray)
-                Text("(Which actually uses WiFi, but don't tell anyone...)")
+                Text("(Which actually uses WiFi, but don't tell anyone...)", comment: "Text decribing how the NFC simulator acutally works")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 10))
                     .foregroundColor(.gray)
@@ -69,9 +69,11 @@ struct NFCSimulator: View {
                 }
                 Spacer()
                 
-                Button("Cancel") {
+                Button() {
                     selectedLevel = 0
                     scanNow = false
+                } label: {
+                    Text("Cancel", comment: "Text on cancel button in NFC simulator")
                 }
                 .frame(width: UIScreen.main.bounds.width - 100, height: 50)
                 .foregroundColor(.black)

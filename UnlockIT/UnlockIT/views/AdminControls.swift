@@ -21,19 +21,31 @@ struct AdminControls: View {
                         NavigationLink {
                             ManageUsersView()
                         } label: {
-                            Label("Manage Users", systemImage: "person.2.badge.gearshape")
+                            Label {
+                                Text("Manage Users",
+                                     comment: "Navigation Link for navigating to the mangage users view")
+                            } icon: {
+                                Image(systemName: "person.2.badge.gearshape")
+                            }
                         }
                         NavigationLink {
                             RoomsView()
                         } label: {
-                            Label("Manage Rooms", systemImage: "house.fill")
+                            Label {
+                                Text("Manage Rooms",
+                                     comment: "Navigation Link for navigation to the manage rooms view")
+                            } icon: {
+                                Image(systemName: "house.fill")
+                            }
                         }
                     }
-                    .navigationBarTitle("Admin Controls")
+                    .navigationBarTitle(String(localized: "Admin Controls",
+                                               comment: "Navigation Bar Title for the Admin Controls view"))
                 }
             }
             else {
-                Text("Not Authorized")
+                Text("Not Authorized",
+                     comment: "Label telling the user, that he/she is not authorized to access the administrator controls. Related to local authenitcation.")
             }
         }
         .toolbar(.visible, for: .tabBar)

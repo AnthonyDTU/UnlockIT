@@ -1,9 +1,0 @@
-/* Bundle name */
-"CFBundleName" = "UnlockIT";
-
-/* Privacy - NFC Scan Usage Description */
-"NFCReaderUsageDescription" = "Vi skal låse låsen op";
-
-/* Privacy - Face ID Usage Description */
-"NSFaceIDUsageDescription" = "Denne app skal bruge FaceID af sikkerhedsmæssige årsager";
-

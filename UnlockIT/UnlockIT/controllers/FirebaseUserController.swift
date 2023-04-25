@@ -8,14 +8,14 @@
 import Foundation
 import Firebase
 
-enum FirebaseControllerError: Error {
+enum FirebaseUserControllerError: Error {
     case companyNameNotAvaliable
     case userIDNotAvailiable
 }
 
 /// Controller for interacting with the firebase backend, in relation to users.
 /// This includes both authentication in the backend system, as well as storeing and fetching of user data
-class FirebaseController {
+class FirebaseUserController {
     
     
     
@@ -108,8 +108,8 @@ class FirebaseController {
     func GetUserDataFromFirestore(user: User) async throws {
         
         // Get the userid and the company the user belongs to
-        guard let userID = Auth.auth().currentUser?.uid else { throw FirebaseControllerError.userIDNotAvailiable }
-        guard let company = Auth.auth().currentUser?.displayName else { throw FirebaseControllerError.companyNameNotAvaliable }
+        guard let userID = Auth.auth().currentUser?.uid else { throw FirebaseUserControllerError.userIDNotAvailiable }
+        guard let company = Auth.auth().currentUser?.displayName else { throw FirebaseUserControllerError.companyNameNotAvaliable }
         
         // Get the document containing this users information
         let firestore = Firestore.firestore()
@@ -152,7 +152,7 @@ class FirebaseController {
         try await Firestore.firestore().collection("Companies").document(updatedUser.company).collection("Users").document(updatedUser.userID).updateData(data)
     }
     
-    func DeleteUser(){
+    func DeleteUser() async throws {
         
         // AHHHHHG. Det kan man ikke uden brugerens password...
     }

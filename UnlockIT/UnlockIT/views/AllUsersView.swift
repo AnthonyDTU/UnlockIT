@@ -36,7 +36,7 @@ struct AllUsersView: View {
             .listStyle(GroupedListStyle())
             
             Button(action: save) {
-                Text("Save")
+                Text("Save", comment: "Text on button, which saves authorized users")
             }
             .padding()
         }

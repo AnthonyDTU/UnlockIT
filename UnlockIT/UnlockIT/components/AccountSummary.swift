@@ -16,46 +16,49 @@ struct AccountSummary: View {
         VStack {
             VStack (alignment: .leading){
                 HStack{
-                    Text("Name: ")
+                    Text("Name: ", comment: "Text label in account summary")
                     Spacer()
                     Text("\(user.username)").bold()
                 }
                 HStack{
-                    Text("Email: ")
+                    Text("Email: ", comment: "Text label in account summary")
                     Spacer()
                     Text("\(user.email)").bold()
                 }
                 HStack {
-                    Text("Department: ")
+                    Text("Department: ", comment: "Text label in account summary")
                     Spacer()
                     Text("\(user.department)").bold()
                 }
                 HStack {
-                    Text("Position: ")
+                    Text("Job Title: ", comment: "Text label in account summary")
                     Spacer()
                     Text("\(user.position)").bold()
                 }
                 HStack {
-                    Text("Privilege: ")
+                    Text("Privilege: ", comment: "Text label in account summary")
                     Spacer()
                     Text("\(user.privilege)").bold()
                 }
                 HStack {
-                    Text("Is Administrator: ")
+                    Text("Is Administrator: ", comment: "Text label in account summary")
                     Spacer()
                     Text(String(user.isAdmin)).bold()
                 }
             }
             .padding()
             
-            Button("Log Out"){
+            Button(){
                 do {
                     try Auth.auth().signOut()
                 }
                 catch {
                     print(error)
                 }
+            } label:  {
+                Text("Log Out", comment: "Text on button, for logging a user out.")
             }
+            
         }
     }
 }

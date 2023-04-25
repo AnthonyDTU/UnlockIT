@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BookedRoomsView: View {
     var body: some View {
-        Text("Under Construction...")
+        Text("Under Construction...", comment: "Text letting user know that this feaure is under construction")
     }
 }
 

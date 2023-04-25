@@ -27,47 +27,62 @@ struct RoomView: View {
     var body: some View {
         
         Form {
-            Section("Room Description") {
-                TextField("Description", text: $roomsModel.rooms[roomIndex].description)
-                Picker("Room Type", selection: $roomsModel.rooms[roomIndex].roomType) {
+            
+            Section(String(localized: "Room Description", comment: "Section title for RoomDescription in RoomView")) {
+                TextField(String(localized: "Description", comment: "Placeholder for Description text field"), text: $roomsModel.rooms[roomIndex].description)
+                Picker(String(localized: "Room Type", comment: "Text on picker item in RoomView"), selection: $roomsModel.rooms[roomIndex].roomType) {
                     ForEach(RoomType.allCases, id: \.self) { type in
                         Text(type.Description).tag(type)
                     }
                 }
             }
-            Section("Authorization") {
-                NavigationLink(destination: AuthorizedUsersView(roomIndex: roomIndex)) {
-                    Text("Authorized Users")
+            
+            Section(String(localized: "Authorization", comment: "Section title for Authorization in RoomView")) {
+                NavigationLink() {
+                    AuthorizedUsersView(roomIndex: roomIndex)
+                } label: {
+                    Text("Authorized Users", comment: "Text on navigation link, navigating to Authorized Users View")
                 }
-                NavigationLink("Locks") {
+                
+                NavigationLink() {
                     LocksView(roomIndex: roomIndex)
+                } label: {
+                    Text("Locks", comment: "Navigation Link to LocksView")
                 }
             }
-            Section("Attributes") {
-                Toggle("Bookable", isOn: $roomsModel.rooms[roomIndex].bookable)
+            
+            Section(String(localized: "Attributes", comment: "Section title for Attributes in RoomView")) {
+                Toggle(String(localized: "Bookable", comment: "Text on toggle item"), isOn: $roomsModel.rooms[roomIndex].bookable)
             }
+            
             if (isEditing) {
-                Button("Update room") {
+                Button() {
                     roomsModel.updateRoom(company: user.company, room: $roomsModel.rooms[roomIndex].wrappedValue)
-                    
                     presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Update room", comment: "Text on button, which updates an edited room")
                 }
             }
             else {
-                Button("Add room") {
+                Button() {
                     Task {
                         await roomsModel.fetchRooms(company: user.company)
                         didAddRoom = true
                     }
                     presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Add room", comment: "Text on button, which adds a room")
                 }
             }
-            Button("Delete") {
+            
+            Button() {
                 roomsModel.deleteRoom(company: user.company, roomsModel.rooms[roomIndex])
                 presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Delete", comment: "Text on button, which adds a room")
             }
         }
-        .navigationTitle("Room")
+        .navigationTitle(String(localized: "Room", comment: "Navigation title for RoomView"))
         .onAppear() {
             print("Index in Add Room view: \(roomIndex)")
         }
@@ -77,8 +92,8 @@ struct RoomView: View {
             }
         }
         
-        
     }
+    
 }
 
 //struct RoomView_Previews: PreviewProvider {

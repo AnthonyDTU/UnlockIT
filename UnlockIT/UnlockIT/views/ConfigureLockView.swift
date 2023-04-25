@@ -16,16 +16,18 @@ struct ConfigureLockView: View {
     var body: some View {
         VStack {
             List {
-                TextField("Lock Description", text: $lock.description)
-                Picker("Authentication Level", selection: $lock.authenticationLevel) {
+                TextField(String(localized: "Lock Description", comment: "Placeholder for lock description textfield in ConfigureLockView"), text: $lock.description)
+                Picker(String(localized: "Authentication Level", comment: "Text on picker control in ConfigureLockView"), selection: $lock.authenticationLevel) {
                     ForEach(0 ..< levels.count) {
                         Text("\(self.levels[$0])")
                     }
                 }
             }
-            Button("Save") {
+            Button() {
                 onSave(lock)
                 presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Save", comment: "Text on button, which saves the new lock")
             }
         }
     }

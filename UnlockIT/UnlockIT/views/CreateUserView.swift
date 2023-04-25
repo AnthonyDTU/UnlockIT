@@ -30,23 +30,30 @@ struct CreateUserView: View {
      
      
         Form {
-            Section (header: Text("Credentials")){
-                TextField("Email", text: $newUser.email)
-                SecureField("Password", text: $password)
-                SecureField("Confirm Password", text: $passwordConfirm)
+            Section (header: Text("Credentials",
+                                  comment: "Header text for the credentials section in CreateUserView")){
+                TextField(String(localized: "Email", comment: "Placeholder text for email text field in CreateUserView"),
+                          text: $newUser.email)
+                
+                SecureField(String(localized: "Password", comment: "Placeholder text for password secure text field in CreateUserView"),
+                            text: $password)
+                
+                SecureField(String(localized: "Confirm Password", comment: "Placeholder text for confirm password secure text field in CreateUserView"),
+                            text: $passwordConfirm)
             }
             
-            Section (header: Text("User Details")) {
-                TextField("Name", text: $newUser.username)
-                TextField("Employee Number", text: $employeeNumber).keyboardType(.numberPad)
-                TextField("Postition", text: $newUser.position)
-                TextField("Department", text: $newUser.department)
-                Picker("Privilige", selection: $newUser.privilege) {
+            Section (header: Text("User Details",
+                                  comment: "Header text for the user detail section in CreateUserView")) {
+                TextField(String(localized: "Name", comment: "Placeholder text for name text field in CreateUserView"), text: $newUser.username)
+                TextField(String(localized: "Emplyee Number", comment: "Placeholder text for employee number text field in CreateUserView"), text: $employeeNumber).keyboardType(.numberPad)
+                TextField(String(localized: "Job Title", comment: "Placeholder text for job titel text field in CreateUserView"), text: $newUser.position)
+                TextField(String(localized: "Department", comment: "Placeholder text for department text field in CreateUserView"), text: $newUser.department)
+                Picker(String(localized: "Privilege", comment: "Text for privelige picker in CreateUserView"), selection: $newUser.privilege) {
                     ForEach(privilegeOptions, id: \.self) { level in
-                        Text("Level \(level)").tag(level)
+                        Text("Level \(level)", comment: "Picker item for privilege in CreateUserView").tag(level)
                     }
                 }
-                Toggle("Administrator", isOn: $newUser.isAdmin)
+                Toggle(String(localized: "Administrator", comment: "Text for Administrator toggle in CreateUserView"), isOn: $newUser.isAdmin)
             }
             
             // Create User Button
@@ -66,14 +73,14 @@ struct CreateUserView: View {
                 // Create a task for async communication with firebase
                 Task {
                     // Create a firebaseController
-                    let firebaseController = FirebaseController()
+                    let firebaseController = FirebaseUserController()
                     // Try to create the new user
                     do {
                         try await firebaseController.CreateNewUser(adminUser: user, newUser: newUser, newUserPassword: password)
-                        alertText = "User Created Successfully!"
+                        alertText = String(localized: "User Created Successfully!", comment: "Succes Message")
                     }
                     catch {
-                        alertText = "Error While Creating User..."
+                        alertText = String(localized: "Error While Creating User...", comment: "Error Message")
                         print(error)
                     }
                     presentAlert = true
@@ -81,7 +88,7 @@ struct CreateUserView: View {
             } label: {
                 HStack {
                     Spacer()
-                    Text("Create User")
+                    Text("Create User", comment: "Text on button, which creates a new user in CreateUserView")
                     Spacer()
                 }
             }
@@ -93,16 +100,16 @@ struct CreateUserView: View {
                 Alert(title: Text(alertText))
             }
         }
-        .navigationBarTitle("Create User")
+        .navigationBarTitle(String(localized: "Create User", comment: "Navigation Bar Titile for CreateUserView"))
     }
     
     func validateCredentials() throws {
-        guard newUser.email != "" else { throw "Email is empty" }
-        guard newUser.email.contains("@") else { throw "Email does not contain @" }
-        guard password == passwordConfirm else { throw "Passwords does not math" }
-        guard newUser.department != "" else { throw "Department is empty" }
-        guard newUser.position != "" else { throw "Position is empty" }
-        guard newUser.employeeNumber != 0 else { throw "Employee number is empty" }
+        guard newUser.email != "" else { throw String(localized: "Email is empty", comment: "Error Message") }
+        guard newUser.email.contains("@") else { throw String(localized: "Email does not contain @", comment: "Error Message") }
+        guard password == passwordConfirm else { throw String(localized: "Passwords does not math", comment: "Error Message") }
+        guard newUser.department != "" else { throw String(localized: "Department is empty", comment: "Error Message") }
+        guard newUser.position != "" else { throw String(localized: "Position is empty", comment: "Error Message") }
+        guard newUser.employeeNumber != 0 else { throw String(localized: "Employee number is empty", comment: "Error Message") }
     }
 }
 

@@ -22,17 +22,21 @@ struct AuthorizedUsersView: View {
             }
             .onDelete(perform: delete)
         }
-        .navigationTitle("Authorized Users")
+        .navigationTitle(String(localized: "Authorized Users", comment: "Navigation title for AuthorizedUsersView"))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 EditButton()
             }
             ToolbarItem(placement: .navigation) {
-            Button(action: {
-                isShowingAllUsers = true
-            }) {
-                Label("Add User", systemImage: "plus")
-            }
+                Button(action: {
+                    isShowingAllUsers = true
+                }) {
+                    Label {
+                        Text("Add User", comment: "Text on button, which navigaties to AllUsersView")
+                    } icon: {
+                        Image(systemName: "plus")
+                    }
+                }
             }
         }
         .sheet(isPresented: $isShowingAllUsers) {

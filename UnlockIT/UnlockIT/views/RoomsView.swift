@@ -30,13 +30,17 @@ struct RoomsView: View {
                     await roomsModel.fetchRooms(company: user.company)
                 }
             }
-            .navigationBarTitle("Manage Rooms")
+            .navigationBarTitle(String(localized: "Manage Rooms", comment: "Navigation title for RoomsView"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         isShowingAddRoomView = true
                     }) {
-                        Label("Add Room", systemImage: "plus")
+                        Label {
+                            Text("Add Room", comment: "Text on button, which navigaties to AddRoomView")
+                        } icon: {
+                            Image(systemName: "plus")
+                        }
                     }
                 }
             }

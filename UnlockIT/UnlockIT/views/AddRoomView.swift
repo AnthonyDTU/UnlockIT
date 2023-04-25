@@ -16,21 +16,23 @@ struct AddRoomView: View {
     var body: some View {
         VStack {
             List {
-                TextField("Room Description", text: $room.description)
-                Picker("Room Type", selection: $room.roomType) {
+                TextField(String(localized: "Room Description", comment: "Placeholder text for room description textfield"), text: $room.description)
+                Picker(String(localized: "Room Type", comment: "Picker text for selecting the type of room in AddRoomView"), selection: $room.roomType) {
                     ForEach(RoomType.allCases, id: \.self) { type in
                         Text(type.Description).tag(type)
                     }
                 }
             }
-            Button("Save") {
+            Button() {
                 Task {
                     await roomsModel.addRoom(company: user.company, room: room)
                 }
                 presentationMode.wrappedValue.dismiss()
+            } label: {
+                Text("Save", comment: "Button for saving a new room in AddRoomView")
             }
         }
-        .navigationTitle("Add Room")
+        .navigationTitle(String(localized: "Add Room", comment: "Navigation title for Add Room View"))
         .onDisappear() {
             Task {
                 await roomsModel.fetchRooms(company: user.company)

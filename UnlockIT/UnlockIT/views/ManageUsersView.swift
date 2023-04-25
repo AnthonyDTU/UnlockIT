@@ -27,7 +27,8 @@ struct ManageUsersView: View {
                 }
                 else {
                     
-                    Section(header: Text("Administrators")) {
+                    Section(header: Text("Administrators",
+                                         comment: "Section Header for the administrators section in ManageUsersView")) {
                         
                         ForEach(userbaseModel.getAdministrators(), id: \.self) { user in
                             NavigationLink {
@@ -38,7 +39,7 @@ struct ManageUsersView: View {
                         }
                     }
                     
-                    Section(header: Text("Users")) {
+                    Section(header: Text("Users", comment: "Section Header for the user section in ManageUsersView")) {
                         ForEach(userbaseModel.getNonAdministrators(), id: \.self) { user in
                             NavigationLink {
                                 EditUserView(user: $userbaseModel.users[userbaseModel.users.firstIndex(of: user) ?? 0])
@@ -51,13 +52,13 @@ struct ManageUsersView: View {
                     VStack {
                         HStack{
                             Spacer()
-                            Text("Total number of users: \(userbaseModel.users.count)").foregroundColor(.gray)
+                            Text("Total number of users: \(userbaseModel.users.count)", comment: "Text stating the total number of users").foregroundColor(.gray)
                             Spacer()
                         }
                     }
                 }
             }
-            .navigationTitle("Manage Users")
+            .navigationTitle(String(localized: "Manage Users", comment: "Navigation title for ManageUsersView"))
             .onAppear(){
                 Task {
                     do {
@@ -65,7 +66,7 @@ struct ManageUsersView: View {
                     }
                     catch{
                         // Show message to user
-                        alertText = "Error loading users from database"
+                        alertText = String(localized: "Error loading users from database", comment: "Error Message")
                         showAlert = true
                         print(error)
                     }
@@ -85,7 +86,7 @@ struct ManageUsersView: View {
                 }
                 catch {
                     // Show message to user
-                    alertText = "Error updating users from database"
+                    alertText = String(localized: "Error updating users from database", comment: "Error Message")
                     showAlert = true
                     print(error)
                 }

@@ -28,7 +28,7 @@ struct LocksView: View {
             }
             .onDelete(perform: delete)
         }
-        .navigationTitle("Attached Locks")
+        .navigationTitle(String(localized: "Attached Locks", comment: "Navigation Title for LockView"))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 EditButton()
@@ -39,7 +39,11 @@ struct LocksView: View {
                     roomsModel.rooms[roomIndex].newLock.authenticationLevel = 1
                     isShowingConfigureLockView = true
                 }) {
-                    Label("Add Lock", systemImage: "plus")
+                    Label {
+                        Text("Add Lock", comment: "Text on button, which navigaties to ConfigureLockView")
+                    } icon: {
+                        Image(systemName: "plus")
+                    }
                 }
             }
         }
