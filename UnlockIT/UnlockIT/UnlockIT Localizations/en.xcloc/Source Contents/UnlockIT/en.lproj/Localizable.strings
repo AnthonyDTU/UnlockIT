@@ -1,0 +1,295 @@
+/* Text decribing how the NFC simulator acutally works */
+"(Which actually uses WiFi, but don't tell anyone...)" = "(Which actually uses WiFi, but don't tell anyone...)";
+
+/* No comment provided by engineer. */
+"%@" = "%@";
+
+/* No comment provided by engineer. */
+"%lld" = "%lld";
+
+/* Text on button, which navigaties to ConfigureLockView */
+"Add Lock" = "Add Lock";
+
+/* Text on button, which adds a room */
+"Add room" = "Add room";
+
+/* Navigation title for Add Room View
+Text on button, which navigaties to AddRoomView */
+"Add Room" = "Add Room";
+
+/* Text on button, which navigaties to AllUsersView */
+"Add User" = "Add User";
+
+/* Admin Controls tabview button text
+Navigation Bar Title for the Admin Controls view */
+"Admin Controls" = "Admin Controls";
+
+/* Text for Administrator toggle in CreateUserView */
+"Administrator" = "Administrator";
+
+/* Text for Administrator Privilige Toggle in EditUserView */
+"Administrator Privilige" = "Administrator Privilige";
+
+/* Section Header for the administrators section in ManageUsersView */
+"Administrators" = "Administrators";
+
+/* Question for the user, to make sure they are sure about what they are doing */
+"Are you sure you want to delete this user?" = "Are you sure you want to delete this user?";
+
+/* Navigation Title for LockView */
+"Attached Locks" = "Attached Locks";
+
+/* Section title for Attributes in RoomView */
+"Attributes" = "Attributes";
+
+/* Text on picker control in ConfigureLockView */
+"Authentication Level" = "Authentication Level";
+
+/* Section title for Authorization in RoomView */
+"Authorization" = "Authorization";
+
+/* Navigation title for AuthorizedUsersView
+Text on navigation link, navigating to Authorized Users View */
+"Authorized Users" = "Authorized Users";
+
+/* Text on toggle item */
+"Bookable" = "Bookable";
+
+/* Booked Rooms tabview button text */
+"Booked Rooms" = "Booked Rooms";
+
+/* Text on cancel button in NFC simulator */
+"Cancel" = "Cancel";
+
+/* Placeholder for confirm password entry secure text field in ChangePasswordOnFirstLoginView
+Placeholder text for confirm password secure text field in CreateUserView */
+"Confirm Password" = "Confirm Password";
+
+/* Text on button, which continues, when changing password on first login */
+"Continue" = "Continue";
+
+/* Navigation Bar Titile for CreateUserView */
+"Create User" = "Create User";
+
+/* Section header for credentials section in LoginView
+Header text for the credentials section in CreateUserView */
+"Credentials" = "Credentials";
+
+/* Text on button in alert, which deletes a user
+Text on button, which adds a room */
+"Delete" = "Delete";
+
+/* No comment provided by engineer. */
+"Delete User" = "Delete User";
+
+/* Placeholder text for Department textfield in EditUserView
+Placeholder text for department text field in CreateUserView */
+"Department" = "Department";
+
+/* Error Message */
+"Department is empty" = "Department is empty";
+
+/* Text label in account summary */
+"Department: " = "Department: ";
+
+/* Placeholder for Description text field */
+"Description" = "Description";
+
+/* Navigation Title for EditUserView */
+"Edit User" = "Edit User";
+
+/* Placeholder text for Email textfield in EditUserView
+Placeholder for Email text field in Login View
+Placeholder text for email text field in CreateUserView */
+"Email" = "Email";
+
+/* Error Message */
+"Email does not contain @" = "Email does not contain @";
+
+/* Error Message */
+"Email is empty" = "Email is empty";
+
+/* Text label in account summary */
+"Email: " = "Email: ";
+
+/* Placeholder text for Employee Number textfield in EditUserView */
+"Employee Number" = "Employee Number";
+
+/* Error Message */
+"Employee number is empty" = "Employee number is empty";
+
+/* Placeholder text for employee number text field in CreateUserView */
+"Emplyee Number" = "Emplyee Number";
+
+/* Error Message */
+"Error deleting user..." = "Error deleting user...";
+
+/* Error Message */
+"Error loading users from database" = "Error loading users from database";
+
+/* Error Message */
+"Error updating user..." = "Error updating user...";
+
+/* Error Message */
+"Error updating users from database" = "Error updating users from database";
+
+/* Error Message */
+"Error While Creating User..." = "Error While Creating User...";
+
+/* Error Message */
+"Failed Getting Company Name" = "Failed Getting Company Name";
+
+/* Error Message */
+"Failed Getting UserID" = "Failed Getting UserID";
+
+/* No comment provided by engineer. */
+"hello" = "hello";
+
+/* Text telling the user that he/she has to change their password, since it is their first login */
+"Hello %@! Since this is you first login, we need you to set a password. Please do so below" = "Hello %@! Since this is you first login, we need you to set a password. Please do so below";
+
+/* Home tabview button text */
+"Home" = "Home";
+
+/* Error Message */
+"Invalid Credentials" = "Invalid Credentials";
+
+/* Text label in account summary */
+"Is Administrator: " = "Is Administrator: ";
+
+/* Placeholder text for Job Title textfield in EditUserView
+Placeholder text for job titel text field in CreateUserView */
+"Job Title" = "Job Title";
+
+/* Text label in account summary */
+"Job Title: " = "Job Title: ";
+
+/* Text for Level values in EditUserView
+Picker item for privilege in CreateUserView */
+"Level %lld" = "Level %lld";
+
+/* Placeholder for lock description textfield in ConfigureLockView */
+"Lock Description" = "Lock Description";
+
+/* Navigation Link to LocksView */
+"Locks" = "Locks";
+
+/* Text on button, for logging a user out. */
+"Log Out" = "Log Out";
+
+/* Text on a button, which lets the user navigate to the login screen
+Text on button for logging in. Located in LoginView. */
+"Login" = "Login";
+
+/* Text telling the user to login in order to user the app's features. Only visible if the user has not yet logged in */
+"Login to use app features.." = "Login to use app features..";
+
+/* Navigation title for RoomsView
+Navigation Link for navigation to the manage rooms view */
+"Manage Rooms" = "Manage Rooms";
+
+/* Navigation title for ManageUsersView
+Navigation Link for navigating to the mangage users view */
+"Manage Users" = "Manage Users";
+
+/* Placeholder text for Name textfield in EditUserView
+Placeholder text for name text field in CreateUserView */
+"Name" = "Name";
+
+/* Text label in account summary */
+"Name: " = "Name: ";
+
+/* Error Message */
+"Network Error" = "Network Error";
+
+/* Text decriping NFC simulator */
+"NFC Simulator" = "NFC Simulator";
+
+/* Label telling the user, that he/she is not authorized to access the administrator controls. Related to local authenitcation. */
+"Not Authorized" = "Not Authorized";
+
+/* String to try plural rule. */
+"NUMBER_OF_USERS" = "%lld User(s) in total";
+
+/* Section title for password entry, when changing the users password on first login
+Placeholder for password secure textfield in LoginView
+Placeholder text for password secure text field in CreateUserView */
+"Password" = "Password";
+
+/* Error Message */
+"Passwords does not match" = "Passwords does not match";
+
+/* Error Message */
+"Passwords does not math" = "Passwords does not math";
+
+/* Error Message */
+"Position is empty" = "Position is empty";
+
+/* Text for privelige picker in CreateUserView */
+"Privilege" = "Privilege";
+
+/* Text label in account summary */
+"Privilege: " = "Privilege: ";
+
+/* Text for Privilige picker in EditUserView */
+"Privilige" = "Privilige";
+
+/* Navigation title for RoomView */
+"Room" = "Room";
+
+/* Placeholder text for room description textfield
+Section title for RoomDescription in RoomView */
+"Room Description" = "Room Description";
+
+/* Picker text for selecting the type of room in AddRoomView
+Text on picker item in RoomView */
+"Room Type" = "Room Type";
+
+/* Text on button, which saves the new lock
+Text on button, which saves authorized users
+Button for saving a new room in AddRoomView */
+"Save" = "Save";
+
+/* Error Message */
+"Server Error" = "Server Error";
+
+/* Text telling the user, that since it is the first time he/she logs in, he/she must change the password */
+"Since it is your first login, you need to update your password before using the app" = "Since it is your first login, you need to update your password before using the app";
+
+/* Statement to the user */
+"This action cannot be undone!" = "This action cannot be undone!";
+
+/* Text letting user know that this feaure is under construction */
+"Under Construction..." = "Under Construction...";
+
+/* Error Message */
+"Unexpected Error" = "Unexpected Error";
+
+/* Text on a button, which lets the user navigate to the update password view */
+"Update Password" = "Update Password";
+
+/* Text on button, which updates an edited room */
+"Update room" = "Update room";
+
+/* Text on butten, which updates the user */
+"Update User" = "Update User";
+
+/* Succes Message */
+"User Created Successfully!" = "User Created Successfully!";
+
+/* Success Message */
+"User deleted successfully!" = "User deleted successfully!";
+
+/* Section title for User Detalais in EditUserView
+Header text for the user detail section in CreateUserView */
+"User Details" = "User Details";
+
+/* Success Message */
+"User updated successfully!" = "User updated successfully!";
+
+/* Section Header for the user section in ManageUsersView */
+"Users" = "Users";
+
+/* localized reason for why FaceID should be accessed */
+"We need to verify that it is really you using your phone" = "We need to verify that it is really you using your phone";
+

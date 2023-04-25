@@ -22,11 +22,11 @@ class KeychainManager {
     /// - Parameters:
     ///   - account: The account tag for the data
     ///   - data: The data
-    func storeValue(account: String, data: Data) throws {
+    func storeValue(key: String, data: Data) throws {
         let testQuery: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName as AnyObject,
-            kSecAttrAccount as String: account as AnyObject,
+            kSecAttrAccount as String: key as AnyObject,
             kSecMatchLimit as String: kSecMatchLimitOne,
             kSecReturnData as String: kCFBooleanTrue
         ]
@@ -40,7 +40,7 @@ class KeychainManager {
             let query: [String: AnyObject] = [
                 kSecClass as String: kSecClassGenericPassword,
                 kSecAttrService as String: serviceName as AnyObject,
-                kSecAttrAccount as String: account as AnyObject,
+                kSecAttrAccount as String: key as AnyObject,
                 kSecValueData as String: data as AnyObject
             ]
             let updateStatus = SecItemAdd(query as CFDictionary, nil)
@@ -51,7 +51,7 @@ class KeychainManager {
             let query: [String: AnyObject] = [
                 kSecClass as String: kSecClassGenericPassword,
                 kSecAttrService as String: serviceName as AnyObject,
-                kSecAttrAccount as String: account as AnyObject,
+                kSecAttrAccount as String: key as AnyObject,
                 kSecValueData as String: data as AnyObject
             ]
             let saveStatus = SecItemAdd(query as CFDictionary, nil)
@@ -67,12 +67,12 @@ class KeychainManager {
     /// Fetches a value of type Data from the keychain
     /// - Parameter account: The account tag of the data
     /// - Returns: The fetched data or nil
-    func fetchValue(account: String) throws -> Data? {
+    func fetchValue(key: String) throws -> Data? {
         
         let query: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName as AnyObject,
-            kSecAttrAccount as String: account as AnyObject,
+            kSecAttrAccount as String: key as AnyObject,
             kSecMatchLimit as String: kSecMatchLimitOne,
             kSecReturnData as String: kCFBooleanTrue
         ]

@@ -94,7 +94,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         UserDefaults.standard.set(email, forKey: credentialKeys.emailKey)
         
         let keychainManager = KeychainManager()
-        try keychainManager.storeValue(account: email, data: password.data(using: .utf8)!)
+        try keychainManager.storeValue(key: email, data: password.data(using: .utf8)!)
         
     }
     
@@ -107,7 +107,7 @@ final class User: ObservableObject, Identifiable, Hashable {
         }
         
         let keychainManager = KeychainManager()
-        guard let loadedData = try keychainManager.fetchValue(account: email) else {
+        guard let loadedData = try keychainManager.fetchValue(key: email) else {
             throw UserError.errorDecodingPassword
         }
 

@@ -52,7 +52,9 @@ struct ManageUsersView: View {
                     VStack {
                         HStack{
                             Spacer()
-                            Text("Total number of users: \(userbaseModel.users.count)", comment: "Text stating the total number of users").foregroundColor(.gray)
+                            Text("\(userbaseModel.users.count) User(s) In Total", comment: "Text stating the total number of users").foregroundColor(.gray)
+                            
+                            //Text("[\(userbaseModel.users.count) User] (inflect: true) In Total", comment: "Text stating the total number of users").foregroundColor(.gray)
                             Spacer()
                         }
                     }

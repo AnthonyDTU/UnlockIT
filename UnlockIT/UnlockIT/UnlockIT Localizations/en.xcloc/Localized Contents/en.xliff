@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="UnlockIT/en.lproj/InfoPlist.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>UnlockIT</source>
+        <target>UnlockIT</target>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NFCReaderUsageDescription" xml:space="preserve">
+        <source>We need to unlock locks</source>
+        <target>We need to unlock locks</target>
+        <note>Privacy - NFC Scan Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSFaceIDUsageDescription" xml:space="preserve">
+        <source>This app needs to use FaceID for for security purposes</source>
+        <target>This app needs to use FaceID for for security purposes</target>
+        <note>Privacy - Face ID Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="UnlockIT/en.lproj/Localizable.strings" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="%@" xml:space="preserve">
+        <source>%@</source>
+        <target>%@</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <target>%lld</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="(Which actually uses WiFi, but don't tell anyone...)" xml:space="preserve">
+        <source>(Which actually uses WiFi, but don't tell anyone...)</source>
+        <target>(Which actually uses WiFi, but don't tell anyone...)</target>
+        <note>Text decribing how the NFC simulator acutally works</note>
+      </trans-unit>
+      <trans-unit id="Add Lock" xml:space="preserve">
+        <source>Add Lock</source>
+        <target>Add Lock</target>
+        <note>Text on button, which navigaties to ConfigureLockView</note>
+      </trans-unit>
+      <trans-unit id="Add Room" xml:space="preserve">
+        <source>Add Room</source>
+        <target>Add Room</target>
+        <note>Navigation title for Add Room View
+Text on button, which navigaties to AddRoomView</note>
+      </trans-unit>
+      <trans-unit id="Add User" xml:space="preserve">
+        <source>Add User</source>
+        <target>Add User</target>
+        <note>Text on button, which navigaties to AllUsersView</note>
+      </trans-unit>
+      <trans-unit id="Add room" xml:space="preserve">
+        <source>Add room</source>
+        <target>Add room</target>
+        <note>Text on button, which adds a room</note>
+      </trans-unit>
+      <trans-unit id="Admin Controls" xml:space="preserve">
+        <source>Admin Controls</source>
+        <target>Admin Controls</target>
+        <note>Admin Controls tabview button text
+Navigation Bar Title for the Admin Controls view</note>
+      </trans-unit>
+      <trans-unit id="Administrator" xml:space="preserve">
+        <source>Administrator</source>
+        <target>Administrator</target>
+        <note>Text for Administrator toggle in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Administrator Privilige" xml:space="preserve">
+        <source>Administrator Privilige</source>
+        <target>Administrator Privilige</target>
+        <note>Text for Administrator Privilige Toggle in EditUserView</note>
+      </trans-unit>
+      <trans-unit id="Administrators" xml:space="preserve">
+        <source>Administrators</source>
+        <target>Administrators</target>
+        <note>Section Header for the administrators section in ManageUsersView</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to delete this user?" xml:space="preserve">
+        <source>Are you sure you want to delete this user?</source>
+        <target>Are you sure you want to delete this user?</target>
+        <note>Question for the user, to make sure they are sure about what they are doing</note>
+      </trans-unit>
+      <trans-unit id="Attached Locks" xml:space="preserve">
+        <source>Attached Locks</source>
+        <target>Attached Locks</target>
+        <note>Navigation Title for LockView</note>
+      </trans-unit>
+      <trans-unit id="Attributes" xml:space="preserve">
+        <source>Attributes</source>
+        <target>Attributes</target>
+        <note>Section title for Attributes in RoomView</note>
+      </trans-unit>
+      <trans-unit id="Authentication Level" xml:space="preserve">
+        <source>Authentication Level</source>
+        <target>Authentication Level</target>
+        <note>Text on picker control in ConfigureLockView</note>
+      </trans-unit>
+      <trans-unit id="Authorization" xml:space="preserve">
+        <source>Authorization</source>
+        <target>Authorization</target>
+        <note>Section title for Authorization in RoomView</note>
+      </trans-unit>
+      <trans-unit id="Authorized Users" xml:space="preserve">
+        <source>Authorized Users</source>
+        <target>Authorized Users</target>
+        <note>Navigation title for AuthorizedUsersView
+Text on navigation link, navigating to Authorized Users View</note>
+      </trans-unit>
+      <trans-unit id="Bookable" xml:space="preserve">
+        <source>Bookable</source>
+        <target>Bookable</target>
+        <note>Text on toggle item</note>
+      </trans-unit>
+      <trans-unit id="Booked Rooms" xml:space="preserve">
+        <source>Booked Rooms</source>
+        <target>Booked Rooms</target>
+        <note>Booked Rooms tabview button text</note>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <target>Cancel</target>
+        <note>Text on cancel button in NFC simulator</note>
+      </trans-unit>
+      <trans-unit id="Confirm Password" xml:space="preserve">
+        <source>Confirm Password</source>
+        <target>Confirm Password</target>
+        <note>Placeholder for confirm password entry secure text field in ChangePasswordOnFirstLoginView
+Placeholder text for confirm password secure text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Continue" xml:space="preserve">
+        <source>Continue</source>
+        <target>Continue</target>
+        <note>Text on button, which continues, when changing password on first login</note>
+      </trans-unit>
+      <trans-unit id="Create User" xml:space="preserve">
+        <source>Create User</source>
+        <target>Create User</target>
+        <note>Navigation Bar Titile for CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Credentials" xml:space="preserve">
+        <source>Credentials</source>
+        <target>Credentials</target>
+        <note>Section header for credentials section in LoginView
+Header text for the credentials section in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <target>Delete</target>
+        <note>Text on button in alert, which deletes a user
+Text on button, which adds a room</note>
+      </trans-unit>
+      <trans-unit id="Delete User" xml:space="preserve">
+        <source>Delete User</source>
+        <target>Delete User</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Department" xml:space="preserve">
+        <source>Department</source>
+        <target>Department</target>
+        <note>Placeholder text for Department textfield in EditUserView
+Placeholder text for department text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Department is empty" xml:space="preserve">
+        <source>Department is empty</source>
+        <target>Department is empty</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Department: " xml:space="preserve">
+        <source>Department: </source>
+        <target>Department: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Description" xml:space="preserve">
+        <source>Description</source>
+        <target>Description</target>
+        <note>Placeholder for Description text field</note>
+      </trans-unit>
+      <trans-unit id="Edit User" xml:space="preserve">
+        <source>Edit User</source>
+        <target>Edit User</target>
+        <note>Navigation Title for EditUserView</note>
+      </trans-unit>
+      <trans-unit id="Email" xml:space="preserve">
+        <source>Email</source>
+        <target>Email</target>
+        <note>Placeholder text for Email textfield in EditUserView
+Placeholder for Email text field in Login View
+Placeholder text for email text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Email does not contain @" xml:space="preserve">
+        <source>Email does not contain @</source>
+        <target>Email does not contain @</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Email is empty" xml:space="preserve">
+        <source>Email is empty</source>
+        <target>Email is empty</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Email: " xml:space="preserve">
+        <source>Email: </source>
+        <target>Email: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Employee Number" xml:space="preserve">
+        <source>Employee Number</source>
+        <target>Employee Number</target>
+        <note>Placeholder text for Employee Number textfield in EditUserView</note>
+      </trans-unit>
+      <trans-unit id="Employee number is empty" xml:space="preserve">
+        <source>Employee number is empty</source>
+        <target>Employee number is empty</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Emplyee Number" xml:space="preserve">
+        <source>Emplyee Number</source>
+        <target>Emplyee Number</target>
+        <note>Placeholder text for employee number text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Error While Creating User..." xml:space="preserve">
+        <source>Error While Creating User...</source>
+        <target>Error While Creating User...</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Error deleting user..." xml:space="preserve">
+        <source>Error deleting user...</source>
+        <target>Error deleting user...</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Error loading users from database" xml:space="preserve">
+        <source>Error loading users from database</source>
+        <target>Error loading users from database</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Error updating user..." xml:space="preserve">
+        <source>Error updating user...</source>
+        <target>Error updating user...</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Error updating users from database" xml:space="preserve">
+        <source>Error updating users from database</source>
+        <target>Error updating users from database</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Failed Getting Company Name" xml:space="preserve">
+        <source>Failed Getting Company Name</source>
+        <target>Failed Getting Company Name</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Failed Getting UserID" xml:space="preserve">
+        <source>Failed Getting UserID</source>
+        <target>Failed Getting UserID</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Hello %@! Since this is you first login, we need you to set a password. Please do so below" xml:space="preserve">
+        <source>Hello %@! Since this is you first login, we need you to set a password. Please do so below</source>
+        <target>Hello %@! Since this is you first login, we need you to set a password. Please do so below</target>
+        <note>Text telling the user that he/she has to change their password, since it is their first login</note>
+      </trans-unit>
+      <trans-unit id="Home" xml:space="preserve">
+        <source>Home</source>
+        <target>Home</target>
+        <note>Home tabview button text</note>
+      </trans-unit>
+      <trans-unit id="Invalid Credentials" xml:space="preserve">
+        <source>Invalid Credentials</source>
+        <target>Invalid Credentials</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Is Administrator: " xml:space="preserve">
+        <source>Is Administrator: </source>
+        <target>Is Administrator: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Job Title" xml:space="preserve">
+        <source>Job Title</source>
+        <target>Job Title</target>
+        <note>Placeholder text for Job Title textfield in EditUserView
+Placeholder text for job titel text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Job Title: " xml:space="preserve">
+        <source>Job Title: </source>
+        <target>Job Title: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Level %lld" xml:space="preserve">
+        <source>Level %lld</source>
+        <target>Level %lld</target>
+        <note>Text for Level values in EditUserView
+Picker item for privilege in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Lock Description" xml:space="preserve">
+        <source>Lock Description</source>
+        <target>Lock Description</target>
+        <note>Placeholder for lock description textfield in ConfigureLockView</note>
+      </trans-unit>
+      <trans-unit id="Locks" xml:space="preserve">
+        <source>Locks</source>
+        <target>Locks</target>
+        <note>Navigation Link to LocksView</note>
+      </trans-unit>
+      <trans-unit id="Log Out" xml:space="preserve">
+        <source>Log Out</source>
+        <target>Log Out</target>
+        <note>Text on button, for logging a user out.</note>
+      </trans-unit>
+      <trans-unit id="Login" xml:space="preserve">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Text on a button, which lets the user navigate to the login screen
+Text on button for logging in. Located in LoginView.</note>
+      </trans-unit>
+      <trans-unit id="Login to use app features.." xml:space="preserve">
+        <source>Login to use app features..</source>
+        <target>Login to use app features..</target>
+        <note>Text telling the user to login in order to user the app's features. Only visible if the user has not yet logged in</note>
+      </trans-unit>
+      <trans-unit id="Manage Rooms" xml:space="preserve">
+        <source>Manage Rooms</source>
+        <target>Manage Rooms</target>
+        <note>Navigation title for RoomsView
+Navigation Link for navigation to the manage rooms view</note>
+      </trans-unit>
+      <trans-unit id="Manage Users" xml:space="preserve">
+        <source>Manage Users</source>
+        <target>Manage Users</target>
+        <note>Navigation title for ManageUsersView
+Navigation Link for navigating to the mangage users view</note>
+      </trans-unit>
+      <trans-unit id="NFC Simulator" xml:space="preserve">
+        <source>NFC Simulator</source>
+        <target>NFC Simulator</target>
+        <note>Text decriping NFC simulator</note>
+      </trans-unit>
+      <trans-unit id="NUMBER_OF_USERS" xml:space="preserve">
+        <source>%lld User(s) in total</source>
+        <target>%lld User(s) in total</target>
+        <note>String to try plural rule.</note>
+      </trans-unit>
+      <trans-unit id="Name" xml:space="preserve">
+        <source>Name</source>
+        <target>Name</target>
+        <note>Placeholder text for Name textfield in EditUserView
+Placeholder text for name text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Name: " xml:space="preserve">
+        <source>Name: </source>
+        <target>Name: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Network Error" xml:space="preserve">
+        <source>Network Error</source>
+        <target>Network Error</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Not Authorized" xml:space="preserve">
+        <source>Not Authorized</source>
+        <target>Not Authorized</target>
+        <note>Label telling the user, that he/she is not authorized to access the administrator controls. Related to local authenitcation.</note>
+      </trans-unit>
+      <trans-unit id="Password" xml:space="preserve">
+        <source>Password</source>
+        <target>Password</target>
+        <note>Section title for password entry, when changing the users password on first login
+Placeholder for password secure textfield in LoginView
+Placeholder text for password secure text field in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Passwords does not match" xml:space="preserve">
+        <source>Passwords does not match</source>
+        <target>Passwords does not match</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Passwords does not math" xml:space="preserve">
+        <source>Passwords does not math</source>
+        <target>Passwords does not math</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Position is empty" xml:space="preserve">
+        <source>Position is empty</source>
+        <target>Position is empty</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Privilege" xml:space="preserve">
+        <source>Privilege</source>
+        <target>Privilege</target>
+        <note>Text for privelige picker in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="Privilege: " xml:space="preserve">
+        <source>Privilege: </source>
+        <target>Privilege: </target>
+        <note>Text label in account summary</note>
+      </trans-unit>
+      <trans-unit id="Privilige" xml:space="preserve">
+        <source>Privilige</source>
+        <target>Privilige</target>
+        <note>Text for Privilige picker in EditUserView</note>
+      </trans-unit>
+      <trans-unit id="Room" xml:space="preserve">
+        <source>Room</source>
+        <target>Room</target>
+        <note>Navigation title for RoomView</note>
+      </trans-unit>
+      <trans-unit id="Room Description" xml:space="preserve">
+        <source>Room Description</source>
+        <target>Room Description</target>
+        <note>Placeholder text for room description textfield
+Section title for RoomDescription in RoomView</note>
+      </trans-unit>
+      <trans-unit id="Room Type" xml:space="preserve">
+        <source>Room Type</source>
+        <target>Room Type</target>
+        <note>Picker text for selecting the type of room in AddRoomView
+Text on picker item in RoomView</note>
+      </trans-unit>
+      <trans-unit id="Save" xml:space="preserve">
+        <source>Save</source>
+        <target>Save</target>
+        <note>Text on button, which saves the new lock
+Text on button, which saves authorized users
+Button for saving a new room in AddRoomView</note>
+      </trans-unit>
+      <trans-unit id="Server Error" xml:space="preserve">
+        <source>Server Error</source>
+        <target>Server Error</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Since it is your first login, you need to update your password before using the app" xml:space="preserve">
+        <source>Since it is your first login, you need to update your password before using the app</source>
+        <target>Since it is your first login, you need to update your password before using the app</target>
+        <note>Text telling the user, that since it is the first time he/she logs in, he/she must change the password</note>
+      </trans-unit>
+      <trans-unit id="This action cannot be undone!" xml:space="preserve">
+        <source>This action cannot be undone!</source>
+        <target>This action cannot be undone!</target>
+        <note>Statement to the user</note>
+      </trans-unit>
+      <trans-unit id="Under Construction..." xml:space="preserve">
+        <source>Under Construction...</source>
+        <target>Under Construction...</target>
+        <note>Text letting user know that this feaure is under construction</note>
+      </trans-unit>
+      <trans-unit id="Unexpected Error" xml:space="preserve">
+        <source>Unexpected Error</source>
+        <target>Unexpected Error</target>
+        <note>Error Message</note>
+      </trans-unit>
+      <trans-unit id="Update Password" xml:space="preserve">
+        <source>Update Password</source>
+        <target>Update Password</target>
+        <note>Text on a button, which lets the user navigate to the update password view</note>
+      </trans-unit>
+      <trans-unit id="Update User" xml:space="preserve">
+        <source>Update User</source>
+        <target>Update User</target>
+        <note>Text on butten, which updates the user</note>
+      </trans-unit>
+      <trans-unit id="Update room" xml:space="preserve">
+        <source>Update room</source>
+        <target>Update room</target>
+        <note>Text on button, which updates an edited room</note>
+      </trans-unit>
+      <trans-unit id="User Created Successfully!" xml:space="preserve">
+        <source>User Created Successfully!</source>
+        <target>User Created Successfully!</target>
+        <note>Succes Message</note>
+      </trans-unit>
+      <trans-unit id="User Details" xml:space="preserve">
+        <source>User Details</source>
+        <target>User Details</target>
+        <note>Section title for User Detalais in EditUserView
+Header text for the user detail section in CreateUserView</note>
+      </trans-unit>
+      <trans-unit id="User deleted successfully!" xml:space="preserve">
+        <source>User deleted successfully!</source>
+        <target>User deleted successfully!</target>
+        <note>Success Message</note>
+      </trans-unit>
+      <trans-unit id="User updated successfully!" xml:space="preserve">
+        <source>User updated successfully!</source>
+        <target>User updated successfully!</target>
+        <note>Success Message</note>
+      </trans-unit>
+      <trans-unit id="Users" xml:space="preserve">
+        <source>Users</source>
+        <target>Users</target>
+        <note>Section Header for the user section in ManageUsersView</note>
+      </trans-unit>
+      <trans-unit id="We need to verify that it is really you using your phone" xml:space="preserve">
+        <source>We need to verify that it is really you using your phone</source>
+        <target>We need to verify that it is really you using your phone</target>
+        <note>localized reason for why FaceID should be accessed</note>
+      </trans-unit>
+      <trans-unit id="hello" xml:space="preserve">
+        <source>hello</source>
+        <target>hello</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="UnlockIT/en.lproj/Localizable.stringsdict" source-language="en" target-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="14.2" build-num="14C18"/>
+    </header>
+    <body>
+      <trans-unit id="/StringKey:dict/NSStringLocalizedFormatKey:dict/:string" xml:space="preserve">
+        <source>%#@NUMBER_OF_USERS@</source>
+        <target>%#@NUMBER_OF_USERS@</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/StringKey:dict/NUMBER_OF_USERS:dict/one:dict/:string" xml:space="preserve">
+        <source>1 User</source>
+        <target>1 User</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/StringKey:dict/NUMBER_OF_USERS:dict/other:dict/:string" xml:space="preserve">
+        <source>%lld Users In Total</source>
+        <target>%lld Users In Total</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="/StringKey:dict/NUMBER_OF_USERS:dict/zero:dict/:string" xml:space="preserve">
+        <source>No Users</source>
+        <target>No Users</target>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

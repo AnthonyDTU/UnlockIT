@@ -1,0 +1,6 @@
+/* Bundle name */
+"CFBundleName" = "UnlockIT";
+/* Privacy - NFC Scan Usage Description */
+"NFCReaderUsageDescription" = "We need to unlock locks";
+/* Privacy - Face ID Usage Description */
+"NSFaceIDUsageDescription" = "This app needs to use FaceID for for security purposes";
