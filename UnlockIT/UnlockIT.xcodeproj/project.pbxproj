@@ -106,7 +106,6 @@
 		EBCE53B729F9849A00A6F044 /* UnlockITUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITUITests.swift; sourceTree = "<group>"; };
 		EBCE53B929F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		EBCE53C029F9882100A6F044 /* UnlockITTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnlockITTestPlan.xctestplan; sourceTree = "<group>"; };
-		EBCE53C129F98A7300A6F044 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		EBD004B4299E7538008B57A3 /* UnlockIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnlockIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD004B7299E7538008B57A3 /* UnlockITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITApp.swift; sourceTree = "<group>"; };
 		EBD004BB299E753D008B57A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,7 +167,6 @@
 		EB40F60729D1A491007FEE14 /* UnlockITTests */ = {
 			isa = PBXGroup;
 			children = (
-				EBCE53C129F98A7300A6F044 /* TestPlan.xctestplan */,
 				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
 				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
 			);
