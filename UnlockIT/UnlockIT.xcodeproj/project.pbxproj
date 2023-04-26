@@ -42,6 +42,8 @@
 		EBCE539729E97E3900A6F044 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCE539629E97E3900A6F044 /* BoolExtensions.swift */; };
 		EBCE53AA29F861B800A6F044 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EBCE53AC29F861B800A6F044 /* Localizable.stringsdict */; };
 		EBCE53B029F86C6200A6F044 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBCE53AE29F86C6200A6F044 /* Localizable.strings */; };
+		EBCE53B829F9849A00A6F044 /* UnlockITUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCE53B729F9849A00A6F044 /* UnlockITUITests.swift */; };
+		EBCE53BA29F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCE53B929F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift */; };
 		EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD004B7299E7538008B57A3 /* UnlockITApp.swift */; };
 		EBD004BC299E753D008B57A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BB299E753D008B57A3 /* Assets.xcassets */; };
 		EBD004BF299E753D008B57A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BE299E753D008B57A3 /* Preview Assets.xcassets */; };
@@ -50,6 +52,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		EB40F60A29D1A491007FEE14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBD004AC299E7537008B57A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBD004B3299E7537008B57A3;
+			remoteInfo = UnlockIT;
+		};
+		EBCE53BB29F9849A00A6F044 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBD004AC299E7537008B57A3 /* Project object */;
 			proxyType = 1;
@@ -93,6 +102,11 @@
 		EBCE53AB29F861B800A6F044 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EBCE53AD29F861BC00A6F044 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = da; path = da.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		EBCE53AF29F86C6200A6F044 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EBCE53B529F9849900A6F044 /* UnlockITUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCE53B729F9849A00A6F044 /* UnlockITUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITUITests.swift; sourceTree = "<group>"; };
+		EBCE53B929F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EBCE53C029F9882100A6F044 /* UnlockITTestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnlockITTestPlan.xctestplan; sourceTree = "<group>"; };
+		EBCE53C129F98A7300A6F044 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		EBD004B4299E7538008B57A3 /* UnlockIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnlockIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD004B7299E7538008B57A3 /* UnlockITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITApp.swift; sourceTree = "<group>"; };
 		EBD004BB299E753D008B57A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +122,13 @@
 			files = (
 				EB40F61129D1A7FA007FEE14 /* FirebaseAuth in Frameworks */,
 				EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCE53B229F9849800A6F044 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +168,7 @@
 		EB40F60729D1A491007FEE14 /* UnlockITTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBCE53C129F98A7300A6F044 /* TestPlan.xctestplan */,
 				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
 				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
 			);
@@ -192,12 +214,22 @@
 			path = Extenstions;
 			sourceTree = "<group>";
 		};
+		EBCE53B629F9849A00A6F044 /* UnlockITUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EBCE53B729F9849A00A6F044 /* UnlockITUITests.swift */,
+				EBCE53B929F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift */,
+			);
+			path = UnlockITUITests;
+			sourceTree = "<group>";
+		};
 		EBD004AB299E7537008B57A3 = {
 			isa = PBXGroup;
 			children = (
 				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBD004B6299E7538008B57A3 /* UnlockIT */,
 				EB40F60729D1A491007FEE14 /* UnlockITTests */,
+				EBCE53B629F9849A00A6F044 /* UnlockITUITests */,
 				EBD004B5299E7538008B57A3 /* Products */,
 				EB40F60F29D1A7FA007FEE14 /* Frameworks */,
 			);
@@ -208,6 +240,7 @@
 			children = (
 				EBD004B4299E7538008B57A3 /* UnlockIT.app */,
 				EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */,
+				EBCE53B529F9849900A6F044 /* UnlockITUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +257,7 @@
 				7D214EE0299F7DF500D19798 /* data */,
 				EBB20DE129A42287007AF69A /* views */,
 				EBD004B7299E7538008B57A3 /* UnlockITApp.swift */,
+				EBCE53C029F9882100A6F044 /* UnlockITTestPlan.xctestplan */,
 				EBD004BB299E753D008B57A3 /* Assets.xcassets */,
 				EBD004BD299E753D008B57A3 /* Preview Content */,
 				EBCE53AC29F861B800A6F044 /* Localizable.stringsdict */,
@@ -273,6 +307,24 @@
 			productReference = EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EBCE53B429F9849800A6F044 /* UnlockITUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBCE53BD29F9849A00A6F044 /* Build configuration list for PBXNativeTarget "UnlockITUITests" */;
+			buildPhases = (
+				EBCE53B129F9849800A6F044 /* Sources */,
+				EBCE53B229F9849800A6F044 /* Frameworks */,
+				EBCE53B329F9849800A6F044 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBCE53BC29F9849A00A6F044 /* PBXTargetDependency */,
+			);
+			name = UnlockITUITests;
+			productName = UnlockITUITests;
+			productReference = EBCE53B529F9849900A6F044 /* UnlockITUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		EBD004B3299E7537008B57A3 /* UnlockIT */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBD004C2299E753D008B57A3 /* Build configuration list for PBXNativeTarget "UnlockIT" */;
@@ -308,6 +360,10 @@
 						CreatedOnToolsVersion = 14.2;
 						TestTargetID = EBD004B3299E7537008B57A3;
 					};
+					EBCE53B429F9849800A6F044 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EBD004B3299E7537008B57A3;
+					};
 					EBD004B3299E7537008B57A3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -332,12 +388,20 @@
 			targets = (
 				EBD004B3299E7537008B57A3 /* UnlockIT */,
 				EB40F60529D1A491007FEE14 /* UnlockITTests */,
+				EBCE53B429F9849800A6F044 /* UnlockITUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EB40F60429D1A491007FEE14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCE53B329F9849800A6F044 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -365,6 +429,15 @@
 			files = (
 				EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */,
 				EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCE53B129F9849800A6F044 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCE53BA29F9849A00A6F044 /* UnlockITUITestsLaunchTests.swift in Sources */,
+				EBCE53B829F9849A00A6F044 /* UnlockITUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +484,11 @@
 			target = EBD004B3299E7537008B57A3 /* UnlockIT */;
 			targetProxy = EB40F60A29D1A491007FEE14 /* PBXContainerItemProxy */;
 		};
+		EBCE53BC29F9849A00A6F044 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBD004B3299E7537008B57A3 /* UnlockIT */;
+			targetProxy = EBCE53BB29F9849A00A6F044 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -445,9 +523,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnlockIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UnlockIT";
 			};
 			name = Debug;
@@ -463,10 +544,53 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UnlockIT.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UnlockIT";
+			};
+			name = Release;
+		};
+		EBCE53BE29F9849A00A6F044 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = UnlockIT;
+			};
+			name = Debug;
+		};
+		EBCE53BF29F9849A00A6F044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UnlockIndustries.UnlockITUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = UnlockIT;
 			};
 			name = Release;
 		};
@@ -613,9 +737,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -648,9 +775,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -662,6 +792,15 @@
 			buildConfigurations = (
 				EB40F60D29D1A491007FEE14 /* Debug */,
 				EB40F60E29D1A491007FEE14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBCE53BD29F9849A00A6F044 /* Build configuration list for PBXNativeTarget "UnlockITUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBCE53BE29F9849A00A6F044 /* Debug */,
+				EBCE53BF29F9849A00A6F044 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

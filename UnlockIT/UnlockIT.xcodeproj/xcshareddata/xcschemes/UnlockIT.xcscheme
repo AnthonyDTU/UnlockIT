@@ -40,6 +40,17 @@
                ReferencedContainer = "container:UnlockIT.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EBCE53B429F9849800A6F044"
+               BuildableName = "UnlockITUITests.xctest"
+               BlueprintName = "UnlockITUITests"
+               ReferencedContainer = "container:UnlockIT.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

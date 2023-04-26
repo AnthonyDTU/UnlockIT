@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "F87760EF-B010-4D9A-B32C-69DC4C7DD223",
+      "name" : "English (System)",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "D1BFDCBA-BF1D-434E-A490-D0D229A7FCF7",
+      "name" : "Danish",
+      "options" : {
+        "language" : "da",
+        "region" : "DK"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:UnlockIT.xcodeproj",
+        "identifier" : "EB40F60529D1A491007FEE14",
+        "name" : "UnlockITTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:UnlockIT.xcodeproj",
+        "identifier" : "EBCE53B429F9849800A6F044",
+        "name" : "UnlockITUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

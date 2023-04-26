@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "C3C5D427-EA83-4121-B1BC-5145D12C2EC4",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "CADFC875-12DB-4A7E-8E1B-DFD6C74E83A5",
+      "name" : "Configuration 2",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:UnlockIT.xcodeproj",
+        "identifier" : "EB40F60529D1A491007FEE14",
+        "name" : "UnlockITTests"
+      }
+    }
+  ],
+  "version" : 1
+}
