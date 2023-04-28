@@ -18,7 +18,7 @@ struct MainView: View {
     var body: some View {
         
         NavigationView {
-            // If a us
+            // If a user is logged out
             if user.isLoggedOut {
                 VStack {
                     Text("Login to use app features..",
@@ -45,6 +45,7 @@ struct MainView: View {
                     .padding()
                 }
             }
+            // If it is the first time a user is loggin in
             else if user.firstLogin {
                 VStack {
                     Text("Since it is your first login, you need to update your password before using the app",
@@ -103,13 +104,27 @@ struct MainView: View {
                                 } icon: {
                                     Image(systemName: "bitcoinsign")
                                 }
+                                .accessibilityIdentifier("adminControlTabBarButtonLabel")
                         }
                     }
                 }
             }
         }
         .onAppear() {
-            if user.isLoggedOut == false {
+            var UITesting = false
+            let arguments = ProcessInfo.processInfo.arguments
+            for argument in arguments {
+                switch argument {
+                case "UI_TESTING":
+                    UITesting = true
+                default:
+                    break
+                }
+            }
+            
+            // Login if the user has not been automatically done so.
+            // Skip if UI Testing is in progress
+            if !UITesting && user.isLoggedOut == false {
                 let firebaseController = FirebaseUserController()
                 Task {
                     do {
