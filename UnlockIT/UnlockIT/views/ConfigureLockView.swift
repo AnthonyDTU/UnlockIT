@@ -13,6 +13,11 @@ struct ConfigureLockView: View {
     let levels = [1, 2, 3, 4, 5]
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var lockResponseData = ""
+    @State private var isLoading = false
+    @State private var showAlert = false
+
+    
     var body: some View {
         VStack {
             List {
@@ -22,6 +27,22 @@ struct ConfigureLockView: View {
                         Text("\(self.levels[$0])")
                     }
                 }
+                Button("Activate") {
+                    Task {
+                        do {
+                            isLoading = true // show loading indicator
+                            defer {
+                                isLoading = false // hide loading indicator
+                                showAlert = true
+                            }
+                            lockResponseData = try await activateLock(id: "13")
+                            print(lockResponseData)
+                        } catch {
+                            print("Error fetching data: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                .disabled(isLoading) // disable button while loading
             }
             Button() {
                 onSave(lock)
@@ -29,6 +50,11 @@ struct ConfigureLockView: View {
             } label: {
                 Text("Save", comment: "Text on button, which saves the new lock")
             }
+        }
+        .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Notification Title"),
+                          message: Text("Notification Message"),
+                          dismissButton: .default(Text("OK")))
         }
     }
 }

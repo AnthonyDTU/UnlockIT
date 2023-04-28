@@ -63,7 +63,4 @@ final class UsermodelClassTest: XCTestCase {
         XCTAssertFalse(nonAdminUsers[1].isAdmin)
     }
     
-    
-
-
 }

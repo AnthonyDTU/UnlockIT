@@ -12,6 +12,9 @@ struct NFCSimulator: View {
     @Binding var selectedLevel : Int
     @EnvironmentObject private var user: User
     
+    @State private var lockResponseData = ""
+    @State private var isLoading = false
+    
     var body: some View {
         
         ZStack {
@@ -20,7 +23,33 @@ struct NFCSimulator: View {
                 .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height - 300, alignment: .bottom)
             
             VStack {
-                
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .opacity(1.0)
+                } else {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .opacity(0.0)
+                }
+                Button("Unlock") {
+                    Task {
+                        do {
+                            isLoading = true // show loading indicator
+                            defer {
+                                isLoading = false // hide loading indicator
+                                //showAlert = true
+                            }
+                            lockResponseData = try await initChallenge(id: "13")
+                            print(lockResponseData)
+                            lockResponseData = try await respondChallenge(id: "13")
+                            print(lockResponseData)
+                        } catch {
+                            print("Error fetching data: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                .disabled(isLoading) // disable button while loading
                 Spacer()
                 Text("NFC Simulator", comment: "Text decriping NFC simulator")
                     .font(Font.system(.largeTitle).bold())
@@ -67,7 +96,7 @@ struct NFCSimulator: View {
                     }
                     Spacer()
                 }
-                Spacer()
+                //Spacer()
                 
                 Button() {
                     selectedLevel = 0
@@ -81,7 +110,7 @@ struct NFCSimulator: View {
                 .cornerRadius(15)
                 .tint(.gray)
                 
-                Spacer()
+                //Spacer()
             }
         }
         .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height - 300, alignment: .bottom)
