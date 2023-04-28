@@ -12,6 +12,7 @@
 		7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */; };
 		7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C129AD1FF400500A3A /* RoomsView.swift */; };
 		7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */; };
+		7D07CEC129FA6BDC00C3F209 /* LockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07CEC029FA6BDC00C3F209 /* LockController.swift */; };
 		7D214EDF299E920500D19798 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EDE299E920500D19798 /* LoginView.swift */; };
 		7D214EE5299F80E600D19798 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE4299F80E600D19798 /* User.swift */; };
 		7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */; };
@@ -64,6 +65,7 @@
 		7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModel.swift; sourceTree = "<group>"; };
 		7D0687C129AD1FF400500A3A /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCSimulator.swift; sourceTree = "<group>"; };
+		7D07CEC029FA6BDC00C3F209 /* LockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockController.swift; sourceTree = "<group>"; };
 		7D214EDE299E920500D19798 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7D214EE4299F80E600D19798 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedRoomsView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				EB2A275B29AE806C00BE19EC /* FirebaseController.swift */,
 				EB496C8F29D185F700519C57 /* KeychainManager.swift */,
+				7D07CEC029FA6BDC00C3F209 /* LockController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			files = (
 				EBA1E19B29BF839200F2F41B /* ChangePasswordView.swift in Sources */,
 				7D0687BE29ACFB9100500A3A /* BookARoomView.swift in Sources */,
+				7D07CEC129FA6BDC00C3F209 /* LockController.swift in Sources */,
 				7D95385029C9DC7A00C800FC /* RoomView.swift in Sources */,
 				EBF2C8F429ABE1B500D22A20 /* RoomTile.swift in Sources */,
 				EBB20DFA29A5493C007AF69A /* CreateUserView.swift in Sources */,
