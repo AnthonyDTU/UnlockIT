@@ -87,6 +87,12 @@ class FirebaseUserController {
         }
     }
     
+    
+    /// Signs out from firebase
+    func SingOut() throws {
+        try Auth.auth().signOut()
+    }
+    
     /// Updates a users password
     /// - Parameters:
     ///   - user: The user, whose password is to be updated (current user)
@@ -99,7 +105,9 @@ class FirebaseUserController {
         // If password change is because of firstLogin rules, update the user locally and in firestore to reflect that the user has changed its password
         if user.firstLogin {
             try await Firestore.firestore().collection("Companies").document(user.company).collection("Users").document(user.userID).updateData(["firstLogin" : false])
-            user.firstLogin = false
+            DispatchQueue.main.async {
+                user.firstLogin = false
+            }
         }
     }
     

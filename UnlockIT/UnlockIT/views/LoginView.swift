@@ -16,8 +16,6 @@ struct LoginView: View {
     @EnvironmentObject private var appStyle : AppStyle
     @EnvironmentObject private var user : User
     
-    @Binding var showLoginView: Bool
-    
     @State private var email : String = ""
     @State private var password : String = ""
     @State private var showErrorPrompt: Bool = false
@@ -99,9 +97,6 @@ struct LoginView: View {
             
             Spacer()
         }
-        .onDisappear {
-            showLoginView = false
-        }
     }
 }
 
@@ -110,6 +105,6 @@ struct LoginView_Previews: PreviewProvider {
     @StateObject static var appStyle = AppStyle()
     @State static var showView = false
     static var previews: some View {
-        LoginView(showLoginView: $showView).environmentObject(appStyle)
+        LoginView().environmentObject(appStyle)
     }
 }

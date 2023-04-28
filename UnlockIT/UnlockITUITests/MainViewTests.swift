@@ -31,7 +31,7 @@ final class MainViewTests: XCTestCase {
         
         userSetupHelper!.configureUserAdminStatus(isAdmin: "TRUE")
         app.launch()
-        var adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
+        let adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
         XCTAssertTrue(adminButtonText.exists, "Admin button is missing")
         XCTAssertEqual(adminButtonText.label, "Admin Controls", "label is not correct")
     }
@@ -40,7 +40,7 @@ final class MainViewTests: XCTestCase {
     func testAdminControlsNotAvaliableForNonAdmin() throws {
         userSetupHelper!.configureUserAdminStatus(isAdmin: "FALSE")
         app.launch()
-        var adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
+        let adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
         XCTAssertFalse(adminButtonText.exists, "Admin button is visible for non admin")
     }
 }

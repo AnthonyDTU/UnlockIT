@@ -17,26 +17,26 @@ class UserSetupHelper {
     }
     
     func configureDefaultUser() {
-        app.launchEnvironment.updateValue("TRUE", forKey: "ADMIN_STATUS")
-        app.launchEnvironment.updateValue("FALSE", forKey: "FIRST_LOGIN")
-        app.launchEnvironment.updateValue("TRUE", forKey: "IS_LOGGED_IN")
-        app.launchEnvironment.updateValue("TRUE", forKey: "IS_VALIDATED")
+        app.launchEnvironment["ADMIN_STATUS"] = "TRUE"
+        app.launchEnvironment["FIRST_LOGIN"] = "FALSE"
+        app.launchEnvironment["IS_LOGGED_IN"] = "TRUE"
+        app.launchEnvironment["IS_VALIDATED"] = "TRUE"
     }
     
     func configureUserAdminStatus(isAdmin: String) {
-        app.launchEnvironment.updateValue(isAdmin, forKey: "ADMIN_STATUS")
+        app.launchEnvironment["ADMIN_STATUS"] = isAdmin
     }
 
     func configureFirstLoginStatus(isFirstLogin: String) {
-        app.launchEnvironment.updateValue(isFirstLogin, forKey: "FIRST_LOGIN")
+        app.launchEnvironment["FIRST_LOGIN"] = isFirstLogin
     }
     
     func configureIsLoggedIn(isLoggedIn: String) {
-        app.launchEnvironment.updateValue("TRUE", forKey: "IS_LOGGED_IN")
+        app.launchEnvironment["IS_LOGGED_IN"] = isLoggedIn
     }
     
     func configureIsValidated(isValidated: String) {
-        app.launchEnvironment.updateValue(isValidated, forKey: "IS_VALIDATED")
+        app.launchEnvironment["IS_VALIDATED"] = isValidated
     }
 }
 

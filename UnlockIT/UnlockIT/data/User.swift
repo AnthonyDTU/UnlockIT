@@ -52,16 +52,22 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
    
     init() {
-        // Check if the user is already logged in to firebase backend
-        isLoggedOut = Auth.auth().currentUser == nil
         
-        // Create a listener for the login state in firebase, and update the local state accordingly
-        Auth.auth().addStateDidChangeListener { auth, user in
-            if user == nil {
-                self.isLoggedOut = true
-            }
-            else {
-                self.isLoggedOut = false
+        let arguments = ProcessInfo.processInfo.arguments
+        let UITesting = arguments.contains("UI_TESTING")
+            
+        if (UITesting == false) {
+            // Check if the user is already logged in to firebase backend
+            isLoggedOut = Auth.auth().currentUser == nil
+            
+            // Create a listener for the login state in firebase, and update the local state accordingly
+            Auth.auth().addStateDidChangeListener { auth, user in
+                if user == nil {
+                    self.isLoggedOut = true
+                }
+                else {
+                    self.isLoggedOut = false
+                }
             }
         }
     }

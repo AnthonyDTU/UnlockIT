@@ -35,10 +35,18 @@ struct NFCSimulator: View {
                 Button("Unlock") {
                     Task {
                         do {
-                            isLoading = true // show loading indicator
+                            
+                            DispatchQueue.main.async {
+                                isLoading = true // show loading indicator
+                            }
+                            
                             defer {
-                                isLoading = false // hide loading indicator
-                                //showAlert = true
+                                
+                                DispatchQueue.main.async {
+                                    self.isLoading = false // hide loading indicator
+                                    //showAlert = true
+                                }
+                                
                             }
                             lockResponseData = try await initChallenge(id: "13")
                             print(lockResponseData)

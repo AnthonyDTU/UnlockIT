@@ -11,8 +11,7 @@ import Firebase
 struct MainView: View {
     @EnvironmentObject private var appStyle: AppStyle
     @EnvironmentObject private var user : User
-    @State private var showLoginScreen : Bool = false
-    @State private var showChangePasswordScreen : Bool = false
+    @State private var requestedView : RequestableViews = .loginView
     @State private var presentSheet : Bool = false
     
     var body: some View {
@@ -28,7 +27,9 @@ struct MainView: View {
                         .padding()
                     HStack {
                         Button(){
-                            preparePresentSheet(_showLoginScreen: true, _showChangePasswordScreen: false)
+                            requestedView = .loginView
+                            presentSheet = true
+                            //preparePresentSheet(_showLogin: true, _showChangePassword: false)
                         } label: {
                             HStack {
                                 Spacer()
@@ -56,7 +57,9 @@ struct MainView: View {
                     
                     HStack {
                         Button(){
-                            preparePresentSheet(_showLoginScreen: false, _showChangePasswordScreen: true)
+                            requestedView = .changePasswordView
+                            presentSheet = true
+                            //preparePresentSheet(_showLogin: false, _showChangePassword: true)
                         } label: {
                             HStack {
                                 Spacer()
@@ -70,8 +73,27 @@ struct MainView: View {
                         .background(Color.accentColor)
                         .cornerRadius(appStyle.cornerRadiusSmall)
                     }
-                    .padding()
+                    HStack {
+                        Button(){
+                            var firebaseUserController = FirebaseUserController()
                     
+                            do { try firebaseUserController.SingOut() }
+                            catch { print(error) }
+                            
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("Log Out",
+                                     comment: "Text on a button, which logs the user out")
+                                Spacer()
+                            }
+                        }
+                        .foregroundColor(.white)
+                        .padding(15)
+                        .background(Color.accentColor)
+                        .cornerRadius(appStyle.cornerRadiusSmall)
+                    }
+                    .padding()
                 }
             }
             else{
@@ -117,6 +139,22 @@ struct MainView: View {
                 switch argument {
                 case "UI_TESTING":
                     UITesting = true
+                    if let isAdmin = ProcessInfo.processInfo.environment["ADMIN_STATUS"] {
+                        user.isAdmin = isAdmin == "TRUE"
+                    }
+                    
+                    if let isFirstLogin = ProcessInfo.processInfo.environment["FIRST_LOGIN"] {
+                        user.firstLogin = isFirstLogin == "TRUE"
+                    }
+                    
+                    if let isLoggedIn = ProcessInfo.processInfo.environment["IS_LOGGED_IN"] {
+                        user.isLoggedOut = isLoggedIn == "FALSE"
+                    }
+                    
+                    if let isValidated = ProcessInfo.processInfo.environment["IS_VALIDATED"] {
+                        user.isValidated = isValidated == "TRUE"
+                    }
+                    
                 default:
                     break
                 }
@@ -124,7 +162,7 @@ struct MainView: View {
             
             // Login if the user has not been automatically done so.
             // Skip if UI Testing is in progress
-            if !UITesting && user.isLoggedOut == false {
+            if UITesting == false && user.isLoggedOut == false {
                 let firebaseController = FirebaseUserController()
                 Task {
                     do {
@@ -135,24 +173,10 @@ struct MainView: View {
                     }
                 }
             }
-            showLoginScreen = user.isLoggedOut
         }
         .sheet(isPresented: $presentSheet) {
-            if showLoginScreen {
-                LoginView(showLoginView: $showLoginScreen)
-            }
-            else if showChangePasswordScreen {
-                ChangePasswordOnFirstLoginView(showChangePasswordView: $showChangePasswordScreen)
-            }
+            MainScreenSheetView(requestedView: $requestedView)
         }
-    }
-    
-    
-    func preparePresentSheet(_showLoginScreen: Bool, _showChangePasswordScreen: Bool) {
-        guard _showLoginScreen ^ _showChangePasswordScreen else { return }
-        showLoginScreen = _showLoginScreen
-        showChangePasswordScreen = _showChangePasswordScreen
-        presentSheet = true
     }
 }
 

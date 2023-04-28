@@ -21,6 +21,8 @@
 		7D95385829CCC6DD00C800FC /* AuthorizedUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */; };
 		7D95387629CDE2D100C800FC /* AllUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95387529CDE2D100C800FC /* AllUsersView.swift */; };
 		7D95387829CDE99A00C800FC /* LocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95387729CDE99A00C800FC /* LocksView.swift */; };
+		EB0C3DB629FBE84800404FCB /* LockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3DB529FBE84700404FCB /* LockController.swift */; };
+		EB0C3DB829FC21E400404FCB /* MainScreenSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3DB729FC21E400404FCB /* MainScreenSheetView.swift */; };
 		EB13F92B29B3B93800C87335 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */; };
 		EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */; };
 		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
@@ -30,7 +32,7 @@
 		EB214BA529FBD39A004B7C69 /* ManageUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB214BA429FBD39A004B7C69 /* ManageUsersUITests.swift */; };
 		EB214BA729FBDA76004B7C69 /* MainViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB214BA629FBDA76004B7C69 /* MainViewTests.swift */; };
 		EB214BA929FBDFD9004B7C69 /* UserSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */; };
-		EB214BAB29FBE313004B7C69 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB214BAA29FBE313004B7C69 /* MainView.swift */; };
+		EB214BAB29FBE313004B7C69 /* UnlockITUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */; };
 		EB2A275C29AE806C00BE19EC /* FirebaseUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2A275B29AE806C00BE19EC /* FirebaseUserController.swift */; };
 		EB40F61129D1A7FA007FEE14 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61029D1A7FA007FEE14 /* FirebaseAuth */; };
 		EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */; };
@@ -84,6 +86,8 @@
 		7D95385729CCC6DD00C800FC /* AuthorizedUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizedUsersView.swift; sourceTree = "<group>"; };
 		7D95387529CDE2D100C800FC /* AllUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersView.swift; sourceTree = "<group>"; };
 		7D95387729CDE99A00C800FC /* LocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocksView.swift; sourceTree = "<group>"; };
+		EB0C3DB529FBE84700404FCB /* LockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockController.swift; sourceTree = "<group>"; };
+		EB0C3DB729FC21E400404FCB /* MainScreenSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSheetView.swift; sourceTree = "<group>"; };
 		EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginView.swift; sourceTree = "<group>"; };
 		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		EB214BA429FBD39A004B7C69 /* ManageUsersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersUITests.swift; sourceTree = "<group>"; };
 		EB214BA629FBDA76004B7C69 /* MainViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTests.swift; sourceTree = "<group>"; };
 		EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupHelper.swift; sourceTree = "<group>"; };
-		EB214BAA29FBE313004B7C69 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITUITests.swift; sourceTree = "<group>"; };
 		EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = UnlockIT.entitlements; sourceTree = "<group>"; };
 		EB2A275B29AE806C00BE19EC /* FirebaseUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserController.swift; sourceTree = "<group>"; };
 		EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,7 @@
 		EB2A275A29AE804000BE19EC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB0C3DB529FBE84700404FCB /* LockController.swift */,
 				EB2A275B29AE806C00BE19EC /* FirebaseUserController.swift */,
 				EB496C8F29D185F700519C57 /* KeychainManager.swift */,
 			);
@@ -203,6 +208,7 @@
 				7D95387529CDE2D100C800FC /* AllUsersView.swift */,
 				EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */,
 				7D95384F29C9DC7A00C800FC /* RoomView.swift */,
+				EB0C3DB729FC21E400404FCB /* MainScreenSheetView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -222,7 +228,7 @@
 				EB214BA429FBD39A004B7C69 /* ManageUsersUITests.swift */,
 				EB214BA629FBDA76004B7C69 /* MainViewTests.swift */,
 				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
-				EB214BAA29FBE313004B7C69 /* MainView.swift */,
+				EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */,
 			);
 			path = UnlockITUITests;
 			sourceTree = "<group>";
@@ -441,7 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB214BA929FBDFD9004B7C69 /* UserSetupHelper.swift in Sources */,
-				EB214BAB29FBE313004B7C69 /* MainView.swift in Sources */,
+				EB214BAB29FBE313004B7C69 /* UnlockITUITests.swift in Sources */,
 				EB214BA729FBDA76004B7C69 /* MainViewTests.swift in Sources */,
 				EB214BA529FBD39A004B7C69 /* ManageUsersUITests.swift in Sources */,
 			);
@@ -465,10 +471,12 @@
 				7D214EDF299E920500D19798 /* LoginView.swift in Sources */,
 				7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */,
 				7D0687BC29ACF89800500A3A /* Lock.swift in Sources */,
+				EB0C3DB629FBE84800404FCB /* LockController.swift in Sources */,
 				7D334A4B29D42B7000D65FC6 /* AddRoomView.swift in Sources */,
 				7D214EED299FB47900D19798 /* AccountSummary.swift in Sources */,
 				7D95387629CDE2D100C800FC /* AllUsersView.swift in Sources */,
 				EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */,
+				EB0C3DB829FC21E400404FCB /* MainScreenSheetView.swift in Sources */,
 				7D95387829CDE99A00C800FC /* LocksView.swift in Sources */,
 				7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */,
 				EBCE539529E97E2E00A6F044 /* StringExtensions.swift in Sources */,

@@ -28,6 +28,7 @@
       }
     },
     {
+      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:UnlockIT.xcodeproj",
         "identifier" : "EBCE53B429F9849800A6F044",
