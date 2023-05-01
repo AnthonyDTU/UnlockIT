@@ -17,12 +17,13 @@ enum UserError: Error {
 
 final class User: ObservableObject, Identifiable, Hashable {
     
-    
-    internal var authContext = LAContext()
-    
     struct credentialKeys {
         static let emailKey = "UnlockIT_emailKey"
     }
+    
+    internal var authContext = LAContext()
+    
+    
     
     @Published var userID: String = ""
     @Published var employeeNumber: Int = 0
@@ -77,6 +78,10 @@ final class User: ObservableObject, Identifiable, Hashable {
     }
 
     
+    /// Configures the user class to a hashmap loaded from Firestore
+    /// - Parameters:
+    ///   - userID: The Id of the user, as it is in firebase Auth
+    ///   - data: The hashmap loaded from firestore
     func configureUserData(userID: String, data: [String : Any]) {
         self.userID = userID
         self.employeeNumber = data["employeeNumber"] as! Int

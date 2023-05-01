@@ -51,6 +51,9 @@
 		EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD004B7299E7538008B57A3 /* UnlockITApp.swift */; };
 		EBD004BC299E753D008B57A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BB299E753D008B57A3 /* Assets.xcassets */; };
 		EBD004BF299E753D008B57A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BE299E753D008B57A3 /* Preview Assets.xcassets */; };
+		EBEBEBEE2A0006950004DAD4 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */; };
+		EBEBEBF02A001DCB0004DAD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */; };
+		EBEBEBF22A001FD40004DAD4 /* ChangePasswordOnFirstLoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */; };
 		EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2C8F729ABE25900D22A20 /* AppStyle.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +121,9 @@
 		EBD004B7299E7538008B57A3 /* UnlockITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITApp.swift; sourceTree = "<group>"; };
 		EBD004BB299E753D008B57A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBD004BE299E753D008B57A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
+		EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginUITest.swift; sourceTree = "<group>"; };
 		EBF2C8F129A7D92600D22A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBF2C8F729ABE25900D22A20 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +167,14 @@
 				EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		EB0C3DB929FC76CA00404FCB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EB2A275A29AE804000BE19EC /* controllers */ = {
@@ -225,10 +239,13 @@
 		EBCE53B629F9849A00A6F044 /* UnlockITUITests */ = {
 			isa = PBXGroup;
 			children = (
+				EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */,
+				EB0C3DB929FC76CA00404FCB /* Helpers */,
 				EB214BA429FBD39A004B7C69 /* ManageUsersUITests.swift */,
 				EB214BA629FBDA76004B7C69 /* MainViewTests.swift */,
-				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
 				EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */,
+				EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */,
+				EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */,
 			);
 			path = UnlockITUITests;
 			sourceTree = "<group>";
@@ -236,7 +253,6 @@
 		EBD004AB299E7537008B57A3 = {
 			isa = PBXGroup;
 			children = (
-				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBD004B6299E7538008B57A3 /* UnlockIT */,
 				EB40F60729D1A491007FEE14 /* UnlockITTests */,
 				EBCE53B629F9849A00A6F044 /* UnlockITUITests */,
@@ -258,6 +274,7 @@
 		EBD004B6299E7538008B57A3 /* UnlockIT */ = {
 			isa = PBXGroup;
 			children = (
+				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBCE539329E97E0200A6F044 /* Extenstions */,
 				EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */,
 				EBF2C8F129A7D92600D22A20 /* Info.plist */,
@@ -415,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEBEBF02A001DCB0004DAD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,9 +464,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEBEBF22A001FD40004DAD4 /* ChangePasswordOnFirstLoginUITest.swift in Sources */,
 				EB214BA929FBDFD9004B7C69 /* UserSetupHelper.swift in Sources */,
 				EB214BAB29FBE313004B7C69 /* UnlockITUITests.swift in Sources */,
 				EB214BA729FBDA76004B7C69 /* MainViewTests.swift in Sources */,
+				EBEBEBEE2A0006950004DAD4 /* LoginUITest.swift in Sources */,
 				EB214BA529FBD39A004B7C69 /* ManageUsersUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

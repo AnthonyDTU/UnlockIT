@@ -54,6 +54,7 @@ struct HomeView: View {
                     .cornerRadius(appStyle.cornerRadiusLarge)
                     .gesture(scanLockTapGesture)
                     .padding()
+                    .accessibilityIdentifier("HomeScreenUnlockITLogo")
                 
                 Spacer()
             }

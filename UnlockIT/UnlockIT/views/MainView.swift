@@ -38,6 +38,7 @@ struct MainView: View {
                                 Spacer()
                             }
                         }
+                        .accessibilityIdentifier("GoToLoginPageButton")
                         .foregroundColor(.white)
                         .padding(15)
                         .background(Color.accentColor)
@@ -68,14 +69,17 @@ struct MainView: View {
                                 Spacer()
                             }
                         }
+                        .accessibilityIdentifier("GoToUpdatePasswordScreenButton")
                         .foregroundColor(.white)
                         .padding(15)
                         .background(Color.accentColor)
                         .cornerRadius(appStyle.cornerRadiusSmall)
                     }
+                    .padding()
+                    
                     HStack {
                         Button(){
-                            var firebaseUserController = FirebaseUserController()
+                            let firebaseUserController = FirebaseUserController()
                     
                             do { try firebaseUserController.SingOut() }
                             catch { print(error) }
@@ -126,10 +130,11 @@ struct MainView: View {
                                 } icon: {
                                     Image(systemName: "bitcoinsign")
                                 }
-                                .accessibilityIdentifier("adminControlTabBarButtonLabel")
-                        }
+                                
+                            }.accessibilityIdentifier("AdminControlsButton")
                     }
                 }
+                .accessibilityIdentifier("mainTabBar")
             }
         }
         .onAppear() {

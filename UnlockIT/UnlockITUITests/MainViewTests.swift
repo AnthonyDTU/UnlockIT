@@ -20,27 +20,38 @@ final class MainViewTests: XCTestCase {
         userSetupHelper!.configureDefaultUser()
         
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
     
     func testAdminControlsAvaliableForAdmin() throws {
         // UI tests must launch the application that they test.
-        
         userSetupHelper!.configureUserAdminStatus(isAdmin: "TRUE")
         app.launch()
-        let adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
-        XCTAssertTrue(adminButtonText.exists, "Admin button is missing")
-        XCTAssertEqual(adminButtonText.label, "Admin Controls", "label is not correct")
+        
+        let homeButton = app.tabBars["Fanelinje"].buttons["Home"]
+        let bookedRoomsButton = app.tabBars["Fanelinje"].buttons["Booked Rooms"]
+        let adminControlsButton = app.tabBars["Fanelinje"].buttons["Admin Controls"]
+        
+        XCTAssertTrue(homeButton.exists)
+        XCTAssertTrue(bookedRoomsButton.exists)
+        
+        XCTAssertTrue(adminControlsButton.exists, "Admin controls button not visible for admin")
+        XCTAssertEqual(adminControlsButton.label, "Admin Controls")
     }
+    
+    
+    
+    
     
     
     func testAdminControlsNotAvaliableForNonAdmin() throws {
         userSetupHelper!.configureUserAdminStatus(isAdmin: "FALSE")
         app.launch()
-        let adminButtonText = app.staticTexts["adminControlTabBarButtonLabel"]
-        XCTAssertFalse(adminButtonText.exists, "Admin button is visible for non admin")
+        
+        let homeButton = app.tabBars["Fanelinje"].buttons["Home"]
+        let bookedRoomsButton = app.tabBars["Fanelinje"].buttons["Booked Rooms"]
+        let adminControlsButton = app.tabBars["Fanelinje"].buttons["Admin Controls"]
+        
+        XCTAssertTrue(homeButton.exists)
+        XCTAssertTrue(bookedRoomsButton.exists)
+        XCTAssertFalse(adminControlsButton.exists, "Admin button is visible for non admin")
     }
 }

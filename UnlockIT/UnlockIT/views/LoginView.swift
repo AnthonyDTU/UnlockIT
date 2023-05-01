@@ -84,6 +84,7 @@ struct LoginView: View {
                         Spacer()
                     }
                 }
+                .accessibilityIdentifier("PerformLoginButton")
                 .foregroundColor(.white)
                 .padding(15)
                 .background(Color.accentColor)

@@ -30,8 +30,12 @@ struct ChangePasswordOnFirstLoginView: View {
 
                 Form {
                     Section (header: Text("Password", comment: "Section title for password entry, when changing the users password on first login").fontWeight(.semibold)){
+                        
                         SecureField(String(localized: "New Password", comment: "Placeholder for password entry secure text field in ChangePasswordOnFirstLoginView"), text: $newPassword)
+                            .accessibilityIdentifier("NewPasswordSecureEntry")
+                        
                         SecureField(String(localized: "Confirm Password", comment: "Placeholder for confirm password entry secure text field in ChangePasswordOnFirstLoginView"), text: $confirmNewPassword)
+                            .accessibilityIdentifier("ConfirmNewPasswordSecureEntry")
                     }
                 }
                 .frame(height: 150)
@@ -65,6 +69,7 @@ struct ChangePasswordOnFirstLoginView: View {
                             Spacer()
                         }
                     }
+                    .accessibilityIdentifier("PerformChangePasswordButton")
                     .foregroundColor(.white)
                     .padding(15)
                     .background(Color.accentColor)
