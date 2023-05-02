@@ -39,6 +39,8 @@
 		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
 		EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BC21329D1E19700205893 /* UserClassTest.swift */; };
 		EB8032A52A013DAC00AE7D92 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */; };
+		EB8032A72A01598500AE7D92 /* TestUnlockSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */; };
+		EB8032A92A0169A200AE7D92 /* UserbaseSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -108,6 +110,8 @@
 		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EB4BC21329D1E19700205893 /* UserClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassTest.swift; sourceTree = "<group>"; };
 		EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
+		EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUnlockSheetUITests.swift; sourceTree = "<group>"; };
+		EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseSetupHelper.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
+				EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */,
 				EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */,
 				EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */,
+				EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */,
 			);
 			path = UnlockITUITests;
 			sourceTree = "<group>";
@@ -469,11 +475,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEBEBF22A001FD40004DAD4 /* ChangePasswordOnFirstLoginUITest.swift in Sources */,
+				EB8032A72A01598500AE7D92 /* TestUnlockSheetUITests.swift in Sources */,
 				EB214BA929FBDFD9004B7C69 /* UserSetupHelper.swift in Sources */,
 				EB214BAB29FBE313004B7C69 /* UnlockITUITests.swift in Sources */,
 				EB214BA729FBDA76004B7C69 /* MainViewTests.swift in Sources */,
 				EBEBEBEE2A0006950004DAD4 /* LoginUITest.swift in Sources */,
 				EB214BA529FBD39A004B7C69 /* ManageUsersUITests.swift in Sources */,
+				EB8032A92A0169A200AE7D92 /* UserbaseSetupHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

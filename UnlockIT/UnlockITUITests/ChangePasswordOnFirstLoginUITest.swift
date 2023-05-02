@@ -20,7 +20,7 @@ final class ChangePasswordOnFirstLoginUITest: XCTestCase {
     }
     
     
-    func testPasswordMustBeChangedOnFirstLogin() throws {
+    func testFirstLoginStateUI() throws {
         // UI tests must launch the application that they test.
         userSetupHelper!.configureFirstLoginStatus(isFirstLogin: "TRUE")
         app.launch()

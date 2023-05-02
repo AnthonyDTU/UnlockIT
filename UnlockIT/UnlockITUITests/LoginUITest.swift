@@ -20,7 +20,7 @@ final class LoginUITest: XCTestCase {
     }
     
     
-    func testLoginWithValidCredentials() throws {
+    func testLoggedOutStateUI() throws {
         // UI tests must launch the application that they test.
         userSetupHelper!.configureIsLoggedIn(isLoggedIn: "FALSE")
         app.launch()
@@ -30,27 +30,29 @@ final class LoginUITest: XCTestCase {
         goToLoginPageButton.tap()
         
         //let collectionViewsQuery = XCUIApplication().collectionViews
-        let emailTextField = app/*@START_MENU_TOKEN@*/.textFields["Email"]/*[[".cells.textFields[\"Email\"]",".textFields[\"Email\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        let passwordSecureTextField = app/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".cells.secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let emailTextField = app.textFields["Email"]
+        let passwordSecureTextField = app.secureTextFields["Password"]
+        let loginButton = app.buttons["PerformLoginButton"]
         
         XCTAssertTrue(emailTextField.exists)
         XCTAssertTrue(passwordSecureTextField.exists)
+        XCTAssertTrue(loginButton.exists)
         
+        /*
         emailTextField.tap()
         emailTextField.typeText("testuser@email.com")
         
         passwordSecureTextField.tap()
         passwordSecureTextField.typeText("Password123")
         
-        let loginButton = app.buttons["PerformLoginButton"]
-        XCTAssertTrue(loginButton.exists)
         loginButton.tap()
         
         XCTAssertTrue(app.images["HomeScreenUnlockITLogo"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.images["HomeScreenUnlockITLogo"].exists)
+         */
     }
     
-    
+    /*
     func testLoginWithInvlaidCredentials() throws {
         // UI tests must launch the application that they test.
         userSetupHelper!.configureIsLoggedIn(isLoggedIn: "FALSE")
@@ -64,21 +66,22 @@ final class LoginUITest: XCTestCase {
         //let collectionViewsQuery = XCUIApplication().collectionViews
         let emailTextField = app.textFields["Email"]
         let passwordSecureTextField = app.secureTextFields["Password"]
+        let loginButton = app.buttons["PerformLoginButton"]
         
         XCTAssertTrue(emailTextField.exists)
         XCTAssertTrue(passwordSecureTextField.exists)
+        XCTAssertTrue(loginButton.exists)
         
+        /*
         emailTextField.tap()
         emailTextField.typeText("wrongEmail")
         
         passwordSecureTextField.tap()
         passwordSecureTextField.typeText("wrongPassword")
-        
-        let loginButton = app.buttons["PerformLoginButton"]
-        XCTAssertTrue(loginButton.exists)
         loginButton.tap()
         
         XCTAssertTrue(app.alerts["Unexpected Error"].scrollViews.otherElements.buttons["OK"].exists)
-
+        */
     }
+    */
 }

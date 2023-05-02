@@ -2,9 +2,10 @@
   "configurations" : [
     {
       "id" : "F87760EF-B010-4D9A-B32C-69DC4C7DD223",
-      "name" : "English (System)",
+      "name" : "English",
       "options" : {
-
+        "language" : "en",
+        "region" : "US"
       }
     },
     {

@@ -23,8 +23,6 @@ final class User: ObservableObject, Identifiable, Hashable {
     
     internal var authContext = LAContext()
     
-    
-    
     @Published var userID: String = ""
     @Published var employeeNumber: Int = 0
     @Published var username: String = ""

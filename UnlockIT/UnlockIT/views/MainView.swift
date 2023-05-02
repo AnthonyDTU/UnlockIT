@@ -110,6 +110,7 @@ struct MainView: View {
                             } icon: {
                                 Image(systemName: "house")
                             }
+                            .accessibilityIdentifier("TabbarHomeButton")
                         }
                     BookedRoomsView()
                         .tabItem {
@@ -119,6 +120,7 @@ struct MainView: View {
                             } icon: {
                                 Image(systemName: "book")
                             }
+                            .accessibilityIdentifier("TabbarBookedRoomsButton")
                         }
                     if user.isAdmin {
                         AdminControls()
@@ -129,8 +131,8 @@ struct MainView: View {
                                 } icon: {
                                     Image(systemName: "bitcoinsign")
                                 }
-                                
-                            }.accessibilityIdentifier("AdminControlsButton")
+                                .accessibilityIdentifier("TabbarAdminControlsButton")
+                            }
                     }
                 }
                 .accessibilityIdentifier("mainTabBar")

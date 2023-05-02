@@ -26,9 +26,9 @@ final class MainViewTests: XCTestCase {
         userSetupHelper!.configureUserAdminStatus(isAdmin: "TRUE")
         app.launch()
         
-        let homeButton = app.tabBars["Fanelinje"].buttons["Home"]
-        let bookedRoomsButton = app.tabBars["Fanelinje"].buttons["Booked Rooms"]
-        let adminControlsButton = app.tabBars["Fanelinje"].buttons["Admin Controls"]
+        let homeButton = app.buttons["TabbarHomeButton"]
+        let bookedRoomsButton = app.buttons["TabbarBookedRoomsButton"]
+        let adminControlsButton = app.buttons["TabbarAdminControlsButton"]
         
         XCTAssertTrue(homeButton.exists)
         XCTAssertTrue(bookedRoomsButton.exists)
