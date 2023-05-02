@@ -1,3 +1,284 @@
+/* Text decribing how the NFC simulator acutally works */
+"(Which actually uses WiFi, but don't tell anyone...)" = "(Som faktisk benytter WiFi, men shh)";
+
+/* No comment provided by engineer. */
+"%@" = "%@";
+
+/* No comment provided by engineer. */
+"%lld" = "%lld";
+
 /* Text on button, which navigaties to ConfigureLockView */
 "Add Lock" = "Tilføj Lås";
+
+/* Text on button, which adds a room */
+"Add room" = "Tilføj Rum";
+
+/* Navigation title for Add Room View
+Text on button, which navigaties to AddRoomView */
+"Add Room" = "Tilføj Rum";
+
+/* Text on button, which navigaties to AllUsersView */
+"Add User" = "Till Bruger";
+
+/* Admin Controls tabview button text
+Navigation Bar Title for the Admin Controls view */
+"Admin Controls" = "Administrator Muligheder";
+
+/* Text for Administrator toggle in CreateUserView */
+"Administrator" = "Administrator";
+
+/* Text for Administrator Privilige Toggle in EditUserView */
+"Administrator Privilige" = "Administrator";
+
+/* Section Header for the administrators section in ManageUsersView */
+"Administrators" = "Administratorer";
+
+/* Question for the user, to make sure they are sure about what they are doing */
+"Are you sure you want to delete this user?" = "Er du sikker på at du vil slette denne bruger?";
+
+/* Navigation Title for LockView */
+"Attached Locks" = "Reletered Låse";
+
+/* Section title for Attributes in RoomView */
+"Attributes" = "Relateret Data";
+
+/* Text on picker control in ConfigureLockView */
+"Authentication Level" = "Authentications Niveau ";
+
+/* Section title for Authorization in RoomView */
+"Authorization" = "Autoritasion";
+
+/* Navigation title for AuthorizedUsersView
+Text on navigation link, navigating to Authorized Users View */
+"Authorized Users" = "Autoriserede Brugere";
+
+/* Text on toggle item */
+"Bookable" = "Kan Bookes";
+
+/* Booked Rooms tabview button text */
+"Booked Rooms" = "Bookede Rum";
+
+/* Text on cancel button in NFC simulator */
+"Cancel" = "Fortryd";
+
+/* Placeholder for confirm password entry secure text field in ChangePasswordOnFirstLoginView
+Placeholder text for confirm password secure text field in CreateUserView */
+"Confirm Password" = "Bekræft Kodeord";
+
+/* Navigation Bar Titile for CreateUserView */
+"Create User" = "Opret Bruge";
+
+/* Section header for credentials section in LoginView
+Header text for the credentials section in CreateUserView */
+"Credentials" = "Loginoplysninger";
+
+/* Text on button in alert, which deletes a user
+Text on button, which adds a room */
+"Delete" = "Slet";
+
+/* No comment provided by engineer. */
+"Delete User" = "Slet Bruger";
+
+/* Placeholder text for Department textfield in EditUserView
+Placeholder text for department text field in CreateUserView */
+"Department" = "Afdeling";
+
+/* Error Message */
+"Department is empty" = "Afdelingen Ikke Specificeret";
+
+/* Text label in account summary */
+"Department: " = "Afdeling:";
+
+/* Placeholder for Description text field */
+"Description" = "Beskrivelse";
+
+/* Navigation Title for EditUserView */
+"Edit User" = "Juster Bruger";
+
+/* Placeholder text for Email textfield in EditUserView
+Placeholder for Email text field in Login View
+Placeholder text for email text field in CreateUserView */
+"Email" = "Email";
+
+/* Error Message */
+"Email does not contain @" = "Email indeholder ikke @";
+
+/* Error Message */
+"Email is empty" = "Email er tom";
+
+/* Text label in account summary */
+"Email: " = "Email:";
+
+/* Placeholder text for Employee Number textfield in EditUserView */
+"Employee Number" = "Medarbejdernummer";
+
+/* Error Message */
+"Employee number is empty" = "Medarbejdernummer er tomt";
+
+/* Placeholder text for employee number text field in CreateUserView */
+"Emplyee Number" = "Medarbejdernummer";
+
+/* Error Message */
+"Error deleting user..." = "Fejl ved sletning af bruger";
+
+/* Error Message */
+"Error loading users from database" = "Fejl ved læsning af brugere fra database";
+
+/* Error Message */
+"Error updating user..." = "Fejl ved opdatering af bruger";
+
+/* Error Message */
+"Error updating users from database" = "Fejl ved opdatering af brugere i databasen";
+
+/* Error Message */
+"Error While Creating User..." = "Fejl ved oprettelse af bruger";
+
+/* Error Message */
+"Failed Getting Company Name" = "Fejl ved læsning af firmanavn";
+
+/* Error Message */
+"Failed Getting UserID" = "Fejl ved læsning af bruger ID";
+
+/* No comment provided by engineer. */
+"hello" = "Hej";
+
+/* Home tabview button text */
+"Home" = "Hjem";
+
+/* Error Message */
+"Invalid Credentials" = "Invalide loginoplysninger";
+
+/* Text label in account summary */
+"Is Administrator: " = "Er Administrator:";
+
+/* Placeholder text for Job Title textfield in EditUserView
+Placeholder text for job titel text field in CreateUserView */
+"Job Title" = "Job Titel";
+
+/* Text label in account summary */
+"Job Title: " = "Job Titel:";
+
+/* Text for Level values in EditUserView
+Picker item for privilege in CreateUserView */
+"Level %lld" = "Niveau %lld";
+
+/* Placeholder for lock description textfield in ConfigureLockView */
+"Lock Description" = "Lås' beskrivelse";
+
+/* Navigation Link to LocksView */
+"Locks" = "Låse";
+
+/* Text on a button, which logs the user out
+Text on button, for logging a user out. */
+"Log Out" = "Log ud";
+
+/* Text on a button, which lets the user navigate to the login screen
+Text on button for logging in. Located in LoginView. */
+"Login" = "Log ind";
+
+/* Text telling the user to login in order to user the app's features. Only visible if the user has not yet logged in */
+"Login to use app features.." = "Log ind for at bruge appen";
+
+/* Navigation title for RoomsView
+Navigation Link for navigation to the manage rooms view */
+"Manage Rooms" = "Administrer Rum";
+
+/* Navigation title for ManageUsersView
+Navigation Link for navigating to the mangage users view */
+"Manage Users" = "Administrer Brugere";
+
+/* Placeholder text for Name textfield in EditUserView
+Placeholder text for name text field in CreateUserView */
+"Name" = "Navn";
+
+/* Text label in account summary */
+"Name: " = "Navn:";
+
+/* Error Message */
+"Network Error" = "Netværks fejl";
+
+/* Text decriping NFC simulator */
+"NFC Simulator" = "NFC Simulator";
+
+/* Label telling the user, that he/she is not authorized to access the administrator controls. Related to local authenitcation. */
+"Not Authorized" = "Ikke Authorizeret";
+
+/* Section title for password entry, when changing the users password on first login
+Placeholder for password secure textfield in LoginView
+Placeholder text for password secure text field in CreateUserView */
+"Password" = "Kodeord";
+
+/* Error Message */
+"Passwords does not math" = "Kodeord matcher ikke hinanden";
+
+/* Error Message */
+"Position is empty" = "Position er tom";
+
+/* Text for privelige picker in CreateUserView */
+"Privilege" = "Privilegie";
+
+/* Text label in account summary */
+"Privilege: " = "Privilegie:";
+
+/* Text for Privilige picker in EditUserView */
+"Privilige" = "Privilegie";
+
+/* Navigation title for RoomView */
+"Room" = "Rum";
+
+/* Placeholder text for room description textfield
+Section title for RoomDescription in RoomView */
+"Room Description" = "Rum Beskrivelse";
+
+/* Picker text for selecting the type of room in AddRoomView
+Text on picker item in RoomView */
+"Room Type" = "Rum Type";
+
+/* Text on button, which saves the new lock
+Text on button, which saves authorized users
+Button for saving a new room in AddRoomView */
+"Save" = "Gem";
+
+/* Error Message */
+"Server Error" = "Server fejl";
+
+/* Text telling the user, that since it is the first time he/she logs in, he/she must change the password */
+"Since it is your first login, you need to update your password before using the app" = "Siden det er dit første login, vil vi bede dig om at ændre dit kodeord, før du kan bruge appen.";
+
+/* Statement to the user */
+"This action cannot be undone!" = "Denne handling kan ikke fortrydes";
+
+/* Text letting user know that this feaure is under construction */
+"Under Construction..." = "Under Konstruktion";
+
+/* Error Message */
+"Unexpected Error" = "Uventet fejl";
+
+/* Text on a button, which lets the user navigate to the update password view */
+"Update Password" = "Opdater Kodeord";
+
+/* Text on button, which updates an edited room */
+"Update room" = "Opdater Rum";
+
+/* Text on butten, which updates the user */
+"Update User" = "Opdater Bruger";
+
+/* Succes Message */
+"User Created Successfully!" = "Bruger oprettet succesfuldt!";
+
+/* Success Message */
+"User deleted successfully!" = "Bruger slettet succesfuldt!";
+
+/* Section title for User Detalais in EditUserView
+Header text for the user detail section in CreateUserView */
+"User Details" = "Brugerdetaljer";
+
+/* Success Message */
+"User updated successfully!" = "Bruger opdateret succesfuldt!";
+
+/* Section Header for the user section in ManageUsersView */
+"Users" = "Brugere";
+
+/* localized reason for why FaceID should be accessed */
+"We need to verify that it is really you using your phone" = "Vi har brug for at verificere at det faktisk ér dig der bruger appen.";
 
