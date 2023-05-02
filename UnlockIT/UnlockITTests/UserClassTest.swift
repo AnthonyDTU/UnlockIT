@@ -65,7 +65,14 @@ final class UserClassTest: XCTestCase {
         let user = User()
         user.authContext = MOCK_LAContext()
         try await user.validateUser()
-        XCTAssertTrue(user.isValidated)
+        
+        let expectation = XCTestExpectation(description: "User has been validated")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            //then
+            XCTAssertTrue(user.isValidated)
+            expectation.fulfill()
+        })
+        wait(for: [expectation], timeout: 3.0)
         
     }
 }
