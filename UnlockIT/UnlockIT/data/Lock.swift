@@ -10,6 +10,7 @@ import Foundation
 struct Lock: Identifiable, Codable, Equatable, Hashable{
     var id: UUID = UUID()
     var description: String = "Lock Description"
+    var lockId: Int = 1
     var authenticationLevel : Int = 1
     var lastUnlock : Date = NSDate(timeIntervalSinceNow: -10000) as Date
     

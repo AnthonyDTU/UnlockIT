@@ -25,7 +25,12 @@ struct AddRoomView: View {
             }
             Button() {
                 Task {
-                    await roomsModel.addRoom(company: user.company, room: room)
+                    do {
+                        try roomsModel.addRoom(company: user.company, room: room)
+                    }
+                    catch {
+                        print("Faield to add room")
+                    }
                 }
                 presentationMode.wrappedValue.dismiss()
             } label: {
@@ -34,10 +39,7 @@ struct AddRoomView: View {
         }
         .navigationTitle(String(localized: "Add Room", comment: "Navigation title for Add Room View"))
         .onDisappear() {
-            Task {
-                await roomsModel.fetchRooms(company: user.company)
-            }
-            
+            roomsModel.fetchRooms(company: user.company)
         }
     }
 }

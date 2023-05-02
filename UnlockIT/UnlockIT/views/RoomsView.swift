@@ -10,6 +10,7 @@ import SwiftUI
 struct RoomsView: View {
     @EnvironmentObject var roomsModel: RoomsModel
     @EnvironmentObject var user : User
+    @State private var deletingLastRoom = false
     @State var newRoomIndex: Int? = 1
     @State private var isShowingAddRoomView = false
     
@@ -26,9 +27,7 @@ struct RoomsView: View {
                 }
             }
             .onAppear() {
-                Task {
-                    await roomsModel.fetchRooms(company: user.company)
-                }
+                roomsModel.fetchRooms(company: user.company)
             }
             .navigationBarTitle(String(localized: "Manage Rooms", comment: "Navigation title for RoomsView"))
             .toolbar {

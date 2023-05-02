@@ -54,7 +54,7 @@ struct LocksView: View {
             ConfigureLockView(lock: $roomsModel.rooms[roomIndex].newLock, onSave: { newLock in
                     roomsModel.rooms[roomIndex].locks.append(newLock)
                     isShowingConfigureLockView = false
-                })
+            })
         }
     }
     
