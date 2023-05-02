@@ -43,8 +43,14 @@ class KeychainManager {
                 kSecAttrAccount as String: key as AnyObject,
                 kSecValueData as String: data as AnyObject
             ]
-            let updateStatus = SecItemAdd(query as CFDictionary, nil)
+            
+            var updatedValues = [String: AnyObject]()
+            updatedValues[kSecValueData as String] = data as AnyObject
+            
+            let updateStatus = SecItemUpdate(query as CFDictionary, updatedValues as CFDictionary)
+            //let updateStatus = SecItemAdd(query as CFDictionary, nil)
             guard updateStatus == errSecSuccess else { throw KeychainError.unkown(updateStatus)}
+            return
             
         // If the item was not found, it needs to be created in keychain
         case errSecItemNotFound:
@@ -56,6 +62,7 @@ class KeychainManager {
             ]
             let saveStatus = SecItemAdd(query as CFDictionary, nil)
             guard saveStatus == errSecSuccess else { throw KeychainError.unkown(saveStatus)}
+            return
             
             
         default:

@@ -120,7 +120,6 @@ struct MainView: View {
                                 Image(systemName: "book")
                             }
                         }
-                    
                     if user.isAdmin {
                         AdminControls()
                             .tabItem {

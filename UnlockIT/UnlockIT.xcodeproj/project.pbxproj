@@ -38,6 +38,7 @@
 		EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */; };
 		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
 		EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BC21329D1E19700205893 /* UserClassTest.swift */; };
+		EB8032A52A013DAC00AE7D92 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -106,6 +107,7 @@
 		EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EB4BC21329D1E19700205893 /* UserClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassTest.swift; sourceTree = "<group>"; };
+		EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
 				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
+				EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */,
 			);
 			path = UnlockITTests;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8032A52A013DAC00AE7D92 /* KeychainManagerTests.swift in Sources */,
 				EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */,
 				EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */,
 			);
