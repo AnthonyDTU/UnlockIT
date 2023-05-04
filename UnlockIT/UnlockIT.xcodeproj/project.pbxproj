@@ -24,7 +24,6 @@
 		7D95387829CDE99A00C800FC /* LocksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D95387729CDE99A00C800FC /* LocksView.swift */; };
 		EB0C3DB629FBE84800404FCB /* LockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3DB529FBE84700404FCB /* LockController.swift */; };
 		EB0C3DB829FC21E400404FCB /* MainScreenSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3DB729FC21E400404FCB /* MainScreenSheetView.swift */; };
-		EB13F92B29B3B93800C87335 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */; };
 		EB13F92D29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */; };
 		EB13F92F29B6179B00C87335 /* ManageUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F92E29B6179B00C87335 /* ManageUsersView.swift */; };
 		EB13F93329B61DBA00C87335 /* UserbaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */; };
@@ -39,6 +38,8 @@
 		EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */; };
 		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
 		EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BC21329D1E19700205893 /* UserClassTest.swift */; };
+		EB8032AD2A03B7D200AE7D92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB8032AC2A03B7D200AE7D92 /* GoogleService-Info.plist */; };
+		EB8032AF2A03B84300AE7D92 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032AE2A03B84200AE7D92 /* KeychainManagerTests.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -90,7 +91,6 @@
 		7D95387729CDE99A00C800FC /* LocksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocksView.swift; sourceTree = "<group>"; };
 		EB0C3DB529FBE84700404FCB /* LockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockController.swift; sourceTree = "<group>"; };
 		EB0C3DB729FC21E400404FCB /* MainScreenSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenSheetView.swift; sourceTree = "<group>"; };
-		EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB13F92C29B60A9000C87335 /* ChangePasswordOnFirstLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginView.swift; sourceTree = "<group>"; };
 		EB13F92E29B6179B00C87335 /* ManageUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageUsersView.swift; sourceTree = "<group>"; };
 		EB13F93229B61DBA00C87335 /* UserbaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +105,8 @@
 		EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EB4BC21329D1E19700205893 /* UserClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassTest.swift; sourceTree = "<group>"; };
+		EB8032AC2A03B7D200AE7D92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB8032AE2A03B84200AE7D92 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		EB40F60729D1A491007FEE14 /* UnlockITTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB8032AE2A03B84200AE7D92 /* KeychainManagerTests.swift */,
 				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
 				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
 				7D07CEC229FFD0DF00C3F209 /* RoomsModelTest.swift */,
@@ -239,7 +242,7 @@
 		EBD004AB299E7537008B57A3 = {
 			isa = PBXGroup;
 			children = (
-				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
+				EB8032AC2A03B7D200AE7D92 /* GoogleService-Info.plist */,
 				EBD004B6299E7538008B57A3 /* UnlockIT */,
 				EB40F60729D1A491007FEE14 /* UnlockITTests */,
 				EBCE53B629F9849A00A6F044 /* UnlockITUITests */,
@@ -427,9 +430,9 @@
 			files = (
 				EBCE53B029F86C6200A6F044 /* Localizable.strings in Resources */,
 				EBD004BF299E753D008B57A3 /* Preview Assets.xcassets in Resources */,
+				EB8032AD2A03B7D200AE7D92 /* GoogleService-Info.plist in Resources */,
 				EBCE53AA29F861B800A6F044 /* Localizable.stringsdict in Resources */,
 				EBD004BC299E753D008B57A3 /* Assets.xcassets in Resources */,
-				EB13F92B29B3B93800C87335 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +446,7 @@
 				7D07CEC329FFD0DF00C3F209 /* RoomsModelTest.swift in Sources */,
 				EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */,
 				EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */,
+				EB8032AF2A03B84300AE7D92 /* KeychainManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +740,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -752,7 +756,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -774,7 +778,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = PTLP6PPWJ6;
+				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -790,7 +794,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
