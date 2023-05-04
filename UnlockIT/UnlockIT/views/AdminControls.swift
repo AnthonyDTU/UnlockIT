@@ -48,7 +48,7 @@ struct AdminControls: View {
                      comment: "Label telling the user, that he/she is not authorized to access the administrator controls. Related to local authenitcation.")
             }
         }
-        .toolbar(.visible, for: .tabBar)
+        //.toolbar(.visible, for: .tabBar)
         .onAppear() {
             Task {
                 do {

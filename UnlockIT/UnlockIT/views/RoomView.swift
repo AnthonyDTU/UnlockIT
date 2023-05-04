@@ -10,9 +10,10 @@ import SwiftUI
 struct RoomView: View {
     @EnvironmentObject var roomsModel: RoomsModel
     @EnvironmentObject var user: User
-    var roomIndex: Int
+    @State var roomIndex: Int
     var isEditing: Bool
     @State private var didAddRoom = false
+    //@Binding var deletingLastRoom: Bool
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -57,7 +58,12 @@ struct RoomView: View {
             
             if (isEditing) {
                 Button() {
-                    roomsModel.updateRoom(company: user.company, room: $roomsModel.rooms[roomIndex].wrappedValue)
+                    do {
+                        try roomsModel.updateRoom(company: user.company, room: $roomsModel.rooms[roomIndex].wrappedValue)
+                    }
+                    catch {
+                        print("Failed to update room: \(error)")
+                    }
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Update room", comment: "Text on button, which updates an edited room")
@@ -65,10 +71,8 @@ struct RoomView: View {
             }
             else {
                 Button() {
-                    Task {
-                        await roomsModel.fetchRooms(company: user.company)
-                        didAddRoom = true
-                    }
+                    roomsModel.fetchRooms(company: user.company)
+                    didAddRoom = true
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Add room", comment: "Text on button, which adds a room")
@@ -76,8 +80,29 @@ struct RoomView: View {
             }
             
             Button() {
-                roomsModel.deleteRoom(company: user.company, roomsModel.rooms[roomIndex])
-                presentationMode.wrappedValue.dismiss()
+                let oldIndex = roomIndex
+                if (roomsModel.rooms.count - 1) == 0 {
+                    // There is a b
+                    presentationMode.wrappedValue.dismiss()
+                } else {
+                    if roomIndex >= (roomsModel.rooms.count - 1) {
+                        roomIndex -= 1
+                    }
+                    print("Room Index: \(roomIndex)")
+                    Task {
+                        do {
+                            try await roomsModel.deleteRoom(company: user.company, $roomsModel.rooms[oldIndex].wrappedValue)
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        catch {
+                            print("Failed to delete room: \(error)")
+                        }
+                    }
+                    
+                    
+                }
+                
+                
             } label: {
                 Text("Delete", comment: "Text on button, which adds a room")
             }

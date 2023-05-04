@@ -11,6 +11,7 @@
 		7D0687C029ACFC7C00500A3A /* RoomsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */; };
 		7D0687C229AD1FF400500A3A /* RoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C129AD1FF400500A3A /* RoomsView.swift */; };
 		7D0687CA29AE2DCB00500A3A /* NFCSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */; };
+		7D07CEC329FFD0DF00C3F209 /* RoomsModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D07CEC229FFD0DF00C3F209 /* RoomsModelTest.swift */; };
 		7D214EDF299E920500D19798 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EDE299E920500D19798 /* LoginView.swift */; };
 		7D214EE5299F80E600D19798 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE4299F80E600D19798 /* User.swift */; };
 		7D214EE9299FB0B100D19798 /* BookedRoomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */; };
@@ -38,9 +39,6 @@
 		EB40F61329D1A808007FEE14 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EB40F61229D1A808007FEE14 /* FirebaseFirestoreSwift */; };
 		EB496C9029D185F700519C57 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB496C8F29D185F700519C57 /* KeychainManager.swift */; };
 		EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4BC21329D1E19700205893 /* UserClassTest.swift */; };
-		EB8032A52A013DAC00AE7D92 /* KeychainManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */; };
-		EB8032A72A01598500AE7D92 /* TestUnlockSheetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */; };
-		EB8032A92A0169A200AE7D92 /* UserbaseSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */; };
 		EBB20DE329A4231B007AF69A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE229A4231B007AF69A /* MainView.swift */; };
 		EBB20DE829A43483007AF69A /* AdminControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB20DE729A43483007AF69A /* AdminControls.swift */; };
 		EBB20DEB29A4ECA0007AF69A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EBB20DEA29A4ECA0007AF69A /* FirebaseAuth */; };
@@ -54,9 +52,6 @@
 		EBD004B8299E7538008B57A3 /* UnlockITApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD004B7299E7538008B57A3 /* UnlockITApp.swift */; };
 		EBD004BC299E753D008B57A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BB299E753D008B57A3 /* Assets.xcassets */; };
 		EBD004BF299E753D008B57A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD004BE299E753D008B57A3 /* Preview Assets.xcassets */; };
-		EBEBEBEE2A0006950004DAD4 /* LoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */; };
-		EBEBEBF02A001DCB0004DAD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */; };
-		EBEBEBF22A001FD40004DAD4 /* ChangePasswordOnFirstLoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */; };
 		EBF2C8F829ABE25900D22A20 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2C8F729ABE25900D22A20 /* AppStyle.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +77,7 @@
 		7D0687BF29ACFC7C00500A3A /* RoomsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModel.swift; sourceTree = "<group>"; };
 		7D0687C129AD1FF400500A3A /* RoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsView.swift; sourceTree = "<group>"; };
 		7D0687C929AE2DCB00500A3A /* NFCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCSimulator.swift; sourceTree = "<group>"; };
+		7D07CEC229FFD0DF00C3F209 /* RoomsModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsModelTest.swift; sourceTree = "<group>"; };
 		7D214EDE299E920500D19798 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7D214EE4299F80E600D19798 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7D214EE8299FB0B000D19798 /* BookedRoomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookedRoomsView.swift; sourceTree = "<group>"; };
@@ -109,9 +105,6 @@
 		EB40F60629D1A491007FEE14 /* UnlockITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnlockITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB496C8F29D185F700519C57 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		EB4BC21329D1E19700205893 /* UserClassTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClassTest.swift; sourceTree = "<group>"; };
-		EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManagerTests.swift; sourceTree = "<group>"; };
-		EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUnlockSheetUITests.swift; sourceTree = "<group>"; };
-		EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserbaseSetupHelper.swift; sourceTree = "<group>"; };
 		EBB20DE229A4231B007AF69A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		EBB20DE729A43483007AF69A /* AdminControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminControls.swift; sourceTree = "<group>"; };
 		EBB20DF729A5492D007AF69A /* ConfigureLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureLockView.swift; sourceTree = "<group>"; };
@@ -127,9 +120,6 @@
 		EBD004B7299E7538008B57A3 /* UnlockITApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockITApp.swift; sourceTree = "<group>"; };
 		EBD004BB299E753D008B57A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBD004BE299E753D008B57A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITest.swift; sourceTree = "<group>"; };
-		EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginUITest.swift; sourceTree = "<group>"; };
 		EBF2C8F129A7D92600D22A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EBF2C8F729ABE25900D22A20 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,15 +165,6 @@
 			path = data;
 			sourceTree = "<group>";
 		};
-		EB0C3DB929FC76CA00404FCB /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
-				EB8032A82A0169A200AE7D92 /* UserbaseSetupHelper.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		EB2A275A29AE804000BE19EC /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +180,7 @@
 			children = (
 				EB4BC21329D1E19700205893 /* UserClassTest.swift */,
 				EB1D4FC629D34D0000A71AB4 /* UsermodelClassTest.swift */,
-				EB8032A42A013DAC00AE7D92 /* KeychainManagerTests.swift */,
+				7D07CEC229FFD0DF00C3F209 /* RoomsModelTest.swift */,
 			);
 			path = UnlockITTests;
 			sourceTree = "<group>";
@@ -247,14 +228,10 @@
 		EBCE53B629F9849A00A6F044 /* UnlockITUITests */ = {
 			isa = PBXGroup;
 			children = (
-				EBEBEBEF2A001DCB0004DAD4 /* GoogleService-Info.plist */,
-				EB0C3DB929FC76CA00404FCB /* Helpers */,
 				EB214BA429FBD39A004B7C69 /* ManageUsersUITests.swift */,
 				EB214BA629FBDA76004B7C69 /* MainViewTests.swift */,
+				EB214BA829FBDFD9004B7C69 /* UserSetupHelper.swift */,
 				EB214BAA29FBE313004B7C69 /* UnlockITUITests.swift */,
-				EBEBEBED2A0006950004DAD4 /* LoginUITest.swift */,
-				EBEBEBF12A001FD30004DAD4 /* ChangePasswordOnFirstLoginUITest.swift */,
-				EB8032A62A01598500AE7D92 /* TestUnlockSheetUITests.swift */,
 			);
 			path = UnlockITUITests;
 			sourceTree = "<group>";
@@ -262,6 +239,7 @@
 		EBD004AB299E7537008B57A3 = {
 			isa = PBXGroup;
 			children = (
+				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBD004B6299E7538008B57A3 /* UnlockIT */,
 				EB40F60729D1A491007FEE14 /* UnlockITTests */,
 				EBCE53B629F9849A00A6F044 /* UnlockITUITests */,
@@ -283,7 +261,6 @@
 		EBD004B6299E7538008B57A3 /* UnlockIT */ = {
 			isa = PBXGroup;
 			children = (
-				EB13F92A29B3B93800C87335 /* GoogleService-Info.plist */,
 				EBCE539329E97E0200A6F044 /* Extenstions */,
 				EB2A275929ACD2C500BE19EC /* UnlockIT.entitlements */,
 				EBF2C8F129A7D92600D22A20 /* Info.plist */,
@@ -441,7 +418,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEBEBF02A001DCB0004DAD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB8032A52A013DAC00AE7D92 /* KeychainManagerTests.swift in Sources */,
+				7D07CEC329FFD0DF00C3F209 /* RoomsModelTest.swift in Sources */,
 				EB4BC21429D1E19700205893 /* UserClassTest.swift in Sources */,
 				EB1D4FC729D34D0000A71AB4 /* UsermodelClassTest.swift in Sources */,
 			);
@@ -474,14 +450,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBEBEBF22A001FD40004DAD4 /* ChangePasswordOnFirstLoginUITest.swift in Sources */,
-				EB8032A72A01598500AE7D92 /* TestUnlockSheetUITests.swift in Sources */,
 				EB214BA929FBDFD9004B7C69 /* UserSetupHelper.swift in Sources */,
 				EB214BAB29FBE313004B7C69 /* UnlockITUITests.swift in Sources */,
 				EB214BA729FBDA76004B7C69 /* MainViewTests.swift in Sources */,
-				EBEBEBEE2A0006950004DAD4 /* LoginUITest.swift in Sources */,
 				EB214BA529FBD39A004B7C69 /* ManageUsersUITests.swift in Sources */,
-				EB8032A92A0169A200AE7D92 /* UserbaseSetupHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +736,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -780,7 +752,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -802,7 +774,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UnlockIT/Preview Content\"";
-				DEVELOPMENT_TEAM = G6TSQJ6DQ5;
+				DEVELOPMENT_TEAM = PTLP6PPWJ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UnlockIT/Info.plist;
@@ -818,7 +790,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s191270.UnlockIT;
+				PRODUCT_BUNDLE_IDENTIFIER = dtu.engtech.s205129.UnlockIT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

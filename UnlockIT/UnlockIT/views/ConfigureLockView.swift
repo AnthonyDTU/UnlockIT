@@ -16,12 +16,15 @@ struct ConfigureLockView: View {
     @State private var lockResponseData = ""
     @State private var isLoading = false
     @State private var showAlert = false
+    @State private var showFailedAlert = false;
 
     
     var body: some View {
         VStack {
             List {
                 TextField(String(localized: "Lock Description", comment: "Placeholder for lock description textfield in ConfigureLockView"), text: $lock.description)
+                TextField(String(localized: "Lock ID", comment: "Placeholder for lock ID textfield in ConfigureLockView"), value: $lock.lockId, formatter: NumberFormatter())
+                    .keyboardType(.numberPad)
                 Picker(String(localized: "Authentication Level", comment: "Text on picker control in ConfigureLockView"), selection: $lock.authenticationLevel) {
                     ForEach(0 ..< levels.count) {
                         Text("\(self.levels[$0])")
@@ -35,14 +38,25 @@ struct ConfigureLockView: View {
                                 isLoading = false // hide loading indicator
                                 showAlert = true
                             }
-                            lockResponseData = try await activateLock(id: "13")
+                            lockResponseData = try await activateLock(id: String(lock.lockId))
                             print(lockResponseData)
                         } catch {
-                            print("Error fetching data: \(error.localizedDescription)")
+                            print(error)
+                            showAlert = true
+                            showFailedAlert = true
                         }
                     }
                 }
                 .disabled(isLoading) // disable button while loading
+            }
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .opacity(1.0)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .opacity(0.0)
             }
             Button() {
                 onSave(lock)
@@ -52,11 +66,20 @@ struct ConfigureLockView: View {
             }
         }
         .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Notification Title"),
-                          message: Text("Notification Message"),
-                          dismissButton: .default(Text("OK")))
+            if !showFailedAlert {
+                return Alert(title: Text("Lock Activation"),
+                             message: Text("Lock Successfully activated"),
+                             dismissButton: .default(Text("OK")))
+            }
+            else {
+                showFailedAlert = false
+                return Alert(title: Text("Lock Activation"),
+                             message: Text("Lock Activation Failed"),
+                             dismissButton: .default(Text("OK")))
+            }
         }
     }
+        
 }
 
 struct ConfigureLockView_Previews: PreviewProvider {
