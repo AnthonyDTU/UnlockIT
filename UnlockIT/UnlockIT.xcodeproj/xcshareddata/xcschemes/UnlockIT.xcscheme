@@ -30,8 +30,11 @@
       codeCoverageEnabled = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:UnlockIT/UnlockITTestPlan.xctestplan"
+            reference = "container:UnlockIT/UnlockITTestPlan_English.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:UnlockIT/UnlockITTestPlan_Danish.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>

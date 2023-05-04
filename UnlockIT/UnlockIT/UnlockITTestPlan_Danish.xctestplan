@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "7CFDAC4B-537B-49C3-84A6-6960F6CAA4E8",
+      "name" : "Danish",
+      "options" : {
+        "language" : "da",
+        "region" : "DK"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "skippedTests" : [
+        "ChangePasswordOnFirstLoginUITest",
+        "LoginUITest",
+        "MainViewTests",
+        "ManageUsersUITests",
+        "UnlockITUITests"
+      ],
+      "target" : {
+        "containerPath" : "container:UnlockIT.xcodeproj",
+        "identifier" : "EBCE53B429F9849800A6F044",
+        "name" : "UnlockITUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
