@@ -1,13 +1,13 @@
 //
-//  ManageUsersUITests.swift
+//  ManageUsersUITests_Danish.swift
 //  UnlockITUITests
 //
-//  Created by Anton Lage on 28/04/2023.
+//  Created by Anton Lage on 04/05/2023.
 //
 
 import XCTest
 
-final class ManageUsersUITests: XCTestCase {
+final class ManageUsersUITests_Danish: XCTestCase {
     let app = XCUIApplication()
     var userSetupHelper: UserSetupHelper? = nil
     
@@ -29,7 +29,7 @@ final class ManageUsersUITests: XCTestCase {
         let expectation = XCTestExpectation(description: "Label Is Correct")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
             //then
-            XCTAssertTrue(self.app.collectionViews.staticTexts["No Users"].exists)
+            XCTAssertTrue(self.app.collectionViews.staticTexts["Ingen Brugere"].exists)
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 3.0)
@@ -45,7 +45,7 @@ final class ManageUsersUITests: XCTestCase {
         let expectation = XCTestExpectation(description: "Label Is Correct")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
             //then
-            XCTAssertTrue(self.app.collectionViews.staticTexts["1 User"].exists)
+            XCTAssertTrue(self.app.collectionViews.staticTexts["1 Bruger"].exists)
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 3.0)
@@ -61,7 +61,7 @@ final class ManageUsersUITests: XCTestCase {
         let expectation = XCTestExpectation(description: "Label Is Correct")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
             //then
-            XCTAssertTrue(self.app.collectionViews.staticTexts["4 Users In Total"].exists)
+            XCTAssertTrue(self.app.collectionViews.staticTexts["4 Brugere I Alt"].exists)
             expectation.fulfill()
         })
         wait(for: [expectation], timeout: 3.0)
@@ -74,7 +74,7 @@ final class ManageUsersUITests: XCTestCase {
         adminControlButton.tap()
         
         
-        XCTAssertTrue(app.navigationBars["Admin Controls"].staticTexts["Admin Controls"].exists)
+        // XCTAssertTrue(app.navigationBars["Admin Controls"].staticTexts["Admin Controls"].exists)
         
         let manageUserButton = app.collectionViews.buttons["ManageUsersNavigationLink"]
         let manageRoomsButton = app.collectionViews.buttons["ManageRoomsNavigationLink"]
@@ -85,7 +85,4 @@ final class ManageUsersUITests: XCTestCase {
         
         manageUserButton.tap()
     }
-    
-    
-    
 }

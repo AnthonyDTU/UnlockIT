@@ -7,14 +7,6 @@
         "language" : "en",
         "region" : "US"
       }
-    },
-    {
-      "id" : "D1BFDCBA-BF1D-434E-A490-D0D229A7FCF7",
-      "name" : "Danish",
-      "options" : {
-        "language" : "da",
-        "region" : "DK"
-      }
     }
   ],
   "defaultOptions" : {
@@ -29,7 +21,9 @@
       }
     },
     {
-      "parallelizable" : true,
+      "skippedTests" : [
+        "ManageUsersUITests_Danish"
+      ],
       "target" : {
         "containerPath" : "container:UnlockIT.xcodeproj",
         "identifier" : "EBCE53B429F9849800A6F044",

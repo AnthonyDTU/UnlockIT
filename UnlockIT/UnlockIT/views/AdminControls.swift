@@ -27,6 +27,7 @@ struct AdminControls: View {
                             } icon: {
                                 Image(systemName: "person.2.badge.gearshape")
                             }
+                            .accessibilityIdentifier("ManageUsersNavigationLink")
                         }
                         NavigationLink {
                             RoomsView()
@@ -37,6 +38,7 @@ struct AdminControls: View {
                             } icon: {
                                 Image(systemName: "house.fill")
                             }
+                            .accessibilityIdentifier("ManageRoomsNavigationLink")
                         }
                     }
                     .navigationBarTitle(String(localized: "Admin Controls",
