@@ -40,7 +40,6 @@
 		EB8032BC2A03B9C300AE7D92 /* ManageUsersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032B42A03B9C200AE7D92 /* ManageUsersUITests.swift */; };
 		EB8032BD2A03B9C300AE7D92 /* MainViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032B52A03B9C200AE7D92 /* MainViewTests.swift */; };
 		EB8032BE2A03B9C300AE7D92 /* ChangePasswordOnFirstLoginUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032B62A03B9C200AE7D92 /* ChangePasswordOnFirstLoginUITest.swift */; };
-		EB8032BF2A03B9C300AE7D92 /* Helpers in Resources */ = {isa = PBXBuildFile; fileRef = EB8032B72A03B9C200AE7D92 /* Helpers */; };
 		EB8032C02A03B9C300AE7D92 /* UnlockITUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032B82A03B9C200AE7D92 /* UnlockITUITests.swift */; };
 		EB8032C42A03E45A00AE7D92 /* UserSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032C32A03E45A00AE7D92 /* UserSetupHelper.swift */; };
 		EB8032C62A03E47200AE7D92 /* UserbaseSetupHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8032C52A03E47200AE7D92 /* UserbaseSetupHelper.swift */; };
@@ -112,7 +111,6 @@
 		EB8032B42A03B9C200AE7D92 /* ManageUsersUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageUsersUITests.swift; sourceTree = "<group>"; };
 		EB8032B52A03B9C200AE7D92 /* MainViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewTests.swift; sourceTree = "<group>"; };
 		EB8032B62A03B9C200AE7D92 /* ChangePasswordOnFirstLoginUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordOnFirstLoginUITest.swift; sourceTree = "<group>"; };
-		EB8032B72A03B9C200AE7D92 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Helpers; sourceTree = "<group>"; };
 		EB8032B82A03B9C200AE7D92 /* UnlockITUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockITUITests.swift; sourceTree = "<group>"; };
 		EB8032C22A03E3BC00AE7D92 /* UnlockITTestPlan_Danish.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnlockITTestPlan_Danish.xctestplan; sourceTree = "<group>"; };
 		EB8032C32A03E45A00AE7D92 /* UserSetupHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetupHelper.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 				EB8032B62A03B9C200AE7D92 /* ChangePasswordOnFirstLoginUITest.swift */,
 				EB8032C32A03E45A00AE7D92 /* UserSetupHelper.swift */,
 				EB8032C52A03E47200AE7D92 /* UserbaseSetupHelper.swift */,
-				EB8032B72A03B9C200AE7D92 /* Helpers */,
 				EB8032B32A03B9C200AE7D92 /* LoginUITest.swift */,
 				EB8032B52A03B9C200AE7D92 /* MainViewTests.swift */,
 				EB8032B42A03B9C200AE7D92 /* ManageUsersUITests.swift */,
@@ -439,7 +436,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB8032BF2A03B9C300AE7D92 /* Helpers in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

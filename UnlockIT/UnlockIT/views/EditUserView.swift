@@ -87,7 +87,7 @@ struct EditUserView: View {
                                 do {
                                     // Update user in firestore
                                     let firebaseController = FirebaseUserController()
-                                    try await firebaseController.DeleteUser()
+                                    try await firebaseController.DeleteUser(userToBeDeleted: user)
                                     alertText = String(localized:"User deleted successfully!", comment: "Success Message")
                                 }
                                 catch {

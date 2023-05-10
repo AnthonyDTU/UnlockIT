@@ -32,14 +32,10 @@ struct RoomsView: View {
             .navigationBarTitle(String(localized: "Manage Rooms", comment: "Navigation title for RoomsView"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
+                    Button {
                         isShowingAddRoomView = true
-                    }) {
-                        Label {
-                            Text("Add Room", comment: "Text on button, which navigaties to AddRoomView")
-                        } icon: {
-                            Image(systemName: "plus")
-                        }
+                    } label: {
+                        Image(systemName: "plus")
                     }
                 }
             }
@@ -52,9 +48,7 @@ struct RoomsView: View {
 struct ContentView_Previews: PreviewProvider {
     static var roomsDummyData = RoomsModel()
     
-    
     static var previews: some View {
-//              RoomsView(roomsModel: RoomsModel())
             RoomsView()
             .environmentObject(roomsDummyData)
         

@@ -74,7 +74,6 @@ struct ManageUsersView: View {
                     }
                 }
             }
-            .toolbar(.hidden, for: .tabBar)
             .toolbar {
                 NavigationLink {
                     CreateUserView()

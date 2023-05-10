@@ -160,8 +160,10 @@ class FirebaseUserController {
         try await Firestore.firestore().collection("Companies").document(updatedUser.company).collection("Users").document(updatedUser.userID).updateData(data)
     }
     
-    func DeleteUser() async throws {
+    func DeleteUser(userToBeDeleted: User) async throws {
         
         // AHHHHHG. Det kan man ikke uden brugerens password...
+        
+        try await Firestore.firestore().collection("Companies").document(userToBeDeleted.company).collection("Users").document(userToBeDeleted.userID).delete()
     }
 }

@@ -37,16 +37,8 @@ struct AddRoomView: View {
                 Text("Save", comment: "Button for saving a new room in AddRoomView")
             }
         }
-        .navigationTitle(String(localized: "Add Room", comment: "Navigation title for Add Room View"))
         .onDisappear() {
             roomsModel.fetchRooms(company: user.company)
         }
     }
 }
-
-
-
-//struct AddRoomView1_Previews: PreviewProvider {
-//    static var previews: some View {
-//    }
-//}
